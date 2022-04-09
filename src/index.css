@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.myline {
+    width: 100%;
+    height: 40vh;
+    background-size: 200% 400%;
+    background-image: repeating-linear-gradient(
+		-45deg,
+		/* rgb(27, 51, 228) 70%,   */
+		rgb(123, 71, 226) 15%, 
+		hsl(30,50%,100%) 30%,  /* rosa */
+		rgb(19, 17, 191) 45%  
+	);
+    animation: diagonal 3s  ease-in-out ;
+    animation-fill-mode: forwards;
+}
+
+@keyframes diagonal {
+    0% {background-position: 0% 50%}
+    100% {background-position: 100% 50% }
+}
+
+
+
+.m-fadeOut {
+  
+  
+    position: absolute;
+    left: -260px;;
+    animation: mymove 1s backwards;
+  }
+  @keyframes mymove {
+    from {left: 0px;}
+    to {left: -260px;}
+  }
+  .m-fadeIn {
+    /* visibility: visible;
+    transition:  ease-in-out 700ms, opacity 300ms; */
+    opacity: 1;
+    position: relative;
+    animation:mymoveback  1s  forwards;
+    
+  }
+  @keyframes mymoveback {
+    from {left: -260px;}
+    to {left: 0px;}
+  }
