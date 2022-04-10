@@ -19,7 +19,7 @@ ReactDOM.render(
     <Router>
       <ContextApi>
         <NavBar/>
-        <SideBar />
+        
         <Routes>
           <Route path="/*" element={<App/>}/>
           

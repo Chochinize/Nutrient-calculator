@@ -1,3 +1,4 @@
+import { ArrowCircleDownIcon, ArrowCircleLeftIcon } from "@heroicons/react/solid";
 import React from "react";
 import { useState } from "react";
 import { Outlet, Link } from "react-router-dom";
@@ -8,18 +9,18 @@ const Sidebar = () => {
   const Swap = () => {
       setShow(true)
   };
-  console.log(Array.from({length: 5}, (v) => (Math.floor(Math.random()*5))));
+  
   return (
-    <div className={!show ? "m-fadeIn  " : "m-fadeOut  "}>
+    <div className={ `${!show ? "m-fadeIn  " : "m-fadeOut  "} `}>
         
-      <div className="flex justify-start w-max min-h-screen    bg-gray-200">
+      <div className="flex justify-start w-max min-h-screen     bg-gray-200">
         <div className="w-68 overflow-y-scroll scrollbar-hide bg-gray-900 ">
           <div className="px-6 pt-8">
             <div className="flex items-center justify-between">
               <Link
                 to="/"
               
-                className="bg-blue-600 p-1.5 rounded flex items-center justify-center focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+                className="bg-blue-600 p-2 rounded flex items-center justify-center focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900"
               >
                 <svg
                   className="w-5 h-5 text-white stroke-current"
@@ -43,29 +44,7 @@ const Sidebar = () => {
                   ></path>
                 </svg>
               </Link>
-              <button onClick={Swap} className="flex items-center justify-center p-0.5 rounded bg-gray-800 focus:outline-none focus:ring-1 focus:ring-gray-500">
-                  
-                <svg
-                  className="w-4 h-4 text-gray-300 stroke-current"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="3"
-                    d="M10.25 6.75L4.75 12L10.25 17.25"
-                  ></path>
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="3"
-                    d="M19.25 12H5"
-                  ></path>
-                </svg>
-              </button>
+           <ArrowCircleLeftIcon  onClick={Swap}  className=" w-10 h-10 rounded  focus:outline-none focus:ring-1 focus:ring-gray-500"/>
               
             </div>
 

@@ -115,8 +115,8 @@ function LiveChart({ message }) {
         },
       };
   return (
-    <div className="sm:w-[35rem] p-10 border-b-2 border-gray">
-      <Line data={data} options={options} />
+    <div className="sm:w-[35rem]  border-b-2 border-gray">
+      <Line data={data} options={options} className='min-h-full'/>
     </div>
   );
 }
