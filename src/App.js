@@ -1,44 +1,29 @@
-import { useEffect } from 'react'
-import LiveChart from "./components/Chart";
+
 import Graphics  from "./components/Graphics";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Link,
-  Navigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes,} from "react-router-dom";
 import Home from "./components/Home";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
-import Header from "./components/Header";
 import Layout from './components/Layout';
 import Missing from './components/Missing';
 import Editor from './components/Editor';
 import Admin from './components/Admin';
-import Lounge from './components/Lounge';
-import RequireAuth from './components/RequireAuth';
-import useAuth from './components/hooks/useAuth';
 import PrivateRoute from './components/PrivateRoute'
-import { useState } from 'react' 
-import Sidebar from './components/SideBar';
-import { ArrowCircleRightIcon } from '@heroicons/react/solid'
+import { useEffect } from "react";
+import axios from "axios";
+
 
 
 function App() {
-  
-  
 
-
+  useEffect( async()=>{
+    const res = await axios.get('http://localhost:5050/',{withCredentials:true}) 
+    console.log(res)
+    
+    
+},[])
       return (
         <>
-      
-        
-           
-          
-       
-        
-      
           <Routes>
           <Route path='/' element={<Layout />}>
             {/* Public routes */}
@@ -60,11 +45,7 @@ function App() {
             <Route path='*' element={<Missing/>}/>
           </Route>
         </Routes>
-
-                
-
         </>
   );
 }
-
 export default App;

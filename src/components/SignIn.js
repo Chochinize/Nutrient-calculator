@@ -6,8 +6,6 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "./hooks/useAuth";
 
 const Login = (props ) => {
-  const { isLoggedIn , setIsLoggedIn} = props
-  console.log('isLoggedIn',isLoggedIn)
   const [user, setUser] = useState({ name: "", email: "", password: "" });
   const [err, setErr] = useState("");
   const navigate = useNavigate();
@@ -32,11 +30,12 @@ const Login = (props ) => {
         { withCredentials: true }
       );
       console.log(res)
-        setIsLoggedIn(true);
+        
         setAuthIsDone(true);
         dispatch({ type: 'AUTH', payload: {token:res.data.token, user:res.user}})
         navigate('/') 
     } catch (err) {
+      console.log(err)
       err.response.data.msg && setErr(err.response.data.msg);
     }
   };
