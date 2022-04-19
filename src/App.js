@@ -11,6 +11,7 @@ import Admin from './components/Admin';
 import PrivateRoute from './components/PrivateRoute'
 import { useEffect } from "react";
 import axios from "axios";
+import Calories from "./components/Calories";
 
 
 
@@ -24,6 +25,7 @@ function App() {
 },[])
       return (
         <>
+        <Calories/>
           <Routes>
           <Route path='/' element={<Layout />}>
             {/* Public routes */}
