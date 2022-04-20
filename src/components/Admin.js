@@ -1,8 +1,10 @@
 import React from 'react'
-
+import Calories from './Calories'
 const Admin = () => {
   return (
-    <div>Admin</div>
+    <>
+    <Calories/>
+    </>
   )
 }
 

@@ -12,20 +12,18 @@ import PrivateRoute from './components/PrivateRoute'
 import { useEffect } from "react";
 import axios from "axios";
 import Calories from "./components/Calories";
+import {useState} from 'react'
 
 
 
 function App() {
 
-  useEffect( async()=>{
-    const res = await axios.get('http://localhost:5050/',{withCredentials:true}) 
-    console.log(res)
-    
-    
-},[])
+
       return (
-        <>
-        <Calories/>
+        <div className="h-screen   ">
+          
+    
+        
           <Routes>
           <Route path='/' element={<Layout />}>
             {/* Public routes */}
@@ -47,7 +45,8 @@ function App() {
             <Route path='*' element={<Missing/>}/>
           </Route>
         </Routes>
-        </>
+       
+        </div>
   );
 }
 export default App;

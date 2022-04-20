@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { ArrowCircleRightIcon } from "@heroicons/react/solid";
 import Sidebar from "./SideBar";
 import useAuth from './hooks/useAuth';
+import Calories from "./Calories";
 const PrivateRoute = () => {
 
   const [err, setErr] = useState({msg:'',text:''});
@@ -32,6 +33,7 @@ const PrivateRoute = () => {
 
   return (
     <div>
+      
       <div>{state.status}</div>
       <div>{state.message.clearance}</div>
       <div>{err.msg}</div>
@@ -39,14 +41,13 @@ const PrivateRoute = () => {
           
          
      
-          <div className=" w-screen flex  items-stretch">
-          
-          <ArrowCircleRightIcon onClick={Swap} className='h-10 w-10 absolute'/>
+          <div className=" w-full flex  items-stretch">
+          <ArrowCircleRightIcon onClick={Swap} className='h-10 w-10 absolute z-40'/>
             
          
           <Sidebar/>
-        
            
+        <Calories/>
           </div>
      
       
