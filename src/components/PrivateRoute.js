@@ -7,6 +7,9 @@ import useAuth from './hooks/useAuth';
 import Calories from "./Calories";
 import HeaderType from "./ThemeHeader/HeaderType";
 import NavBar from "./NavBar";
+import CalCounter from "./CalCounter";
+
+
 const PrivateRoute = () => {
 
   const [err, setErr] = useState({msg:'',text:''});
@@ -36,17 +39,22 @@ const PrivateRoute = () => {
 };
 
   return (
-    <div className="grid place-items-center min-h-screen ">
+    <div className="grid place-items-center min-h-screen relative top-24">
 
-    <div className="p-4 max-w-5xl grid gap-4">
-      <h1 className="text-4xl font-extrabold"> GRID Layout with tailwind</h1>
-      <p> LOREM IPSUM</p>
-      <div className="h-16 bg-blue-500"></div>
-      <div className="h-16 bg-blue-500"></div>
-      <div className="h-16 bg-blue-500"></div>
-      <div className="h-16 bg-blue-500"></div>
-      <div className="h-16 bg-blue-500"></div>
-      <div className="h-16 bg-blue-500"></div>
+    <div className="p-4 xs:w-full grid gap-4   ">
+      <h1 className="text-4xl font-extrabold"> 
+      <span className='bg-yellow-200'>
+        Introspection
+
+      </span>
+      </h1>
+      <div className="h-8  bg-blue-500 sm:square sm:h-auto xs:square xs:h-auto">
+        <CalCounter/>
+      </div>
+      <div className="h-8 bg-blue-500 sm:square sm:h-auto xs:square xs:h-auto"></div>
+      <div className="h-8 bg-blue-500 sm:square sm:h-auto xs:square xs:h-auto"></div>
+      <div className="h-8 bg-blue-500 sm:square sm:h-auto xs:square xs:h-auto"></div>
+  
       
     </div>
     </div>

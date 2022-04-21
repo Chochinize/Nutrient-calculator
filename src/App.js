@@ -21,10 +21,7 @@ function App() {
 
 
       return (
-        <div className="">
-          
-         
-          
+        <div className="">          
           <Routes>
           <Route path='/' element={<Layout />}>
             {/* Public routes */}

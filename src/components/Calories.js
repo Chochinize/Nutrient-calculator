@@ -68,8 +68,8 @@ const Calories = () => {
   }, [state]);
 
   return (
-    <div className="w-full h-full  max-h-[1010px] min-h-max  border-2 absolute border-yellow-400 ">
-    <div className="grid grid-cols-3 border-4 border-black  md:bg-red-200   h-full place-items-center  w-full ">
+    <div className="w-full h-f">
+    <div className="grid grid-cols-3 border-4 border-black  md:bg-red-200      place-items-center h-[1012px] w-full ">
 
       
       <div className="justify-self-center border-2 border-black ">
