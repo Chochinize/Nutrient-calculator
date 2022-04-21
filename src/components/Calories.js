@@ -94,9 +94,9 @@ const Calories = () => {
             />
             </div>
 
-          <div className=" font-mono">
+          <div className="text-xs">
             <div className="flex justify-between">
-              <div>protein</div>
+              <div className="font-bold ">protein</div>
               {product === "Chicken" ? (
                 <div>
                   {cal.map((calorie, i) => {
