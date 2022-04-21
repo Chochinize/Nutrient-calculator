@@ -30,7 +30,7 @@ const NavBar = () => {
 
 
   return (
-    <header className="border-2  w-full relative h-full    border-black font-dongle font-extrabold text-3xl  ">
+    <header className="border-2  w-full  h-full    border-black font-dongle font-extrabold text-3xl  ">
     
       {/* <div className={ `mx-[40rem]  transition ease-in-out    fixed ${offset > 51 ? 'top-[14px]  ':'top-[5rem]'} left-[0rem] right-[0rem] transition ease-in-out  rounded-md   ${offset > 50 ? `transform scale-x-[3] -translate-y-4  h-24 text-white  `:''}   bg-black text-[16px] h-[3rem] text-2xl `} >
           <div className={ `${offset > 51 ? 'flex justify-between -translate-x-48   items-center h-full scale-x-[0.3] ':'flex justify-evenly items-center h-full scale-x-[1]   text-3xl text-white '}`}> 
@@ -43,7 +43,7 @@ const NavBar = () => {
   
      <li className="bg-gray-200 rounded-xl w-max p-2 hover:bg-gray-300"><Link to="/">Go to </Link></li>
     
-     <li className="bg-gray-200 rounded-xl w-max p-2 hover:bg-gray-300"><Link to="/Charts">Go to the Charts</Link></li>
+     {/* <li className="bg-gray-200 rounded-xl w-max p-2 hover:bg-gray-300"><Link to="/Charts">Go to the Charts</Link></li> */}
   
      <li className="bg-gray-200 rounded-xl w-max p-2 hover:bg-gray-300"><Link to="/secret">PrivateRoute</Link></li>
      <li className="bg-gray-200 rounded-xl w-max p-2 hover:bg-gray-300"><Link to="/SignIn">SignIn</Link></li>

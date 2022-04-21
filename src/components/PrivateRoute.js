@@ -29,33 +29,26 @@ const PrivateRoute = () => {
   },[])
   {/* <div>{state.status}</div>
       <div>{state.message.clearance}</div>
-      <div>{err.msg}</div>  <div className=" w-full flex   ">
-            
-           
-          <ArrowCircleRightIcon onClick={Swap} className='h-10 w-10 absolute z-40'/>
-            
-         
-          <Sidebar/>
-        <Calories/>
-           
-          </div>*/}
+      <div>{err.msg}</div>  */}
   const { show, setShow } = useAuth();
   const Swap = () => {
     setShow(!true)
 };
 
   return (
-    <div>
+    <div className="grid place-items-center min-h-screen xs:bg-blue-200">
+
+    <div className="p-4 max-w-5xl grid gap-4">
+      <h1 className="text-4xl font-extrabold"> GRID Layout with tailwind</h1>
+      <p> LOREM IPSUM</p>
+      <div className="h-16 bg-blue-500"></div>
+      <div className="h-16 bg-blue-500"></div>
+      <div className="h-16 bg-blue-500"></div>
+      <div className="h-16 bg-blue-500"></div>
+      <div className="h-16 bg-blue-500"></div>
+      <div className="h-16 bg-blue-500"></div>
       
-         
-     
-     
-      
-          
-     
-      
-       
-      
+    </div>
     </div>
   )
 }

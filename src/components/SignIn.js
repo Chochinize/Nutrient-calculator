@@ -47,8 +47,8 @@ const Login = (props ) => {
 
   return (
     <>
-      <div className="relative  h-screen     hover:shadow-xl  grid  place-items-center  ">
-        <div className="border-2  border-grey-100  p-10  m-10 hover:shadow-xl">
+      <div className="  hover:shadow-xl  grid  place-items-center  ">
+        <div className="border-2  border-grey-100  p-10  m-10 hover:shadow-xl  ">
           <div>
             <form onSubmit={loginSubmit}>
               <input
