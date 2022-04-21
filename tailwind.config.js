@@ -14,7 +14,7 @@ module.exports = {
         'footer-texture': "url('/img/footer-texture.png')",
       },
       screens: {
-        'xs': {'min': '390px', 'max': '639px'},
+        'xs': {'min': '30px', 'max': '639px'},
         'sm': {'min': '640px', 'max': '767px'},
         // => @media (min-width: 640px and max-width: 767px) { ... }
   

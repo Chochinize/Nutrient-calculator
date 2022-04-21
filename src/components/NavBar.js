@@ -38,7 +38,7 @@ const NavBar = () => {
         className={`transition ease-in-out z-50    fixed ${
           offset > 51
             ? "top-[14px]   "
-            : "top-[5rem] w-[800px] sm:w-[500px] xs:w-[400px] m-auto  "
+            : "top-[5rem] w-[800px] sm:w-full xs:w-full m-auto  "
         } left-[0rem]  right-[0rem] transition ease-in-out  rounded-md   ${
           offset > 50
             ? `transform scale-x-[3] -translate-y-4   text-white  `
@@ -58,12 +58,12 @@ const NavBar = () => {
             <Menu as="div" className="relative inline-block">
               <div>
                 <Menu.Button
-                  className="inline-flex justify-center w-max rounded-md border border-gray-300 shadow-sm py-1 px-2   text-3xl font-extrabold text-white
+                  className="inline-flex justify-center w-max rounded-md border border-gray-300 shadow-sm  px-2   text-xl font-extrabold text-white
                                      hover:text-black hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
                 >
                   Options
                   <ChevronDownIcon
-                    className="-mr-2 ml-2 h-8 w-5"
+                    className="-mr-2 ml-2 h-6 w-4"
                     aria-hidden="true"
                   />
                 </Menu.Button>
@@ -79,7 +79,7 @@ const NavBar = () => {
                 leaveTo="transform opacity-0 scale-95"
               >
                 <Menu.Items className="origin-top-right absolute  mt-4 w-full  rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                  <div className="py-1">
+                  <div className="py-1 -ml-1">
                     <Menu.Item>
                       {({ active }) => (
                         <a
