@@ -39,7 +39,7 @@ const NavBar = () => {
           offset > 51
             ? "top-[14px]  p-2  "
             : "top-[5rem] w-[800px] sm:w-full xs:w-full m-auto  "
-        } left-[0rem]  right-[0rem] transition ease-in-out  rounded-md   ${
+        } left-[0rem]  right-[0rem] transition ease-in-out     ${
           offset > 50
             ? `transform scale-x-[3] -translate-y-4   text-white  `
             : ""
@@ -151,19 +151,19 @@ const NavBar = () => {
 
     
 
-        <li className="bg-blue-400  w-max py-1 h-max my-4 hover:bg-gray-300 rounded-2xl">
+        <li className="bg-blue-400  w-max  h-max my-4 hover:bg-gray-300 ">
           <Link to="/" className="mx-2">Calculation</Link>
         </li>
-        <li className="bg-gray-200  w-max py-1 h-max my-4 hover:bg-gray-300 rounded-2xl">
+        <li className="bg-gray-200  w-max h-max my-4 hover:bg-gray-300 ">
           <Link to="/secret" className="mx-2">PrivateRoute</Link>
         </li>
-        <li className="bg-gray-200  w-max py-1 h-max my-4 hover:bg-gray-300 rounded-2xl">
+        <li className="bg-gray-200  w-max  h-max my-4 hover:bg-gray-300 ">
           <Link to="/SignIn" className="mx-2">SignIn</Link>
         </li>
-        <li className="bg-gray-200  w-max py-1 h-max my-4 hover:bg-gray-300 rounded-2xl">
+        <li className="bg-gray-200  w-max h-max my-4 hover:bg-gray-300 ">
           <Link to="/SignUp" className="mx-2">SignUp</Link>
         </li>
-        <li className="bg-gray-200  w-max py-1 my-4 h-max hover:bg-gray-300 cursor-pointer rounded-2xl">
+        <li className="bg-gray-200  w-max  my-4 h-max hover:bg-gray-300 cursor-pointer ">
           <Logout/>
         </li>
       </ul>
