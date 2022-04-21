@@ -40,7 +40,7 @@ const PrivateRoute = () => {
 };
 
   return (
-    <div className="grid place-items-center min-h-screen  relative top-40">
+    <div className="grid place-items-center   relative top-40">
 
     <div className=" px-4 xs:w-full grid gap-4   ">
       <h1 className="text-4xl font-extrabold"> 

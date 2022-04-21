@@ -71,9 +71,10 @@ const Calories = () => {
       
       <div className=" border-2 border-black ">
        <div className="grid ">
-     
+        <div className="w-20">
+
           <select
-            className=""
+            className="w-full"
             aria-label="Default select example"
             onChange={selectHandler}
           >
@@ -91,6 +92,7 @@ const Calories = () => {
             placeholder="place your grams"
             onChange={onChangeHandler}
             />
+            </div>
 
           <div className=" font-mono">
             <div className="flex justify-evenly gap-1">
