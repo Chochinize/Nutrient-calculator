@@ -3,7 +3,7 @@ import Calories from './Calories'
 const Admin = () => {
   return (
     <>
-    <Calories/>
+    
     </>
   )
 }

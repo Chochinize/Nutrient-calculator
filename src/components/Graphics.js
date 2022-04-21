@@ -23,7 +23,7 @@ console.log(wsclient)
     },[wsclient])
 
     return (
-        <div >
+        <div className="" >
              <LiveChart message={message}/>
         </div>
     )

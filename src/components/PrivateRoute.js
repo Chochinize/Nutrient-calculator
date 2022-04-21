@@ -5,6 +5,8 @@ import { ArrowCircleRightIcon } from "@heroicons/react/solid";
 import Sidebar from "./SideBar";
 import useAuth from './hooks/useAuth';
 import Calories from "./Calories";
+import HeaderType from "./ThemeHeader/HeaderType";
+import NavBar from "./NavBar";
 const PrivateRoute = () => {
 
   const [err, setErr] = useState({msg:'',text:''});
@@ -25,7 +27,18 @@ const PrivateRoute = () => {
     }
     secretRoute();
   },[])
- 
+  {/* <div>{state.status}</div>
+      <div>{state.message.clearance}</div>
+      <div>{err.msg}</div>  <div className=" w-full flex   ">
+            
+           
+          <ArrowCircleRightIcon onClick={Swap} className='h-10 w-10 absolute z-40'/>
+            
+         
+          <Sidebar/>
+        <Calories/>
+           
+          </div>*/}
   const { show, setShow } = useAuth();
   const Swap = () => {
     setShow(!true)
@@ -34,25 +47,15 @@ const PrivateRoute = () => {
   return (
     <div>
       
-      <div>{state.status}</div>
-      <div>{state.message.clearance}</div>
-      <div>{err.msg}</div>
-      <div className="fixed w-screen h-max ">
-          
          
      
-          <div className=" w-full flex  items-stretch">
-          <ArrowCircleRightIcon onClick={Swap} className='h-10 w-10 absolute z-40'/>
-            
-         
-          <Sidebar/>
-           
-        <Calories/>
-          </div>
+     
+      
+          
      
       
        
-      </div>
+      
     </div>
   )
 }

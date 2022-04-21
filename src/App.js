@@ -13,6 +13,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import Calories from "./components/Calories";
 import {useState} from 'react'
+import NavBar from "./components/NavBar";
 
 
 
@@ -20,10 +21,10 @@ function App() {
 
 
       return (
-        <div className="h-screen   ">
+        <div className="">
           
-    
-        
+         
+          
           <Routes>
           <Route path='/' element={<Layout />}>
             {/* Public routes */}

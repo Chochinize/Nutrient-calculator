@@ -11,9 +11,9 @@ const Sidebar = () => {
   };
   
   return (
-    <div className={ `${!show ? "m-fadeIn  " : "m-fadeOut "} `}>
+    <div className={ `${!show ? "m-fadeIn h-max z-50" : "m-fadeOut z-50"} `}>
         
-      <div className="flex justify-start w-max min-h-screen     bg-gray-200">
+      <div className="flex justify-start w-max max-h-screen   z-60   bg-gray-200">
         <div className="w-68 overflow-y-scroll scrollbar-hide bg-gray-900 ">
           <div className="px-6 pt-8">
             <div className="flex items-center justify-between">
@@ -44,7 +44,7 @@ const Sidebar = () => {
                   ></path>
                 </svg>
               </Link>
-           <ArrowCircleLeftIcon  onClick={Swap}  className=" w-10 h-10 rounded  focus:outline-none focus:ring-1 focus:ring-gray-500 z-50"/>
+           <ArrowCircleLeftIcon  onClick={Swap}  className=" w-10 h-10 rounded  focus:outline-none focus:ring-1 focus:ring-gray-500 "/>
               
             </div>
 

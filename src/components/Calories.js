@@ -68,17 +68,12 @@ const Calories = () => {
   }, [state]);
 
   return (
-    <div className="grid grid-cols-3 fixed border-2 border-black gap-4  place-items-center h-screen w-full ">
-      <div className="justify-self-center ">
-      <div className="relative bottom-80   border-2 border-black">
-        <div className="flex">
-          <div>1</div>
-          <div>1</div>
-          <div>1</div>
-          <div>1</div>
-        </div>
-      </div>
-        <div className="grid ">
+    <div className="w-full h-full  max-h-[1010px] min-h-max  border-2 absolute border-yellow-400 ">
+    <div className="grid grid-cols-3 border-4 border-black  md:bg-red-200   h-full place-items-center  w-full ">
+
+      
+      <div className="justify-self-center border-2 border-black ">
+       <div className="grid ">
      
           <select
             className="form-select appearance-none
@@ -233,7 +228,7 @@ const Calories = () => {
         </div>
       </div>
 
-      <div className="border-2 border-black   ">
+      <div className="border-2 border-black    ">
         {daily.map((dailyMeal, i) => {
           return (
             <div key={i}>
@@ -244,42 +239,20 @@ const Calories = () => {
         })}
       </div>
 
-      <div class="grid grid-rows-4  grid-flow-col gap-4 w-full h-full p-4   ">
+      <div class="grid grid-rows-3   w-full  h-full   border-4 border-red-500     ">
 
 
-        <div class="row-start-1 row-span-2 border-2 border-black  h-full bg-red-200    ">
-          <div class="flex justify-center bg-yellow-200 shrink ">
-           
-          <img
-          className="inline-block h-20 w-20 mt-2 mb-2  rounded-full ring-2 ring-white "
-          src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-          alt=""
-          />    
       
-          </div>
-          <div> </div>
-     
-        </div>
 
 
-        <div class="row-start-2 row-span-2 border-2  border-black">02</div>
-        <div class="col-start-2 col-span-3 border-2 w-full h-full border-black">
-          <div className="flex justify-center w-full h-full items-center">
-            <div className=""></div>
-           
-          </div>
-        </div>
-        <div class="col-start-2 col-span-2 border-2 border-black">04</div>
-        <div class="row-start-3 col-start-1 col-span-3  border-2 border-black">
-          05
-        </div>
-        <div class="row-start-4 col-start-1 col-span-2 border-2 border-black">
-          06
-        </div>
-        <div class="row-start-4 col-start-3 col-span-2 border-2 border-black">
-          07
-        </div>
+       
+        <div class="col-start-1 col-span-4 border-2  border-black ">01</div>
+        <div class="col-start-1 col-span-4 border-2 border-black">04</div>
+    
+      
       </div>
+    </div>
+
     </div>
   );
 };
