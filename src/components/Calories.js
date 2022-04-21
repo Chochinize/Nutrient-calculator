@@ -71,15 +71,15 @@ const Calories = () => {
       
       <div className=" border-2 border-black ">
        <div className="grid ">
-        <div className="w-20">
+        <div className="flex flex-col gap-2">
 
           <select
-            className="w-full"
+            className="text-center"
             aria-label="Default select example"
             onChange={selectHandler}
           >
             <option defaultChecked >Choose product</option>
-            <option>Rise</option>
+            <option className="hover:bg-black">Rise</option>
             <option>Oats</option>
             <option>Chicken</option>
           </select>
@@ -88,14 +88,14 @@ const Calories = () => {
           <input
             
             type="number"
-            className=""
+            className="w-full"
             placeholder="place your grams"
             onChange={onChangeHandler}
             />
             </div>
 
           <div className=" font-mono">
-            <div className="flex justify-evenly gap-1">
+            <div className="flex justify-between">
               <div>protein</div>
               {product === "Chicken" ? (
                 <div>
@@ -132,7 +132,7 @@ const Calories = () => {
               )}
             </div>
 
-            <div className="flex gap-3 justify-evenly">
+            <div className="flex  justify-between">
               <div>carbs</div>
               {product === "Chicken" ? (
                 <div>
@@ -168,7 +168,7 @@ const Calories = () => {
                 ""
               )}
             </div>
-            <div className="flex justify-evenly gap-8">
+            <div className="flex justify-between">
               <div>fats</div>
               {product === "Chicken" ? (
                 <div>
@@ -204,7 +204,7 @@ const Calories = () => {
                 ""
               )}
             </div>
-            <div className="flex justify-evenly gap-4">
+            <div className="flex justify-between">
               <div>Calories</div>
               <div>calories</div>
             </div>
