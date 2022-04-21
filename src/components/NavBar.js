@@ -130,12 +130,19 @@ const NavBar = () => {
               </Transition>
             </Menu>
           </div>
-          <div    className="inline-flex justify-center w-max rounded-md border border-gray-300 shadow-sm py-1 px-2   text-3xl font-extrabold text-white
+          <div    className="inline-flex h-7  justify-center w-max rounded-md border border-gray-300 shadow-sm px-2      text-2xl font-extrabold text-white
                                      hover:text-black hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 cursor-pointer">
+                                       <span className="-my-0.5">
+
             Account
+                                       </span>
           </div>
-          <div className="border-2 border-white px-2 hover:bg-white hover:text-black cursor-pointer">
-            News{" "}
+          <div className="inline-flex h-7  justify-center w-max rounded-md border border-gray-300 shadow-sm px-2      text-2xl font-extrabold text-white
+                                     hover:text-black hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 cursor-pointer">
+        <span className="-my-0.5">
+          
+              News{" "}
+          </span>
           </div>
         </div>
       </div>
