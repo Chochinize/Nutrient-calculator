@@ -33,7 +33,7 @@ const NavBar = () => {
   }
 
   return (
-    <header className="w-full  h-full relative   font-dongle font-extrabold text-3xl  ">
+    <header className="w-full h-full absolute   font-dongle font-extrabold text-3xl  ">
       <div
         className={`transition ease-in-out z-50    fixed ${
           offset > 51
@@ -146,24 +146,24 @@ const NavBar = () => {
           </div>
         </div>
       </div>
-      <ul className="flex justify-evenly  text-2xl  ">
+      <ul className="flex justify-evenly  text-2xl w-full ">
        
 
     
 
-        <li className="bg-blue-400  w-max  h-max my-4 hover:bg-gray-300 ">
-          <Link to="/" className="mx-2">Calculation</Link>
+        <li className="bg-blue-400  w-max  h-max  hover:bg-gray-300 ">
+          <Link to="/" className="mx-2">Calc</Link>
         </li>
-        <li className="bg-gray-200  w-max h-max my-4 hover:bg-gray-300 ">
+        <li className="bg-gray-200  w-max h-max  hover:bg-gray-300 ">
           <Link to="/secret" className="mx-2">PrivateRoute</Link>
         </li>
-        <li className="bg-gray-200  w-max  h-max my-4 hover:bg-gray-300 ">
+        <li className="bg-gray-200  w-max  h-max  hover:bg-gray-300 ">
           <Link to="/SignIn" className="mx-2">SignIn</Link>
         </li>
-        <li className="bg-gray-200  w-max h-max my-4 hover:bg-gray-300 ">
+        <li className="bg-gray-200  w-max h-max  hover:bg-gray-300 ">
           <Link to="/SignUp" className="mx-2">SignUp</Link>
         </li>
-        <li className="bg-gray-200  w-max  my-4 h-max hover:bg-gray-300 cursor-pointer ">
+        <li className="bg-gray-200  w-max  h-max hover:bg-gray-300 cursor-pointer ">
           <Logout/>
         </li>
       </ul>
