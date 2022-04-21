@@ -33,7 +33,7 @@ const NavBar = () => {
   }
 
   return (
-    <header className="border-2  w-full  h-full relative  border-black font-dongle font-extrabold text-3xl  ">
+    <header className="w-full  h-full relative   font-dongle font-extrabold text-3xl  ">
       <div
         className={`transition ease-in-out z-50    fixed ${
           offset > 51
@@ -146,24 +146,25 @@ const NavBar = () => {
           </div>
         </div>
       </div>
-      <ul className="flex justify-between    bg-blue-300  ">
-        <li className="bg-gray-200 rounded-xl w-max p-2 h-max hover:bg-gray-300">
-          <Link to="/">Go to </Link>
-        </li>
+      <ul className="flex justify-evenly  text-2xl  ">
+       
 
-        {/* <li className="bg-gray-200 rounded-xl w-max p-2 hover:bg-gray-300"><Link to="/Charts">Go to the Charts</Link></li> */}
+    
 
-        <li className="bg-gray-200 rounded-xl w-max p-2 h-max hover:bg-gray-300">
-          <Link to="/secret">PrivateRoute</Link>
+        <li className="bg-blue-400  w-max py-1 h-max my-4 hover:bg-gray-300 rounded-2xl">
+          <Link to="/" className="mx-2">Calculation</Link>
         </li>
-        <li className="bg-gray-200 rounded-xl w-max p-2 h-max hover:bg-gray-300">
-          <Link to="/SignIn">SignIn</Link>
+        <li className="bg-gray-200  w-max py-1 h-max my-4 hover:bg-gray-300 rounded-2xl">
+          <Link to="/secret" className="mx-2">PrivateRoute</Link>
         </li>
-        <li className="bg-gray-200 rounded-xl w-max p-2 h-max hover:bg-gray-300">
-          <Link to="/SignUp">SignUp</Link>
+        <li className="bg-gray-200  w-max py-1 h-max my-4 hover:bg-gray-300 rounded-2xl">
+          <Link to="/SignIn" className="mx-2">SignIn</Link>
         </li>
-        <li className="bg-gray-200 rounded-xl w-max p-2 h-max hover:bg-gray-300 cursor-pointer">
-          <Logout />
+        <li className="bg-gray-200  w-max py-1 h-max my-4 hover:bg-gray-300 rounded-2xl">
+          <Link to="/SignUp" className="mx-2">SignUp</Link>
+        </li>
+        <li className="bg-gray-200  w-max py-1 my-4 h-max hover:bg-gray-300 cursor-pointer rounded-2xl">
+          <Logout/>
         </li>
       </ul>
     </header>

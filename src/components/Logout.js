@@ -36,7 +36,7 @@ const Logout = () => {
   }
   return (
     <div>
-      <div onClick={(e)=>logoutUser()}>LogOut</div>
+      <div className='mx-2' onClick={(e)=>logoutUser()}>LogOut</div>
     </div>
   )
 }
