@@ -36,7 +36,7 @@ const PrivateRoute = () => {
 };
 
   return (
-    <div className="grid place-items-center min-h-screen xs:bg-blue-200">
+    <div className="grid place-items-center min-h-screen ">
 
     <div className="p-4 max-w-5xl grid gap-4">
       <h1 className="text-4xl font-extrabold"> GRID Layout with tailwind</h1>
