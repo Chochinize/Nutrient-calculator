@@ -18,13 +18,12 @@ const Calories = () => {
   console.log("this is daily", daily);
 
   console.log(state);
+  console.log(cal);
 
   useEffect(() => {
     try {
       const fetchData = async () => {
-        const res = await axios.get("http://localhost:5050/u/gProduct", {
-          withCredentials: true,
-        });
+        const res = await axios.get("http://localhost:5050/u/gProduct");
         setCal(res.data.product);
       };
       fetchData();
@@ -44,7 +43,7 @@ const Calories = () => {
       const res = await axios.post(
         "http://localhost:5050/u/daily",
         { product, gram },
-        { withCredentials: true }
+
       );
       setState((prevCheck) => !prevCheck);
       setDemo({ demo: "dd" });
@@ -56,9 +55,7 @@ const Calories = () => {
   useEffect(() => {
     try {
       const fetchData = async () => {
-        const res = await axios.get("http://localhost:5050/u/getDaily", {
-          withCredentials: true,
-        });
+        const res = await axios.get("http://localhost:5050/u/getDaily");
         setDaily(res.data.message);
       };
       fetchData();
@@ -68,8 +65,8 @@ const Calories = () => {
   }, [state]);
 
   return (
-    <div className="w-full h-f">
-    <div className="grid grid-cols-3 border-4 border-black  md:bg-red-200      place-items-center h-[1012px] w-full ">
+    
+    <div className="grid grid-cols-2 border-4 border-black  md:bg-red-200      place-items-center  ">
 
       
       <div className="justify-self-center border-2 border-black ">
@@ -238,21 +235,6 @@ const Calories = () => {
           );
         })}
       </div>
-
-      <div class="grid grid-rows-3   w-full  h-full   border-4 border-red-500     ">
-
-
-      
-
-
-       
-        <div class="col-start-1 col-span-4 border-2  border-black ">01</div>
-        <div class="col-start-1 col-span-4 border-2 border-black">04</div>
-    
-      
-      </div>
-    </div>
-
     </div>
   );
 };

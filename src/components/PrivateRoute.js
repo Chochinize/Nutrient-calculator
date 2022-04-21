@@ -4,10 +4,11 @@ import { useParams } from "react-router-dom";
 import { ArrowCircleRightIcon } from "@heroicons/react/solid";
 import Sidebar from "./SideBar";
 import useAuth from './hooks/useAuth';
-import Calories from "./Calories";
+
 import HeaderType from "./ThemeHeader/HeaderType";
 import NavBar from "./NavBar";
 import CalCounter from "./CalCounter";
+import Calories from "./Calories";
 
 
 const PrivateRoute = () => {
@@ -44,12 +45,12 @@ const PrivateRoute = () => {
     <div className="p-4 xs:w-full grid gap-4   ">
       <h1 className="text-4xl font-extrabold"> 
       <span className='bg-yellow-200'>
-        Introspection
+     
 
       </span>
       </h1>
       <div className="h-8  bg-blue-500 sm:square sm:h-auto xs:square xs:h-auto">
-        <CalCounter/>
+        <Calories/>
       </div>
       <div className="h-8 bg-blue-500 sm:square sm:h-auto xs:square xs:h-auto"></div>
       <div className="h-8 bg-blue-500 sm:square sm:h-auto xs:square xs:h-auto"></div>
