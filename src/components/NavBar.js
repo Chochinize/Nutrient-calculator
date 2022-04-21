@@ -37,7 +37,7 @@ const NavBar = () => {
       <div
         className={`transition ease-in-out z-50    fixed ${
           offset > 51
-            ? "top-[14px]   "
+            ? "top-[14px]  p-2  "
             : "top-[5rem] w-[800px] sm:w-full xs:w-full m-auto  "
         } left-[0rem]  right-[0rem] transition ease-in-out  rounded-md   ${
           offset > 50
@@ -58,7 +58,7 @@ const NavBar = () => {
             <Menu as="div" className="relative inline-block">
               <div>
                 <Menu.Button
-                  className="inline-flex justify-center w-max rounded-md border border-gray-300 shadow-sm  px-2   text-xl font-extrabold text-white
+                  className="inline-flex h-7 justify-center w-max rounded-md border border-gray-300 shadow-sm  px-2   text-xl font-extrabold text-white
                                      hover:text-black hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
                 >
                   Options
