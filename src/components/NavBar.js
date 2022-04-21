@@ -32,14 +32,15 @@ const NavBar = () => {
   return (
     <header className="border-2  w-full  h-full relative  border-black font-dongle font-extrabold text-3xl  ">
     
-      {/* <div className={ `mx-[40rem]  transition ease-in-out    fixed ${offset > 51 ? 'top-[14px]  ':'top-[5rem]'} left-[0rem] right-[0rem] transition ease-in-out  rounded-md   ${offset > 50 ? `transform scale-x-[3] -translate-y-4  h-24 text-white  `:''}   bg-black text-[16px] h-[3rem] text-2xl `} >
-          <div className={ `${offset > 51 ? 'flex justify-between -translate-x-48   items-center h-full scale-x-[0.3] ':'flex justify-evenly items-center h-full scale-x-[1]   text-3xl text-white '}`}> 
-              <div className={`border-2 border-white px-5 hover:bg-white hover:text-black`}>Menu</div>
-              <div className="border-2 border-white px-5 hover:bg-white hover:text-black">Account</div>
-              <div className="border-2 border-white px-5 hover:bg-white hover:text-black">News </div>
+    <div className={ `transition ease-in-out    fixed ${offset > 51 ? 'top-[14px]   ':'top-[5rem] w-[800px] sm:w-[500px] xs:w-[400px] m-auto  '} left-[0rem]  right-[0rem] transition ease-in-out  rounded-md   ${offset > 50 ? `transform scale-x-[3] -translate-y-4  h-24 text-white  `:''}   bg-black text-[16px]  h-[4rem] text-2xl `} >
+          <div className={ `${offset > 51 ? 'flex justify-between    items-center h-full scale-x-[0.3] ':'flex justify-evenly items-center h-full scale-x-[1]   text-3xl text-white '}`}> 
+              <div className={`border-2 border-white px-2 hover:bg-white hover:text-black `}>Menu</div>
+              <div className="border-2 border-white px-2 hover:bg-white hover:text-black">Account</div>
+              <div className="border-2 border-white px-2 hover:bg-white hover:text-black">News </div>
           </div>
-          </div> */}
-   <ul className="flex justify-between      ">
+          </div>    
+   <ul className="flex justify-between    bg-blue-300  ">
+ 
   
      <li className="bg-gray-200 rounded-xl w-max p-2 h-max hover:bg-gray-300"><Link to="/">Go to </Link></li>
     
@@ -48,7 +49,7 @@ const NavBar = () => {
      <li className="bg-gray-200 rounded-xl w-max p-2 h-max hover:bg-gray-300"><Link to="/secret">PrivateRoute</Link></li>
      <li className="bg-gray-200 rounded-xl w-max p-2 h-max hover:bg-gray-300"><Link to="/SignIn">SignIn</Link></li>
      <li className="bg-gray-200 rounded-xl w-max p-2 h-max hover:bg-gray-300"><Link to="/SignUp">SignUp</Link></li>
-     <li className="bg-gray-200 rounded-xl w-max p-2 h-max hover:bg-gray-300"><Logout/></li>
+     <li className="bg-gray-200 rounded-xl w-max p-2 h-max hover:bg-gray-300 cursor-pointer"><Logout/></li>
     </ul>
     
 </header>
