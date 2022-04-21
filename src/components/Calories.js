@@ -66,7 +66,7 @@ const Calories = () => {
 
   return (
     
-    <div className="grid grid-cols-2 border-4 border-black  md:bg-red-200      place-items-center  ">
+    <div className="grid grid-cols-2 place-items-center  ">
 
       
       <div className="justify-self-center border-2 border-black ">
@@ -77,13 +77,13 @@ const Calories = () => {
       block
       w-full
       px-3
-      py-1.5
+      
       text-base
       font-normal
       text-gray-700
       bg-white bg-clip-padding bg-no-repeat
       border border-solid border-gray-300
-      rounded
+      
       transition
       ease-in-out
       m-0
@@ -96,12 +96,12 @@ const Calories = () => {
             <option>Oats</option>
             <option>Chicken</option>
           </select>
-          <label className="p-2">
-
+          <label className="">
+    
           <input
             
             type="number"
-            className=" p-2 outline-none "
+            className="outline-none p-2 "
             placeholder="place your grams"
             onChange={onChangeHandler}
             />

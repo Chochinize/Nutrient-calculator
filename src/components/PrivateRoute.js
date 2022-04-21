@@ -49,7 +49,7 @@ const PrivateRoute = () => {
 
       </span>
       </h1>
-      <div className="h-8  bg-blue-500 sm:square sm:h-auto xs:square xs:h-auto">
+      <div className="h-8   sm:square sm:h-auto xs:square xs:h-auto">
         <Calories/>
       </div>
       <div className="h-8 bg-blue-500 sm:square sm:h-auto xs:square xs:h-auto"></div>
