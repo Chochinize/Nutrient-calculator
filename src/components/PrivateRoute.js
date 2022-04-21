@@ -40,16 +40,16 @@ const PrivateRoute = () => {
 };
 
   return (
-    <div className="grid place-items-center min-h-screen relative top-24">
+    <div className="grid place-items-center min-h-screen  relative top-40">
 
-    <div className="p-4 xs:w-full grid gap-4   ">
+    <div className=" px-4 xs:w-full grid gap-4   ">
       <h1 className="text-4xl font-extrabold"> 
       <span className='bg-yellow-200'>
      
 
       </span>
       </h1>
-      <div className="h-8   sm:square sm:h-auto xs:square xs:h-auto">
+      <div className="h-8   bg-blue-500 xs:square sm:h-auto xs:square xs:h-auto ">
         <Calories/>
       </div>
       <div className="h-8 bg-blue-500 sm:square sm:h-auto xs:square xs:h-auto"></div>

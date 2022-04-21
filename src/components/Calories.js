@@ -66,28 +66,14 @@ const Calories = () => {
 
   return (
     
-    <div className="grid grid-cols-2 place-items-center  ">
+    <div className="grid grid-cols-2    ">
 
       
-      <div className="justify-self-center border-2 border-black ">
+      <div className=" border-2 border-black ">
        <div className="grid ">
      
           <select
-            className="form-select appearance-none
-      block
-      w-full
-      px-3
-      
-      text-base
-      font-normal
-      text-gray-700
-      bg-white bg-clip-padding bg-no-repeat
-      border border-solid border-gray-300
-      
-      transition
-      ease-in-out
-      m-0
-      focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+            className=""
             aria-label="Default select example"
             onChange={selectHandler}
           >
@@ -96,18 +82,18 @@ const Calories = () => {
             <option>Oats</option>
             <option>Chicken</option>
           </select>
-          <label className="">
+          
     
           <input
             
             type="number"
-            className="outline-none p-2 "
+            className=""
             placeholder="place your grams"
             onChange={onChangeHandler}
             />
-            </label>
-          <div className="flex flex-col font-mono ">
-            <div className="p-2 flex justify-between w-48">
+
+          <div className=" font-mono">
+            <div className="flex justify-evenly gap-1">
               <div>protein</div>
               {product === "Chicken" ? (
                 <div>
@@ -144,7 +130,7 @@ const Calories = () => {
               )}
             </div>
 
-            <div className="p-2 flex justify-between w-48">
+            <div className="flex gap-3 justify-evenly">
               <div>carbs</div>
               {product === "Chicken" ? (
                 <div>
@@ -180,7 +166,7 @@ const Calories = () => {
                 ""
               )}
             </div>
-            <div className="p-2 flex justify-between w-48">
+            <div className="flex justify-evenly gap-8">
               <div>fats</div>
               {product === "Chicken" ? (
                 <div>
@@ -216,7 +202,7 @@ const Calories = () => {
                 ""
               )}
             </div>
-            <div className="p-2 flex justify-between w-48">
+            <div className="flex justify-evenly gap-4">
               <div>Calories</div>
               <div>calories</div>
             </div>
