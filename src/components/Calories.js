@@ -69,34 +69,34 @@ const Calories = () => {
     <div className="grid grid-cols-2    ">
 
       
-      <div className=" border-2 border-black ">
+      <div className=" m-2 ">
        <div className="grid ">
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-row gap-4">
 
+          
+    
           <select
-            className="text-center"
+            className="h-5 text-sm w-full text-center focus:outline-none z-10"
             aria-label="Default select example"
             onChange={selectHandler}
           >
-            <option defaultChecked >Choose product</option>
-            <option className="hover:bg-black">Rise</option>
+            <option defaultChecked >Choose</option>
+            <option>Rise</option>
             <option>Oats</option>
             <option>Chicken</option>
           </select>
-          
-    
           <input
             
             type="number"
-            className="w-full"
-            placeholder="place your grams"
+            className="w-[50px] h-5 text-sm focus:outline-none text-center "
+            placeholder="grams"
             onChange={onChangeHandler}
             />
             </div>
 
-          <div className="text-xs">
-            <div className="flex justify-between">
-              <div className="font-bold ">protein</div>
+          <div className="text-xs z-20">
+            <div className="flex justify-between border-b-[1px] border-blue-800">
+              <div className="">protein</div>
               {product === "Chicken" ? (
                 <div>
                   {cal.map((calorie, i) => {
@@ -132,7 +132,7 @@ const Calories = () => {
               )}
             </div>
 
-            <div className="flex  justify-between">
+            <div className="flex  justify-between border-b-[1px] border-blue-800">
               <div>carbs</div>
               {product === "Chicken" ? (
                 <div>
@@ -168,7 +168,7 @@ const Calories = () => {
                 ""
               )}
             </div>
-            <div className="flex justify-between">
+            <div className="flex justify-between border-b-[1px] border-blue-800">
               <div>fats</div>
               {product === "Chicken" ? (
                 <div>
@@ -204,7 +204,7 @@ const Calories = () => {
                 ""
               )}
             </div>
-            <div className="flex justify-between">
+            <div className="flex justify-between border-b-[1px] border-blue-800">
               <div>Calories</div>
               <div>calories</div>
             </div>
@@ -213,7 +213,7 @@ const Calories = () => {
         </div>
       </div>
 
-      <div className="border-2 border-black    ">
+      <div className="  ">
         {daily.map((dailyMeal, i) => {
           return (
             <div key={i}>
