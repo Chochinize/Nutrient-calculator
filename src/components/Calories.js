@@ -69,14 +69,14 @@ const Calories = () => {
     <div className="grid grid-cols-2    ">
 
       
-      <div className=" m-2 ">
+      <div className=" m-2 p-2 ">
        <div className="grid ">
-        <div className="flex flex-row gap-4">
+        <div className="flex flex-row gap-y-4">
 
           
     
           <select
-            className="h-5 text-sm w-full text-center focus:outline-none z-10"
+            className="h-5 text-sm w-full text-center focus:outline-none  "
             aria-label="Default select example"
             onChange={selectHandler}
           >
@@ -94,7 +94,7 @@ const Calories = () => {
             />
             </div>
 
-          <div className="text-xs z-20">
+          <div className="text-xs z-20 mt-8">
             <div className="flex justify-between border-b-[1px] border-blue-800">
               <div className="">protein</div>
               {product === "Chicken" ? (
@@ -209,7 +209,7 @@ const Calories = () => {
               <div>calories</div>
             </div>
           </div>
-          {product && <button onClick={Send}>ADD</button>}
+          {product && <button onClick={Send} className='border-[1px] w-max m-auto  rounded-md  text-[15px] mt-6 px-4'>add</button>}
         </div>
       </div>
 
