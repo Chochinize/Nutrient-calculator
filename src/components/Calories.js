@@ -10,15 +10,12 @@ const Calories = () => {
   const [daily, setDaily] = useState([]);
   const [state, setState] = useState(false);
 
-  const [demo, setDemo] = useState({
-    prot: "",
-    main: "",
-  });
-  console.log(demo);
-  console.log("this is daily", daily);
+  const [demo, setDemo] = useState([]);
+  
+  const [array,setArray] = useState([]);
+  console.log(array)
+  // console.log(gram)
 
-  console.log(state);
-  console.log(cal);
 
   useEffect(() => {
     try {
@@ -38,6 +35,7 @@ const Calories = () => {
   const selectHandler = (e) => {
     setProduct(e.target.value);
   };
+  const newElement = 12
   const Send = async () => {
     try {
       const res = await axios.post(
@@ -45,8 +43,10 @@ const Calories = () => {
         { product, gram },
 
       );
+      
       setState((prevCheck) => !prevCheck);
-      setDemo({ demo: "dd" });
+      
+      setArray(oldArray => [...oldArray, Number(gram.gram)]);
     } catch (error) {
       return error;
     }
@@ -66,17 +66,17 @@ const Calories = () => {
 
   return (
     
-    <div className="grid grid-cols-2    ">
+    <div className="xs:grid xs:grid-cols-2 sm:grid sm:grid-cols-2 md:grid md:grid-cols-2 font-dongle ">
 
       
-      <div className=" m-2 p-2 ">
-       <div className="grid ">
+      <div className=" m-2 p-2">
+       <div className="grid">
         <div className="flex flex-row gap-y-4">
 
           
     
           <select
-            className="h-5 text-sm w-full text-center focus:outline-none  "
+          className="h-5 text-[16px] w-full text-center focus:outline-none  "
             aria-label="Default select example"
             onChange={selectHandler}
           >
@@ -88,14 +88,14 @@ const Calories = () => {
           <input
             
             type="number"
-            className="w-[50px] h-5 text-sm focus:outline-none text-center "
+            className="w-[50px] h-5 text-[16px] focus:outline-none text-center "
             placeholder="grams"
             onChange={onChangeHandler}
             />
             </div>
 
-          <div className="text-xs z-20 mt-8">
-            <div className="flex justify-between border-b-[1px] border-blue-800">
+          <div className="text-[20px] z-20 mt-8 border-2">
+            <div className="flex justify-between border-b-[1px] border-blue-800 ">
               <div className="">protein</div>
               {product === "Chicken" ? (
                 <div>
@@ -213,15 +213,25 @@ const Calories = () => {
         </div>
       </div>
 
-      <div className="  ">
-        {daily.map((dailyMeal, i) => {
+      <div className="border-2 md:text-[1.5vw] sm:text-[18px] top-5  xs:text-[18px] relative  h-max">
+        <h1 className="">Today nutritions</h1>
+        <ul className="px-2  relative right-4 m-2 top-2 text-right"> 
+              <li>{array.reduce((previousValue, currentValue) => previousValue+ currentValue, 0)}</li>
+              <li>carbs</li>
+              <li>fats</li>
+              <li>calories</li>
+              
+        </ul>
+        {/* {daily.map((dailyMeal, i) => {
           return (
-            <div key={i}>
-              {dailyMeal.product}
+            <div key={i} className=''>
+          <div>
+                {dailyMeal.product}
+            </div>
               {dailyMeal.gram}
             </div>
           );
-        })}
+        })} */}
       </div>
     </div>
   );

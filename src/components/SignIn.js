@@ -46,7 +46,7 @@ const Login = (props ) => {
   const [onLogin, setOnLogin] = useState(false);
 
   return (
-    <>
+    <div className="relative top-44">
       <div className="  hover:shadow-xl  grid  place-items-center  ">
         <div className="border-2  border-grey-100  p-10  m-10 hover:shadow-xl  ">
           <div>
@@ -90,7 +90,7 @@ const Login = (props ) => {
         </div>
       </div>
       {/* <SignUp/> */}
-    </>
+    </div>
   );
 };
 

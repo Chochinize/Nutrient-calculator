@@ -14,6 +14,7 @@ import axios from "axios";
 import Calories from "./components/Calories";
 import {useState} from 'react'
 import NavBar from "./components/NavBar";
+import RequireAuth from "./components/RequireAuth";
 
 
 
@@ -26,19 +27,18 @@ function App() {
           <Route path='/' element={<Layout />}>
             {/* Public routes */}
             <Route path='SignIn' element={<SignIn/>}/>
-            {/* <Route path='Charts' element={<Graphics/>}/> */}
             <Route path='SignUp' element={<SignUp/>}/>
             <Route path='secret' element={<PrivateRoute/>}/>
 
 
             {/* Protected routes */}
-            {/* <Route element={<RequireAuth/>}> */}
+            <Route element={<RequireAuth/>}>
               <Route path='/' element={<Home/>}/>
               <Route path='editor' element={<Editor/>}/>
               <Route path='admin' element={<Admin/>}/>
               
               
-            {/* </Route> */}
+            </Route>
             {/* Catch all  */}
             <Route path='*' element={<Missing/>}/>
           </Route>
