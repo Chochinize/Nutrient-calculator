@@ -21,6 +21,14 @@ import RequireAuth from "./components/RequireAuth";
 function App() {
 
 
+  // const [ result, setResult ] = useState({
+  //   protein:[0],
+  //   carbs: [0],
+  //   fats:[0]
+  // })
+  // setResult(prevState=>({...prevState,protein:3}))
+  // console.log(result.protein)
+  
       return (
         <div className="">          
           <Routes>
