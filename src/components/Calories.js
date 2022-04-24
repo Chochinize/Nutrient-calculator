@@ -13,10 +13,17 @@ const Calories = () => {
   const [demo, setDemo] = useState([]);
   
   const [array,setArray] = useState([]);
-  console.log(array)
-  // console.log(gram)
+  
+  const initialResult = {
+    protein:[0],
+    carbs: [0],
+    fats:[0]
+  }
+  const [ result, setResult ] = useState(initialResult)
 
 
+console.log(result.fats)
+  
   useEffect(() => {
     try {
       const fetchData = async () => {
@@ -35,8 +42,18 @@ const Calories = () => {
   const selectHandler = (e) => {
     setProduct(e.target.value);
   };
-  const newElement = 12
-  const Send = async () => {
+  
+
+
+ 
+
+  const Send = async (p,c,f) => {
+
+    const fil = cal.map((filteredProduct)=>
+    Object.entries(filteredProduct.nutritions).filter(([key,val]) => key === product ) )
+    
+    console.log(fil.map((n)=> Object.fromEntries(n)))
+    console.log(array)
     try {
       const res = await axios.post(
         "http://localhost:5050/u/daily",
@@ -46,7 +63,7 @@ const Calories = () => {
       
       setState((prevCheck) => !prevCheck);
       
-      setArray(oldArray => [...oldArray, Number(gram.gram)]);
+      setArray(oldArray => [...oldArray, (Number(p.g)*fil.map((n)=> Object.fromEntries(n).Oats.protein)).toFixed()/100]);
     } catch (error) {
       return error;
     }
@@ -83,7 +100,7 @@ const Calories = () => {
             <option defaultChecked >Choose</option>
             <option>Rise</option>
             <option>Oats</option>
-            <option>Chicken</option>
+            <option>Meal</option>
           </select>
           <input
             
@@ -196,6 +213,7 @@ const Calories = () => {
                     return (
                       <div key={i}>
                         {((calorie.nutritions.Oats.fats * gram.gram) / 100).toFixed(1)}<span className="text-[0.6rem]">/100g</span>
+                       
                       </div>
                     );
                   })}
@@ -205,20 +223,21 @@ const Calories = () => {
               )}
             </div>
             <div className="flex justify-between border-b-[1px] border-blue-800">
+              
               <div>Calories</div>
               <div>calories</div>
             </div>
           </div>
-          {product && <button onClick={Send} className='border-[1px] w-max m-auto  rounded-md  text-[15px] mt-6 px-4'>add</button>}
+          {product && <button onClick={()=>Send(({g:gram.gram}))} className='border-[1px] w-max m-auto  rounded-md  text-[15px] mt-6 px-4'>add</button>}
         </div>
       </div>
 
       <div className="border-2 md:text-[1.5vw] sm:text-[18px] top-5  xs:text-[18px] relative  h-max">
         <h1 className="">Today nutritions</h1>
         <ul className="px-2  relative right-4 m-2 top-2 text-right"> 
-              <li>{array.reduce((previousValue, currentValue) => previousValue+ currentValue, 0)}</li>
-              <li>carbs</li>
-              <li>fats</li>
+              <li>{array.reduce((previousValue, currentValue) => previousValue+ currentValue, 0).toFixed(1)}</li>
+              <li>{result.fats}</li>
+              <li>{result.carbs}</li>
               <li>calories</li>
               
         </ul>
