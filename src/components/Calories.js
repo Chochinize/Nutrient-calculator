@@ -16,10 +16,12 @@ const Calories = () => {
   
   const initialResult = {
     protein:[],
-    carbs: [0],
-    fats:[0]
+    carbs: [],
+    fats:[],
+    cc:[]
   }
   const [ result, setResult ] = useState(initialResult)
+  console.log(daily)
 
   // const [ result, setResult ] = useState({
   //   protein:[0],
@@ -29,7 +31,6 @@ const Calories = () => {
   // setResult(prevState=>({...prevState,protein:3}))
   // console.log(result.protein)
 
-console.log('res.protein:',result.protein[0])
 
   useEffect(() => {
     try {
@@ -45,14 +46,28 @@ console.log('res.protein:',result.protein[0])
 
   const onChangeHandler = (e) => {
     setGram({ gram: e.target.value });
+    setState(false)
+    
+
   };
   const selectHandler = (e) => {
     setProduct(e.target.value);
   };
 
-  console.log(result)
-  
 
+
+  
+const saveDaily = async()=>{
+  try {
+    const res = await axios.post(
+      "http://localhost:5050/u/daily",
+      { result },
+
+    );
+  } catch (error) {
+    console.log(error)
+  }
+}
 
  
 
@@ -62,28 +77,42 @@ console.log('res.protein:',result.protein[0])
     
     // console.log(fil.map((n)=> Object.fromEntries(n)))
     // console.log(array)
-    console.log(nutri.g)
-    try {
-      const res = await axios.post(
-        "http://localhost:5050/u/daily",
-        { product, gram },
+  
 
-      );
+    try {
+   
+      
       switch (product) {
         case 'Oats':
-          setResult(prevState=>({protein:[...prevState.protein,(Number(nutri.g)*fil.map((m)=>Object.fromEntries(m).Oats.protein)).toFixed()/100],carbs:[...prevState.carbs,Number((nutri.g)*fil.map((c)=>Object.fromEntries(c).Oats.carbs)).toFixed()/100],fats:[...prevState.fats,Number((nutri.g)*fil.map((c)=>Object.fromEntries(c).Oats.fats)).toFixed()/100]}))
+          setResult(prevState=>({
+            protein:[...prevState.protein,(Number(nutri.g)*fil.map((m)=>Object.fromEntries(m).Oats.protein)).toFixed()/100],
+            carbs:[...prevState.carbs,Number((nutri.g)*fil.map((c)=>Object.fromEntries(c).Oats.carbs)).toFixed()/100],
+            fats:[...prevState.fats,Number((nutri.g)*fil.map((c)=>Object.fromEntries(c).Oats.fats)).toFixed()/100],
+            cc:[...prevState.cc,Number((nutri.g)*fil.map((c)=>Object.fromEntries(c).Oats.cc)).toFixed()/100],
+          
+          }))
           break;
         case 'Rise':
-          setResult(prevState=>({protein:[...prevState.protein,(Number(nutri.g)*fil.map((m)=>Object.fromEntries(m).Rise.protein)).toFixed()/100],carbs:[...prevState.carbs,Number((nutri.g)*fil.map((c)=>Object.fromEntries(c).Rise.carbs)).toFixed()/100],fats:[...prevState.fats,Number((nutri.g)*fil.map((c)=>Object.fromEntries(c).Rise.fats)).toFixed()/100]}))
+          setResult(prevState=>({
+            protein:[...prevState.protein,(Number(nutri.g)*fil.map((m)=>Object.fromEntries(m).Rise.protein)).toFixed()/100],
+            carbs:[...prevState.carbs,Number((nutri.g)*fil.map((c)=>Object.fromEntries(c).Rise.carbs)).toFixed()/100],
+            fats:[...prevState.fats,Number((nutri.g)*fil.map((c)=>Object.fromEntries(c).Rise.fats)).toFixed()/100],
+            cc:[...prevState.cc,Number((nutri.g)*fil.map((c)=>Object.fromEntries(c).Rise.cc)).toFixed()/100],
+          }))
+          break;
         case 'Meal':
-          setResult(prevState=>({protein:[...prevState.protein,(Number(nutri.g)*fil.map((m)=>Object.fromEntries(m).Meal.protein)).toFixed()/100],carbs:[...prevState.carbs,Number((nutri.g)*fil.map((c)=>Object.fromEntries(c).Meal.carbs)).toFixed()/100],fats:[...prevState.fats,Number((nutri.g)*fil.map((c)=>Object.fromEntries(c).Meal.fats)).toFixed()/100]}))
+          setResult(prevState=>({
+          protein:[...prevState.protein,(Number(nutri.g)*fil.map((m)=>Object.fromEntries(m).Meal.protein)).toFixed()/100],
+          carbs:[...prevState.carbs,Number((nutri.g)*fil.map((c)=>Object.fromEntries(c).Meal.carbs)).toFixed()/100],
+          fats:[...prevState.fats,Number((nutri.g)*fil.map((c)=>Object.fromEntries(c).Meal.fats)).toFixed()/100],
+          cc:[...prevState.cc,Number((nutri.g)*fil.map((c)=>Object.fromEntries(c).Meal.cc)).toFixed()/100]}))
           // expected output: "Mangoes and papayas are $2.79 a pound."
           break;
         default:
           console.log(`Sorry, we are out of ${product}.`);
       }
     
-      setState((prevCheck) => !prevCheck);
+      setState((prevCheck) => true);
       // setResult(prevState=>({protein:[...prevState.protein,(Number(nutri.g)*fil.map((m)=>Object.fromEntries(m).Oats.protein)).toFixed()/100],carbs:[...prevState.carbs,Number((nutri.g)*fil.map((c)=>Object.fromEntries(c).Oats.carbs)).toFixed()/100],fats:[...prevState.fats,Number((nutri.g)*fil.map((c)=>Object.fromEntries(c).Oats.fats)).toFixed()/100]}))
       // setArray(oldArray => [...oldArray, (Number(nutri.g)*fil.map((n)=> Object.fromEntries(n).Oats.protein)).toFixed()/100]);
     } catch (error) {
@@ -134,11 +163,11 @@ console.log('res.protein:',result.protein[0])
             />
             </div>
 
-          <div className="text-[14px] text-right  h-7">(different between 1 - 2 % is availablae)</div>
-          <div className="text-[20px] z-20  border-2">
+          <div className="text-[14px] text-right  h-7">(different between 1 - 2 ~% is available)</div>
+          <div className="text-[20px] z-20  ">
             <div className="flex justify-between border-b-[1px] border-blue-800 ">
               <div className="">protein</div>
-              {product === "Chicken" ? (
+              {product === "Meal" ? (
                 <div>
                   {cal.map((calorie, i) => {
                     return (
@@ -175,7 +204,7 @@ console.log('res.protein:',result.protein[0])
 
             <div className="flex  justify-between border-b-[1px] border-blue-800">
               <div>carbs</div>
-              {product === "Chicken" ? (
+              {product === "Meal" ? (
                 <div>
                   {cal.map((calorie, i) => {
                     return (
@@ -211,7 +240,7 @@ console.log('res.protein:',result.protein[0])
             </div>
             <div className="flex justify-between border-b-[1px] border-blue-800">
               <div>fats</div>
-              {product === "Chicken" ? (
+              {product === "Meal" ? (
                 <div>
                   {cal.map((calorie, i) => {
                     return (
@@ -249,23 +278,65 @@ console.log('res.protein:',result.protein[0])
             <div className="flex justify-between border-b-[1px] border-blue-800">
               
               <div>Calories</div>
-              <div>calories</div>
+              <div>            {product === "Meal" ? (
+                <div>
+                  {cal.map((calorie, i) => {
+                    return (
+                      <div key={i}>
+                        {((calorie.nutritions.Meal.cc * gram.gram) / 10).toFixed(1)}<span className="text-[0.6rem]">/100g</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : product === "Rise" ? (
+                <div>
+                  {cal.map((calorie, i) => {
+                    return (
+                      <div key={i}>
+                        {((calorie.nutritions.Rise.cc * gram.gram) / 10).toFixed(1)}<span className="text-[0.6rem]">/100g</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : product === "Oats" ? (
+                <div>
+                  {cal.map((calorie, i) => {
+                    return (
+                      <div key={i}>
+                        {((calorie.nutritions.Oats.cc * gram.gram) / 10).toFixed(1)}<span className="text-[0.6rem]">/100g</span>
+                       
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                ""
+              )}</div>
             </div>
           </div>
-          {product && <button onClick={()=>Send(({g:gram.gram}))} className='border-[1px] w-max m-auto  rounded-md  text-[15px] mt-6 px-4'>add</button>}
+          <div className=" m-2 text-center">
+
+          {product && <button onClick={()=>Send(({g:gram.gram}))} className='border-[1px] w-max m-auto  rounded-md  text-[15px]  px-4'>add</button>}
+          </div>
         </div>
       </div>
 
-      <div className="border-2 md:text-[1.5vw] sm:text-[18px] top-5  xs:text-[18px] relative  h-max">
+      <div className=" md:text-[1.5vw] sm:text-[18px] top-6  xs:text-[18px] relative  h-max">
+        
         <h1 className="">Today nutritions</h1>
         <ul className="px-2  relative right-4 m-2 top-2 text-right"> 
               {/* <li>{array.reduce((previousValue, currentValue) => previousValue+ currentValue, 0).toFixed(1)}</li> */}
-              <li>{result.protein.reduce((prev,next)=>prev+next,0).toFixed()}</li>
-              <li>{result.carbs.reduce((prev,next)=>prev+next,0).toFixed()}</li>
-              <li>{result.fats.reduce((prev,next)=>prev+next,0).toFixed()}</li>
-              <li>calories</li>
+              <li>{result.protein.reduce((prev,next)=>prev+next,0).toFixed(1)}</li>
+              <li>{result.carbs.reduce((prev,next)=>prev+next,0).toFixed(1)}</li>
+              <li>{result.fats.reduce((prev,next)=>prev+next,0).toFixed(1)}</li>
+              <li>{result.cc.reduce((prev,next)=>prev+next,0).toFixed(1)*10}</li>
+              
               
         </ul>
+        <div className=" text-center ">
+
+{state && <button onClick={()=>saveDaily()} className='border-[1px] w-max m-auto  rounded-md  text-[15px]  px-4'>Save your daily nutrition</button>}
+</div>
         {/* {daily.map((dailyMeal, i) => {
           return (
             <div key={i} className=''>
@@ -277,6 +348,7 @@ console.log('res.protein:',result.protein[0])
           );
         })} */}
       </div>
+      
     </div>
   );
 };
