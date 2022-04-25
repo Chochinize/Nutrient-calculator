@@ -6,17 +6,7 @@ const GetData = () => {
   const [users, setUsers] = useState([]);
 
   console.log(users);
-  useEffect(() => {
-    try {
-      const fetchData = async () => {
-        const res = await axios.get("/u/db",{withCredentials:true});
-        setUsers(res.data.allUser);
-      };
-      fetchData();
-    } catch (error) {
-        return error
-    }
-  }, []);
+ 
   return (
     <div className="w-58  m-2">
       <table className=" w-full  ">
@@ -32,12 +22,12 @@ const GetData = () => {
           </tr>
         </thead>
         <tbody >
-          {users.map((user, index) => (
+          {/* {users.map((user, index) => (
             <tr key={user._id} className='border-2    border-black'> 
               <th className="border-r-2 border-black p-4 ">{index + 1}</th>
               
               <th className="border-r-2  border-black p-4">
-              <Link to={`/u/db/${user._id}`} >{user._id} </Link>
+              
               </th>
 
               <th className="border-r-2 border-black p-2">{user.name}</th>
@@ -49,7 +39,7 @@ const GetData = () => {
               <th className="cursor-pointer" >Delete</th>
               
             </tr>
-          ))}
+          ))} */}
         </tbody>
       </table>
       ))

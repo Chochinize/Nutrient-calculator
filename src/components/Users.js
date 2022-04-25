@@ -9,7 +9,7 @@ const Users = () => {
   useEffect(() => {
     try {
       const fetchData = async () => {
-        const res = await axios.get(`/u/db/${id}`);
+        const res = await axios.get(`/`);
         setUsers(res.data.msg);
       };
       fetchData();
@@ -20,9 +20,7 @@ const Users = () => {
 
   return (
     <div>
-      <ul ><img className="rounded-full w-32 h-32" src={users.avatar}/></ul>
-      <ul>{users._id}</ul>
-      <ul>{users.name}</ul>
+     
  
 
     </div>

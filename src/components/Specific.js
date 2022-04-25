@@ -8,21 +8,12 @@ const Specific = () => {
   const { id } = useParams();
   const [users, setUsers] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await axios.get(`/u/${id}`);
-      setAuthIsDone(!false);
-      dispatch({type:'AUTH', payload:{successs:res.data }})
-    };
-    fetchData();
-  }, []);
+ 
 
   return <div>
       <div>
         <ul>
-          <li>{users.name}</li>
-          <li>{users.email}</li>
-          <li>{users._id}</li>
+      
         </ul>
       </div>
   </div>;

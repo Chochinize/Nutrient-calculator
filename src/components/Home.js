@@ -25,6 +25,7 @@ const Home = () => {
     secretRoute();
   },[])
  console.log('this is a state token',state?.token?.id)
+ console.log('this is a state token',axios.defaults.baseURL)
   return (
    <div >
      <div className='absolute'>

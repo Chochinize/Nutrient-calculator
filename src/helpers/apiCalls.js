@@ -5,7 +5,7 @@ export const authenticateUser = async () => {
   const { id } = useParams();
   try {
     const res = await axios.get(
-      `/u/`,
+      `/`,
       { withCredentials: true }
     );
       const data = await res.json()
