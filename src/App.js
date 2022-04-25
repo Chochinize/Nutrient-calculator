@@ -17,6 +17,8 @@ import NavBar from "./components/NavBar";
 import RequireAuth from "./components/RequireAuth";
 
 
+axios.defaults.baseURL = process.env.NODE_ENV  ===  'development' ? process.env.REACT_APP_DEV_BASEURL : process.env.REACT_APP_PROD_BASEURL  ;
+axios.defaults.withCredentials = true;
 
 function App() {
 

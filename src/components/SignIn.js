@@ -22,7 +22,7 @@ const Login = (props ) => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:5050/u/login",
+        "/u/login",
         {
           email: user.email,
           password: user.password,
@@ -30,7 +30,7 @@ const Login = (props ) => {
         { withCredentials: true }
       );
       console.log(res)
-        
+      console.log(axios.defaults.baseURL)
         setAuthIsDone(true);
         dispatch({ type: 'AUTH', payload: {token:res.data.token, user:res.user}})
         navigate('/') 
