@@ -17,7 +17,7 @@ import SideBar from  './components/SideBar'
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <ContextApi>
+      <ContextApi> 
         <NavBar/>
         
         <Routes>
