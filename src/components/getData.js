@@ -9,7 +9,7 @@ const GetData = () => {
   useEffect(() => {
     try {
       const fetchData = async () => {
-        const res = await axios.get("http://localhost:5050/u/db",{withCredentials:true});
+        const res = await axios.get("/u/db",{withCredentials:true});
         setUsers(res.data.allUser);
       };
       fetchData();

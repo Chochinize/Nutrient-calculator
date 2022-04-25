@@ -30,7 +30,7 @@ const SignUp = () => {
   const registerSubmit = async (e) => {
     e.preventDefault();
     try {                           
-      const res = await axios.post("http://localhost:5050/u/SignUp", {
+      const res = await axios.post("/u/SignUp", {
         name: user.name,
         email: user.email,
         password: user.password,

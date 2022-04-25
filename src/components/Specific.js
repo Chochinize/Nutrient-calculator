@@ -10,7 +10,7 @@ const Specific = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get(`http://localhost:5050/u/${id}`);
+      const res = await axios.get(`/u/${id}`);
       setAuthIsDone(!false);
       dispatch({type:'AUTH', payload:{successs:res.data }})
     };

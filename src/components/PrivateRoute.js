@@ -22,7 +22,7 @@ const PrivateRoute = () => {
     const secretRoute = async()=>{
     
       try {
-        const res = await axios.get(`http://localhost:5050/u/secretContent`, { withCredentials: true });
+        const res = await axios.get(`/u/secretContent`, { withCredentials: true });
       
         setState({status:res.data.status, message:res.data.message})
       } catch (err) {
@@ -47,11 +47,11 @@ console.log('ath',authIsDone)
     <div className=" px-4 xs:w-full grid gap-4   ">
       <h1 className="text-4xl font-extrabold"> 
 
-         <div class="flex gap-2 ">
-  <div class="grow max-w-full h-14 bg-yellow-200">
+         <div className="flex gap-2 ">
+  <div className="grow max-w-full h-14 bg-yellow-200">
     1
   </div>
-  <div class="grow max-w-[550px] ">
+  <div className="grow max-w-[550px] ">
           {authIsDone ?   (<> <div className="h-8   bg-blue-500 xs:square sm:h-auto xs:square md:bg-red-200 xs:h-auto md:square md:h-auto ">
 
         
@@ -63,7 +63,7 @@ console.log('ath',authIsDone)
       <div className="h-8 bg-blue-500 sm:square sm:h-auto xs:square xs:h-auto"></div> <div> you are logged as  {state.message.email}</div></>)  
       :( <> <div>{err.msg}</div></>)  }
   </div>
-  <div class="h-14  bg-yellow-200 grow max-w-full">
+  <div className="h-14  bg-yellow-200 grow max-w-full">
     1
   </div>
 </div>

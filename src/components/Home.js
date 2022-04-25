@@ -14,7 +14,7 @@ const Home = () => {
     const secretRoute = async()=>{
     
       try {
-        const res = await axios.get(`http://localhost:5050/u/`, { withCredentials: true });
+        const res = await axios.get(`/u/`, { withCredentials: true });
       
         setState({message:res.data.message,token:jwt_decode(res.data.token)})
         console.log(res)

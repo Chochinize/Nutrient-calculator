@@ -35,7 +35,7 @@ const Calories = () => {
   useEffect(() => {
     try {
       const fetchData = async () => {
-        const res = await axios.get("http://localhost:5050/u/gProduct");
+        const res = await axios.get("/u/gProduct");
         setCal(res.data.product);
       };
       fetchData();
@@ -62,7 +62,7 @@ const saveDaily = async()=>{
   setColor({green:'white'})
   try {
     const res = await axios.post(
-      "http://localhost:5050/u/daily",
+      "/u/daily",
       { result },
   
     );

@@ -25,7 +25,7 @@ const Logout = () => {
   const logoutUser = async()=>{
    console.log('log out')
     try {
-      const res = await axios.get('http://localhost:5050/u/LogOut',{ withCredentials:'include' })
+      const res = await axios.get('/u/LogOut',{ withCredentials:'include' })
       dispatch({type:'AUTH', payload:{successs:res.data }})
       setAuthIsDone(false);
       navigate('/SignIn');
