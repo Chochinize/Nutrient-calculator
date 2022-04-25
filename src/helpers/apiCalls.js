@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom";
 
-const serverUrl = 'http://localhost:5050';
+
 export const authenticateUser = async () => {
   const { id } = useParams();
   try {
     const res = await axios.get(
-      `http://localhost:5050/u/${id}`,
+      `/u/`,
       { withCredentials: true }
     );
       const data = await res.json()

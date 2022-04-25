@@ -23,7 +23,7 @@ const NavBar = () => {
   console.log(offset);
 
   useEffect(async () => {
-    const res = await axios.get("http://localhost:5050/", {
+    const res = await axios.get("/", {
       withCredentials: true,
     });
     console.log(res);
