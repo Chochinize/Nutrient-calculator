@@ -25,7 +25,7 @@ const NavBar = () => {
   useEffect(async () => {
     const res = await axios.get("/", {
       withCredentials: true,
-    });
+    },{headers:{'content-type':'text/json'}});
     console.log(res);
   }, []);
   function classNames(...classes) {

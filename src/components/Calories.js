@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import HeaderType from "./ThemeHeader/HeaderType";
+import useAuth from "./hooks/useAuth";
 
 
 const Calories = () => {
@@ -14,6 +15,7 @@ const Calories = () => {
   
   const [array,setArray] = useState([]);
   
+
   const initialResult = {
     protein:[],
     carbs: [],
@@ -21,7 +23,7 @@ const Calories = () => {
     cc:[]
   }
   const [ result, setResult ] = useState(initialResult)
-  console.log(daily.map((ix)=>ix.dailyNutritions))
+
 
   // const [ result, setResult ] = useState({
   //   protein:[0],
@@ -77,8 +79,8 @@ const saveDaily = async()=>{
    showed:false,
    text:'white',
   })
-console.log(color)
-  const Send = async (nutri,c='bg-green-400',f) => {
+
+  const Send = async (nutri,c,f) => {
 
     const fil = cal.map((filteredProduct)=>Object.entries(filteredProduct.nutritions).filter(([key,val]) => key === product ) )
     
@@ -130,7 +132,7 @@ console.log(color)
   useEffect(() => {
     try {
       const fetchData = async () => {
-        const res = await axios.get("http://localhost:5050/u/getDaily");
+        const res = await axios.get("/u/getDaily");
         setDaily(res.data.message);
         
       };
