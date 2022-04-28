@@ -16,7 +16,8 @@ const PrivateRoute = () => {
 
   
   const { authIsDone ,user, auth} = useAuth()
-  console.log('autj',auth)
+  console.log('auth',auth)
+  console.log('auth',authIsDone)
   // const { users, state, dispatch, setAuthIsDone,authIsDone } = useAuth();
   useEffect(()=>{
     const secretRoute = async()=>{

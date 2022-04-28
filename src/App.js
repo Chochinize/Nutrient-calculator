@@ -32,7 +32,7 @@ function App() {
   // console.log(result.protein)
   
       return (
-        <div className="">          
+                 
           <Routes>
           <Route path='/' element={<Layout />}>
             {/* Public routes */}
@@ -54,7 +54,7 @@ function App() {
           </Route>
         </Routes>
        
-        </div>
+
   );
 }
 export default App;

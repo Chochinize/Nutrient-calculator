@@ -5,15 +5,16 @@ import { useEffect } from "react";
 
 const RequireAuth = ()=>{
     const { authIsDone } = useAuth();
-   
+   console.log(authIsDone)
     useEffect( async()=>{
-        const res = await axios.get('/u/',{withCredentials:true}) 
+        const res = await axios.post('/u/',{withCredentials:true}) 
         console.log(authIsDone)
+        console.log(res)
         
     },[])
     const location = useLocation();
     return(
-        authIsDone ? <Outlet/> : <Navigate to="/SignIn" state={{from: location}} replace/>
+        !authIsDone ? <Outlet/> : <Navigate to="/SignIn" state={{from: location}} replace/>
     );
 }
 export default RequireAuth;

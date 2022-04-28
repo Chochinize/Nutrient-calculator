@@ -9,9 +9,9 @@ const Login = (props ) => {
   const [user, setUser] = useState({ name: "", email: "", password: "" });
   const [err, setErr] = useState("");
   const navigate = useNavigate();
-  const { users, state, dispatch, setAuthIsDone,authIsDone } = useAuth();
+  const { users, state, dispatch, setAuthIsDone,authIsDone,auth } = useAuth();
  
-
+console.log('authorization:',auth)
   const onChangeInput = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
