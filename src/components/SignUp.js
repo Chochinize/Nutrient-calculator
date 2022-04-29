@@ -2,20 +2,20 @@ import axios from "axios";
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-
+import RegModal from "../modals/RegModal";
 const SignUp = () => {
   
   
   const [user, setUser] = useState({ name: "", email: "", password: "",cf_password:""});
   const [err, setErr] = useState({msg:'',text:''});
-  
-
+  const [open, setOpen] = useState(Boolean)
+console.log('open/close',open)
   console.log('error message:',err)
   const  navigate  =  useNavigate();
   const onChangeInput = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
-    setErr("");
+    // setErr("");
   };
 
   const registerSubmit = async (e) => {
@@ -28,12 +28,15 @@ const SignUp = () => {
         password: user.password,
         cf_password:user.cf_password,
     },{withCredentials:true});
-      
-      // setUser({ name: "", email: "", password: "" });
-      setErr({msg:res.data.msg});
-      navigate('/')
+      res.status === 200 ? setOpen(true) : ''
+      console.log('yhas the response',res)
+      setUser({ name: "", email: "", password: "", cf_password:"" });
+      // setErr({msg:res.data.msg});
+      open && navigate('/SignIn') 
     } catch (err) {
-      err.response.data.msg && setErr({msg:err.response.data.msg,text:err.response.data.msg.text});
+      console.log(err.response.data.err.msg)
+      
+      err.response.data.err.msg && setErr({msg:err.response.data.err.msg});
     }
   };
 console.log(err);
@@ -41,6 +44,7 @@ console.log(user)
   return (
     <div className="  relative top-44   z-50   hover:shadow-xl  grid  place-items-center  ">
       <div className="border-2  border-grey-100  p-10  m-10 hover:shadow-xl">
+        <RegModal open={open} setOpen={setOpen}/>
         <div>
           {
            (
@@ -58,8 +62,9 @@ console.log(user)
                   placeholder="...Your Asterix..."
                   value={user.name}
                   onChange={onChangeInput}
-                  required
+                  
                 />
+                  {err.msg == 'Please add all field' ? (<div className="text-[12px] text-red-600">Please enter a name</div>) : (<div></div>)  }
               </label>
               <label>
                 Email:
@@ -69,10 +74,12 @@ console.log(user)
                   name="email"
                   id="register-email"
                   placeholder="Email"
-                  required
+                  
                   value={user.email}
                   onChange={onChangeInput}
                 />
+                   {err.msg == 'invalid email' ? (<div className="text-[12px] text-red-600">invalid Email</div>) : (<div></div>)  }
+                   {err.msg == 'email already exist' ? (<div className="text-[12px] text-red-600">User with this email exist</div>) : (<div></div>)  }
               </label>
               <label>
                 Password:
@@ -87,6 +94,7 @@ console.log(user)
                   onChange={onChangeInput}
                   className="placeholder-shadow-xl outline-none text-center border-b-2"
                 />
+                  {err.msg == 'password must be at least 6 charachters' ? (<div className="text-[12px] text-red-600">password must be at least 6 charachters</div>) : (<div></div>)  }
               </label>
               <label>
                 Repeat Password:
@@ -101,6 +109,7 @@ console.log(user)
                   onChange={onChangeInput}
                   className="placeholder-shadow-xl outline-none text-center border-b-2"
                 />
+                {err.msg == 'password does not match ' ? (<div className="text-[12px] text-red-600">password does not match</div>) : (<div></div>)  }
               </label>
 
               <button type="submit" value="Submit" className="m-auto">
@@ -117,15 +126,7 @@ console.log(user)
                   <p>
                   
 
-                    <a
-                    className="flex  flex-wrap "
-                    //https://master.d3ksrba71tzc64.amplifyapp.com/projects/api/projects
-                    href=""
-                    >
-                        {err.msg}
-                        
-                    
-                  </a>
+                  
                     </p>
                 
                 </div>

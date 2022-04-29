@@ -7,7 +7,7 @@ const RequireAuth = ()=>{
     const { authIsDone } = useAuth();
    console.log(authIsDone)
     useEffect( async()=>{
-        const res = await axios.post('/u/',{withCredentials:true}) 
+        const res = await axios.post('/u',{withCredentials:true}) 
         console.log(authIsDone)
         console.log(res)
         
