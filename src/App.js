@@ -15,6 +15,7 @@ import Calories from "./components/Calories";
 import {useState} from 'react'
 import NavBar from "./components/NavBar";
 import RequireAuth from "./components/RequireAuth";
+import UserPanel from './components/UserPanel'
 
 
 axios.defaults.baseURL = process.env.NODE_ENV  ===  'development' ? process.env.REACT_APP_DEV_BASEURL : process.env.REACT_APP_PROD_BASEURL  ;
@@ -46,6 +47,7 @@ function App() {
               <Route path='/' element={<Home/>}/>
               <Route path='editor' element={<Editor/>}/>
               <Route path='admin' element={<Admin/>}/>
+              <Route path='u/:id' element={<UserPanel/>}/>
               
               
             </Route>
