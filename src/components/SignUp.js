@@ -9,6 +9,7 @@ const SignUp = () => {
   const [user, setUser] = useState({ name: "", email: "", password: "",cf_password:""});
   const [err, setErr] = useState({msg:'',text:''});
   const [open, setOpen] = useState(Boolean)
+  
 console.log('open/close',open)
   console.log('error message:',err)
   const  navigate  =  useNavigate();
@@ -17,6 +18,8 @@ console.log('open/close',open)
     setUser({ ...user, [name]: value });
     // setErr("");
   };
+
+
 
   const registerSubmit = async (e) => {
     e.preventDefault();
