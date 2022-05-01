@@ -25,13 +25,13 @@ const Logout = () => {
   const logoutUser = async()=>{
    console.log('log out')
     try {
-      const res = await axios.get('/u/LogOut',{ withCredentials:'include' })
-      dispatch({type:'AUTH', payload:{successs:res.data }})
-      setAuthIsDone(false);
-      navigate('/SignIn');
+      const res = await axios.get('/u/LogOut',{ withCredentials:true })
+      // dispatch({type:'AUTH', payload:{successs:res.data }})
+      // setAuthIsDone(false);
+      // navigate('/SignIn');
       
     } catch (error) {
-      console.log(error)
+      console.log(error.response.data)
     }
   }
   return (

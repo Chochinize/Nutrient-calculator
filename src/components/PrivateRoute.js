@@ -16,8 +16,7 @@ const PrivateRoute = () => {
 
   
   const { authIsDone ,user, auth} = useAuth()
-  console.log('auth',auth)
-  console.log('auth',authIsDone)
+  console.log('autj',auth)
   // const { users, state, dispatch, setAuthIsDone,authIsDone } = useAuth();
   useEffect(()=>{
     const secretRoute = async()=>{
@@ -48,11 +47,11 @@ console.log('ath',authIsDone)
     <div className=" px-4 xs:w-full grid gap-4   ">
       <h1 className="text-4xl font-extrabold"> 
 
-         <div className="flex gap-2 ">
-  <div className="grow max-w-full h-14 bg-yellow-200">
+         <div class="flex gap-2 ">
+  <div class="grow max-w-full h-14 bg-yellow-200">
     1
   </div>
-  <div className="grow max-w-[550px] ">
+  <div class="grow max-w-[550px] ">
           {authIsDone ?   (<> <div className="h-8   bg-blue-500 xs:square sm:h-auto xs:square md:bg-red-200 xs:h-auto md:square md:h-auto ">
 
         
@@ -64,7 +63,7 @@ console.log('ath',authIsDone)
       <div className="h-8 bg-blue-500 sm:square sm:h-auto xs:square xs:h-auto"></div> <div> you are logged as  {state.message.email}</div></>)  
       :( <> <div>{err.msg}</div></>)  }
   </div>
-  <div className="h-14  bg-yellow-200 grow max-w-full">
+  <div class="h-14  bg-yellow-200 grow max-w-full">
     1
   </div>
 </div>

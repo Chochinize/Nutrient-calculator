@@ -8,6 +8,7 @@ import axios from "axios";
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
+import { useParams } from "react-router-dom";
 
 const NavBar = () => {
   const [offset, setOffset] = useState(0);
@@ -21,12 +22,12 @@ const NavBar = () => {
   }, []);
 
   console.log(offset);
-
+  const { id } = useParams();
   useEffect(async () => {
     const res = await axios.get("/", {
       withCredentials: true,
-    },{headers:{'content-type':'text/json'}});
-    console.log(res);
+    });
+    console.log('res.data',res);
   }, []);
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
@@ -98,7 +99,7 @@ const NavBar = () => {
                     <Menu.Item>
                       {({ active }) => (
                        <a
-                       href="#"
+                       href="/#"
                        className={classNames(
                          active
                            ? "bg-gray-100 text-gray-900"
@@ -113,7 +114,7 @@ const NavBar = () => {
                     <Menu.Item>
                       {({ active }) => (
                       <a
-                      href="#"
+                      href={`/${id}`}
                       className={classNames(
                         active
                           ? "bg-gray-100 text-gray-900"
@@ -134,7 +135,9 @@ const NavBar = () => {
                                      hover:text-black hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 cursor-pointer">
                                        <span className="-my-0.5">
 
-            Account
+         <a href={`/u/${id}`}>
+              Account
+           </a>
                                        </span>
           </div>
           <div className="inline-flex h-7  justify-center w-max rounded-md border border-gray-300 shadow-sm px-2      text-2xl font-extrabold text-white
@@ -152,10 +155,10 @@ const NavBar = () => {
     
 
         <li className="bg-blue-400  w-max  h-max  hover:bg-gray-300 ">
-          <Link to="/" className="mx-2">Calc</Link>
+          <Link to="/" className="mx-2">Home</Link>
         </li>
         <li className="bg-gray-200  w-max h-max  hover:bg-gray-300 ">
-          <Link to="/secret" className="mx-2">PrivateRoute</Link>
+          <Link to={`u/${id}`} className="mx-2">Acount</Link>
         </li>
         <li className="bg-gray-200  w-max  h-max  hover:bg-gray-300 ">
           <Link to="/SignIn" className="mx-2">SignIn</Link>

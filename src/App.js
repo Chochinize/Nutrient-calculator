@@ -39,20 +39,18 @@ function App() {
             {/* Public routes */}
             <Route path='SignIn' element={<SignIn/>}/>
             <Route path='SignUp' element={<SignUp/>}/>
-            <Route path='secret' element={<PrivateRoute/>}/>
+            {/* <Route path='secret' element={<PrivateRoute/>}/> */}
 
 
             {/* Protected routes */}
             <Route element={<RequireAuth/>}>
-              <Route path='/' element={<Home/>}/>
-              <Route path='editor' element={<Editor/>}/>
-              <Route path='admin' element={<Admin/>}/>
-              <Route path='u/:id' element={<UserPanel/>}/>
+              {/* <Route path='/' element={<Home/>}/> */}
+              <Route path='/u/:id' element={<UserPanel/>}/>
               
               
             </Route>
             {/* Catch all  */}
-            <Route path='*' element={<Missing/>}/>
+            {/* <Route path='*' element={<Missing/>}/> */}
           </Route>
         </Routes>
        

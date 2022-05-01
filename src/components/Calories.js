@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import HeaderType from "./ThemeHeader/HeaderType";
 import useAuth from "./hooks/useAuth";
+import { useParams } from "react-router-dom";
 
 
 const Calories = () => {
@@ -15,7 +16,8 @@ const Calories = () => {
   
   const [array,setArray] = useState([]);
   
-
+  const id = useParams()
+  
   const initialResult = {
     protein:[],
     carbs: [],
@@ -37,7 +39,7 @@ const Calories = () => {
   useEffect(() => {
     try {
       const fetchData = async () => {
-        const res = await axios.get("/u/gProduct");
+        const res = await axios.get(`/u/`);
         setCal(res.data.product);
       };
       fetchData();

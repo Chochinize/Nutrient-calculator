@@ -35,7 +35,7 @@ console.log('open/close',open)
       console.log('yhas the response',res)
       setUser({ name: "", email: "", password: "", cf_password:"" });
       // setErr({msg:res.data.msg});
-      open && navigate('/SignIn') 
+      // open && navigate('/SignIn') 
     } catch (err) {
       console.log(err.response.data.err.msg)
       
