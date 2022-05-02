@@ -1,4 +1,7 @@
-const serverUrl = 'http://localhost:5050'
+const serverUrl = process.env.NODE_ENV  ===  'development' ? process.env.REACT_APP_DEV_BASEURL : process.env.REACT_APP_PROD_BASEURL
+import axios from 'axios'
+console.log('axuis',serverUrl)
+console.log('processNode',process.env.NODE_ENV  ===  'development' ? process.env.REACT_APP_DEV_BASEURL : process.env.REACT_APP_PROD_BASEURL)
 export const authenticateUser = async () => {
   try {
     const res = await (
