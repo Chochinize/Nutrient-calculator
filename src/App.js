@@ -7,7 +7,7 @@ import SignUp from "./components/SignUp";
 import Layout from './components/Layout';
 import Missing from './components/Missing';
 import Editor from './components/Editor';
-import Admin from './components/Admin';
+
 import PrivateRoute from './components/PrivateRoute'
 import { useEffect } from "react";
 import axios from "axios";
@@ -16,11 +16,13 @@ import {useState} from 'react'
 import NavBar from "./components/NavBar";
 import RequireAuth from "./components/RequireAuth";
 import UserPanel from './components/UserPanel'
+import Verification from "./components/Verification";
 
 
 axios.defaults.baseURL = process.env.NODE_ENV  ===  'development' ? process.env.REACT_APP_DEV_BASEURL : process.env.REACT_APP_PROD_BASEURL  ;
 axios.defaults.withCredentials = true;
 console.log(axios.defaults.baseURL)
+console.log(process.env)
 function App() {
 
 
@@ -39,18 +41,21 @@ function App() {
             {/* Public routes */}
             <Route path='SignIn' element={<SignIn/>}/>
             <Route path='SignUp' element={<SignUp/>}/>
-            {/* <Route path='secret' element={<PrivateRoute/>}/> */}
+            <Route path='secret' element={<PrivateRoute/>}/>
 
 
             {/* Protected routes */}
-            <Route element={<RequireAuth/>}>
+            {/* <Route element={<RequireAuth/>}> */}
               {/* <Route path='/' element={<Home/>}/> */}
-              <Route path='/u/:id' element={<UserPanel/>}/>
+              {/* <Route path='editor' element={<Editor/>}/> */}
+              
+              <Route path='u/:id' element={<UserPanel/>}/>
+              <Route path='u/:id/verifyToken' element={<Verification/>}/>
               
               
-            </Route>
+            {/* </Route> */}
             {/* Catch all  */}
-            {/* <Route path='*' element={<Missing/>}/> */}
+            <Route path='*' element={<Missing/>}/>
           </Route>
         </Routes>
        

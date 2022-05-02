@@ -35,11 +35,11 @@ const Calories = () => {
   // setResult(prevState=>({...prevState,protein:3}))
   // console.log(result.protein)
 
-
+  console.log('from calories', cal)
   useEffect(() => {
     try {
       const fetchData = async () => {
-        const res = await axios.get(`/u/`);
+        const res = await axios.get(`/u/:id`);
         setCal(res.data.product);
       };
       fetchData();
@@ -68,8 +68,8 @@ const saveDaily = async()=>{
     const res = await axios.post(
       "/u/daily",
       { result },
-  
-    );
+      );
+      console.log(res)
   } catch (error) {
     console.log(error)
   }

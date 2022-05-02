@@ -12,7 +12,11 @@ import { useParams } from "react-router-dom";
 
 const NavBar = () => {
   const [offset, setOffset] = useState(0);
-
+  
+  const { state,user } = useAuth();
+  
+  console.log('from auth',state.auth?.verified?.status);
+  console.log(console.log(state.auth.email))
   useEffect(() => {
     const onScroll = () => setOffset(window.pageYOffset);
     // clean up code
@@ -20,7 +24,9 @@ const NavBar = () => {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
+  useEffect(()=>{
+    return state
+  },[state])
   console.log(offset);
   const { id } = useParams();
   useEffect(async () => {
@@ -50,19 +56,21 @@ const NavBar = () => {
           className={`${
             offset > 51
               ? "flex justify-between    items-center h-full scale-x-[0.3] "
-              : "flex justify-evenly items-center h-full scale-x-[1]   text-3xl text-white "
+              : "flex justify-end mr-4 items-center h-full scale-x-[1]   text-3xl text-white "
           }`}
         >
-          <div className={`   cursor-pointer `}>
+          <div className={`   cursor-pointer`}>
 
             
-            <Menu as="div" className="relative inline-block">
+            <Menu as="div" className="">
               <div>
                 <Menu.Button
                   className="inline-flex h-7 justify-center w-max rounded-md border border-gray-300 shadow-sm  px-2   text-xl font-extrabold text-white
                                      hover:text-black hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
                 >
-                  Options
+
+                  {!state.auth?.verified?.status ? '' : (<Link to={`/u/${state.auth._id}`} className="mx-2">{state.auth.email} </Link>)}
+                  
                   <ChevronDownIcon
                     className="-mr-2 ml-2 h-6 w-4"
                     aria-hidden="true"
@@ -114,7 +122,7 @@ const NavBar = () => {
                     <Menu.Item>
                       {({ active }) => (
                       <a
-                      href={`/${id}`}
+                      href={`/${state.auth._id}`}
                       className={classNames(
                         active
                           ? "bg-gray-100 text-gray-900"
@@ -122,7 +130,9 @@ const NavBar = () => {
                         "block px-4 py-2 text-2xl"
                       )}
                     >
-                      Account
+                      {!state.auth?.verified?.status ? <Link to="/SignIn" className="mx-2">Log in </Link> : <Logout/>}
+                      {/* <Logout/> */}
+                      {/* <Link to="/SignIn" className="mx-2">Log in </Link> */}
                     </a>
                       )}
                     </Menu.Item>
@@ -131,11 +141,11 @@ const NavBar = () => {
               </Transition>
             </Menu>
           </div>
-          <div    className="inline-flex h-7  justify-center w-max rounded-md border border-gray-300 shadow-sm px-2      text-2xl font-extrabold text-white
+          {/* <div    className="inline-flex h-7  justify-center w-max rounded-md border border-gray-300 shadow-sm px-2      text-2xl font-extrabold text-white
                                      hover:text-black hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 cursor-pointer">
                                        <span className="-my-0.5">
 
-         <a href={`/u/${id}`}>
+         <a href={`/u/${state.auth._id}`}>
               Account
            </a>
                                        </span>
@@ -146,32 +156,50 @@ const NavBar = () => {
           
               News{" "}
           </span>
-          </div>
+          </div> */}
         </div>
       </div>
-      <ul className="flex justify-evenly  text-2xl w-full ">
+      <ul className="flex justify-end  text-2xl w-full ">
        
 
     
-
-        <li className="bg-blue-400  w-max  h-max  hover:bg-gray-300 ">
+    
+        {/* <li className="bg-blue-400  w-max  h-max  hover:bg-gray-300 ">
           <Link to="/" className="mx-2">Home</Link>
-        </li>
-        <li className="bg-gray-200  w-max h-max  hover:bg-gray-300 ">
+        </li> */}
+        {/* <li className="bg-gray-200  w-max h-max  hover:bg-gray-300 ">
           <Link to={`u/${id}`} className="mx-2">Acount</Link>
-        </li>
-        <li className="bg-gray-200  w-max  h-max  hover:bg-gray-300 ">
+        </li> */}
+        {/* <li className="bg-gray-200  w-max  h-max  hover:bg-gray-300 ">
           <Link to="/SignIn" className="mx-2">SignIn</Link>
-        </li>
-        <li className="bg-gray-200  w-max h-max  hover:bg-gray-300 ">
+        </li> */}
+        {/* <li className="bg-gray-200  w-max h-max  hover:bg-gray-300 ">
           <Link to="/SignUp" className="mx-2">SignUp</Link>
+        </li> */}
+
+
+        {!state.auth?.verified?.status ? (   <ul className="flex gap-4">
+
+           <li className="bg-gray-200 flex p-2 gap-2 border-2 border-black  w-max h-max  hover:bg-gray-300 ">
+          <Link to="/SignIn" className="mx-2">Log in </Link>
+         
         </li>
+        <li className="bg-gray-200 flex p-2 gap-2 border-2 border-black  w-max h-max  hover:bg-gray-300 ">
+          <Link to="/SignUp" className="mx-2">Sign Up </Link>
+         
+        </li>
+        </ul>
+        ) : <li className="bg-gray-200  w-max h-max  hover:bg-gray-300 ">
+          <Link to={`/u/${state.auth._id}`} className="mx-2">{state.auth.email} </Link>
+          
+          
+        </li> }
         <li className="bg-gray-200  w-max  h-max hover:bg-gray-300 cursor-pointer ">
-          <Logout/>
         </li>
       </ul>
     </header>
   );
+  
 };
 
 export default NavBar;

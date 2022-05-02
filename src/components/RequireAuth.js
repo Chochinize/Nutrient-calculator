@@ -4,8 +4,9 @@ import axios from "axios";
 import { useEffect } from "react";
 
 const RequireAuth = ()=>{
-    const { authIsDone } = useAuth();
-   console.log(authIsDone)
+    const { authIsDone,state } = useAuth();
+   console.log('ttttt',state.auth.name)
+
     useEffect( async()=>{
         const res = await axios.post('/u',{withCredentials:true}) 
         console.log(authIsDone)

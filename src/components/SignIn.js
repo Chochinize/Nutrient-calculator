@@ -29,11 +29,11 @@ console.log(auth)
         },
         { withCredentials: true }
       );
-      console.log(res)
+      console.log('from sign in', res)
       console.log(axios.defaults.baseURL)
         setAuthIsDone(true);
-        dispatch({ type: 'AUTH', payload: {token:res.data.token, user:res.user}})
-        navigate('/') 
+        dispatch({ type: 'AUTH', payload: res.data.user})
+        navigate(`/u/${res.data.user._id}`) 
     } catch (err) {
       console.log(err)
       err.response.data.msg && setErr(err.response.data.msg);

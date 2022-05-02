@@ -18,20 +18,22 @@ const ContextApi = ({ children }) => {
 const [state, dispatch] = useReducer(reducer, initialState)
 
 
-  // useEffect(() => {
-  //   const authMe = async () => {
-  //     try {
-  //       const res = await authenticateUser();
+  useEffect(() => {
+    
+    const authMe = async () => {
+      try {
+        const res = await authenticateUser();
 
-  //       if (!res.error) {
-  //         setUser(res);
-  //         setAuthIsDone(true);
-  //         return;
-  //       }
-  //     } catch (error) {}
-  //   };
-  //   authMe();
-  // }, []);
+        if (!res.error) {
+          dispatch({ type: 'AUTH', payload:res})
+          setUser(res);
+          setAuthIsDone(true);
+          return;
+        }
+      } catch (error) {}
+    };
+    authMe();
+  }, []);
 
   return (
     <GlobalContext.Provider

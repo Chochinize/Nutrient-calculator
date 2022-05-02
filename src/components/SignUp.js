@@ -25,7 +25,7 @@ console.log('open/close',open)
     e.preventDefault();
     console.log('erererer')
     try {                           
-      const res = await axios.post("/u/SignUp", {
+      const res = await axios.post("/u/", {
         name: user.name,
         email: user.email,
         password: user.password,
