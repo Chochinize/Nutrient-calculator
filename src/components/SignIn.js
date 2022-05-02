@@ -33,7 +33,7 @@ console.log(auth)
       console.log(axios.defaults.baseURL)
         setAuthIsDone(true);
         dispatch({ type: 'AUTH', payload: res.data.user})
-        navigate(`/u/${res.data.user._id}`) 
+        navigate(`/`) 
     } catch (err) {
       console.log(err)
       err.response.data.msg && setErr(err.response.data.msg);
