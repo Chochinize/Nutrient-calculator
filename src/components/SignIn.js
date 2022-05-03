@@ -11,7 +11,7 @@ const Login = (props ) => {
   const navigate = useNavigate();
   const { users, state, dispatch, setAuthIsDone,authIsDone,auth } = useAuth();
  
-console.log(auth)
+console.log(state)
   const onChangeInput = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
@@ -33,7 +33,7 @@ console.log(auth)
       console.log(axios.defaults.baseURL)
         setAuthIsDone(true);
         dispatch({ type: 'AUTH', payload: res.data.user})
-        navigate(`/`) 
+        navigate(`/u/${res.data.user._id}`) 
     } catch (err) {
       console.log(err)
       err.response.data.msg && setErr(err.response.data.msg);
