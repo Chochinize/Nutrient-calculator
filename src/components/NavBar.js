@@ -24,17 +24,9 @@ const NavBar = () => {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-  useEffect(()=>{
-    return state
-  },[state])
+  
   console.log(offset);
-  const { id } = useParams();
-  useEffect(async () => {
-    const res = await axios.get("/", {
-      withCredentials: true,
-    });
-    console.log('res.data',res);
-  }, []);
+
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
   }
