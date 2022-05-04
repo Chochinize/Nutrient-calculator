@@ -1,12 +1,11 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
-
-
-
+import "chartjs-plugin-streaming";
 
 
 
 import moment from "moment";
+import { useState, useEffect } from "react";
 var q1 = "This is question 1";
 var q2 = "This is question 2";
 var q3 = "This is question 3";
