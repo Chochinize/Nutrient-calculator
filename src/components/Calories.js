@@ -151,7 +151,7 @@ const saveDaily = async()=>{
       
       <div className=" m-2  ">
        <div className="grid ">
-       <div className="w-12 h-12 border-2 justify-self-start  ml-4 rounded-full absolute xs:left-12 top-6"></div>
+       <div className="w-12 h-12 border-2 justify-self-start  ml-2 rounded-full absolute  top-6"></div>
 
         <div className="flex flex-row border-2 relative top-4 justify-self-end gap-y-4">
 
