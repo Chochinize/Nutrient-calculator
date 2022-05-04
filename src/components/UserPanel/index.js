@@ -5,7 +5,6 @@ import axios from "axios";
 import useAuth from "../hooks/useAuth";
 import Loaders from "../Loaders";
 
-import LineChart from "../Charts/LineChart";
 const index = () => {
   const id = useParams();
 
@@ -46,7 +45,7 @@ const index = () => {
                 <div className="h-8 xs:square sm:h-auto xs:square border-[2px] bg-gradient-to-r from-white to-white border-black mb-2 rounded-[10px] xs:h-auto md:square md:h-auto ">
                     
                   <Calories />
-                  {/* <Loaders/> */}
+
                 </div>
                 <div className="h-8 xs:square sm:h-auto sm:square md-full:square xs:s border-[1px] border-black mb-2 rounded-[10px]  xs:h-auto md:h-auto ">
               
