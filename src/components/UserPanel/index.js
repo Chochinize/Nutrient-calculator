@@ -49,7 +49,7 @@ const index = () => {
                   {/* <Loaders/> */}
                 </div>
                 <div className="h-8 xs:square sm:h-auto sm:square md-full:square xs:s border-[1px] border-black mb-2 rounded-[10px]  xs:h-auto md:h-auto ">
-                    <LineChart/>
+                    {/* <LineChart/> */}
                 </div>
                 <div className="h-8 bg-blue-500 sm:square sm:h-auto xs:square xs:h-auto md:square md:h-auto  ">Here is Chart</div>
                 <div className="h-8 bg-blue-500 xs:square xs:h-auto md:square md:h-auto"></div>
