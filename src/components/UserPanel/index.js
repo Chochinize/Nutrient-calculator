@@ -32,10 +32,12 @@ const index = () => {
             <div className="h-14  bg-yellow-200 grow max-w-full">1</div>
           </div>
         </h1>
-      </div>:    <div className=" px-4 xs:w-full grid gap-4   ">
+      </div>
+      :
+      <div className=" px-4 xs:w-full grid gap-4   ">
         <h1 className="text-4xl font-extrabold">
           <div className="flex gap-2 ">
-            <div className="grow max-w-full   border-2">1</div>
+            <div className="grow max-w-full  xs:invisible sm:invisible md:invisible  border-2">3</div>
             <div className="grow max-w-[550px] ">
               <>
                 {" "}
@@ -49,7 +51,7 @@ const index = () => {
                 <div className="h-8 bg-blue-500 xs:square xs:h-auto md:square md:h-auto"></div>
               </>
             </div>
-            <div className="h-14  bg-yellow-200 grow max-w-full">1</div>
+            <div className="grow max-w-full  xs:invisible sm:invisible  lg:visible  border-2">2</div>
           </div>
         </h1>
       </div>}
