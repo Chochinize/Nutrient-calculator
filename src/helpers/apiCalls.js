@@ -1,4 +1,4 @@
-const serverUrl = 'https://web-sensor.herokuapp.com'
+const serverUrl = 'http://localhost:5050'
 export const authenticateUser = async () => {
   try {
     const res = await (
