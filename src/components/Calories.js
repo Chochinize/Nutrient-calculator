@@ -19,10 +19,10 @@ const Calories = () => {
   const id = useParams()
   
   const initialResult = {
-    protein:[],
-    carbs: [],
-    fats:[],
-    cc:[]
+    protein:[0],
+    carbs: [0],
+    fats:[0],
+    cc:[0]
   }
   const [ result, setResult ] = useState(initialResult)
 
@@ -60,8 +60,8 @@ const Calories = () => {
   };
 
 
-
-  
+const Protein = result.cc.reduce((prev,next)=>prev+next,0).toFixed(1)/10
+  console.log(Protein)
 const saveDaily = async()=>{
   setColor({green:'white'})
   try {
@@ -81,7 +81,9 @@ const saveDaily = async()=>{
    showed:false,
    text:'white',
   })
+  useEffect(()=>{
 
+  },[result])
   const Send = async (nutri,c,f) => {
 
     const fil = cal.map((filteredProduct)=>Object.entries(filteredProduct.nutritions).filter(([key,val]) => key === product ) )
@@ -151,7 +153,7 @@ const saveDaily = async()=>{
       
       <div className=" m-2  ">
        <div className="grid ">
-       <div className="w-12 h-12 border-2 justify-self-start  ml-2 rounded-full absolute  top-6"></div>
+       <div className="w-12 h-12 border-2 justify-self-start  ml-2 rounded-full absolute top-6"></div>
 
         <div className="flex flex-row border-2 relative top-4 justify-self-end gap-y-4">
 
@@ -335,21 +337,23 @@ const saveDaily = async()=>{
         </div>
       </div>
 
+
+
       <div className=" md:text-[1.5vw] sm:text-[18px] top-6  xs:text-[18px] relative  h-max">
         
         <h1 className="">Today nutritions</h1>
        {state ?
-        <ul className="px-2  relative right-4 m-2 top-2 text-right text-green-400"> 
+        <ul className="px-2  relative right-4 m-2 top-2 text-right text-black"> 
               {/* <li>{array.reduce((previousValue, currentValue) => previousValue+ currentValue, 0).toFixed(1)}</li> */}
-              <li>{result.protein.reduce((prev,next)=>prev+next,0).toFixed(1)}</li>
-              <li>{result.carbs.reduce((prev,next)=>prev+next,0).toFixed(1)}</li>
-              <li>{result.fats.reduce((prev,next)=>prev+next,0).toFixed(1)}</li>
+              <li>{result.protein.reduce((prev,next)=>prev+next,0).toFixed(0)} / ({result.protein.reduce((prev,next)=>prev+next,0)/result.cc.reduce((prev,next)=>prev+next,0).toFixed(1)*10})</li>
+              <li>{result.carbs.reduce((prev,next)=>prev+next,0).toFixed(1)} /<span className="text-gray-400 text-[20px]">({(result.carbs.reduce((prev,next)=>prev+next,0).toFixed(1)/(result.cc.reduce((prev,next)=>prev+next,0).toFixed(1)*10)*100).toFixed(0)}%)</span></li>
+              <li>{result.fats.reduce((prev,next)=>prev+next,0).toFixed(1)} /<span className="text-gray-400 text-[20px]">({(result.fats.reduce((prev,next)=>prev+next,0).toFixed(1)/(result.cc.reduce((prev,next)=>prev+next,0).toFixed(1)*10)*100).toFixed(0)}%)</span></li>
               <li>{result.cc.reduce((prev,next)=>prev+next,0).toFixed(1)*10}</li>
               
               
         </ul> :   <ul className="px-2  relative right-4 m-2 top-2 text-right text-red-400"> 
               {/* <li>{array.reduce((previousValue, currentValue) => previousValue+ currentValue, 0).toFixed(1)}</li> */}
-              <li>{result.protein.reduce((prev,next)=>prev+next,0).toFixed(1)}</li>
+              <li>{result.protein.reduce((prev,next)=>prev+next,0).toFixed(1)} </li>
               <li>{result.carbs.reduce((prev,next)=>prev+next,0).toFixed(1)}</li>
               <li>{result.fats.reduce((prev,next)=>prev+next,0).toFixed(1)}</li>
               <li>{result.cc.reduce((prev,next)=>prev+next,0).toFixed(1)*10}</li>
