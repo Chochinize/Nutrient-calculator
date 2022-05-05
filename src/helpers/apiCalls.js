@@ -1,4 +1,4 @@
-const serverUrl = 'https://web-sensor.herokuapp.com/'
+const serverUrl = 'https://web-sensor.herokuapp.com'
 export const authenticateUser = async () => {
   try {
     const res = await (
