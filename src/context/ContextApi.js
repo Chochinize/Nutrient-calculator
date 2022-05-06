@@ -44,7 +44,6 @@ useEffect(() => {
           setUser(res);
           console.log('fast data check',res._id)
           setAuthIsDone(true);
-          navigate(`/u/${res._id}`);
           return;
         }
       } catch (error) {}
