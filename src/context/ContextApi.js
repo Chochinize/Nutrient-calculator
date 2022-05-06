@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState, useReducer } from "react";
 import { authenticateUser } from "../helpers/apiCalls";
 import reducer  from "./reducer";
+import axios from "axios";
 
 export const GlobalContext = createContext();
 
@@ -10,13 +11,25 @@ const ContextApi = ({ children }) => {
   const [show, setShow] = useState(false);
 
   const initialState = { 
-    notify: {}, auth: {}, cart: [], modal: [], orders: [], users: [], categories: [], 
+    notify: {}, auth: {}, cart: [], modal: [], orders: [], users: [], categories: [],products:[] 
 
     
 }
 
 const [state, dispatch] = useReducer(reducer, initialState)
-
+console.log('state products',state)
+useEffect(() => {
+  try {
+    const fetchData = async () => {
+      const res = await axios.get(`/u/`);
+      console.log('refetching',res)
+      dispatch({type:'PRODUCTS', payload:res})
+    };
+    fetchData();
+  } catch (error) {
+    return error;
+  }
+}, []);
 
   useEffect(() => {
     

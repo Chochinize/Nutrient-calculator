@@ -1,6 +1,7 @@
 export const  ACTIONS = {
     NOTIFY : 'NOTIFY',
     AUTH: 'AUTH',
+    PRODUCTS:'PRODUCTS',
     ADD_CART:'ADD_CART',
     ADD_MODAL:'ADD_MODAL',
     ADD_ORDERS:'ADD_ORDERS',

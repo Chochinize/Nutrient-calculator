@@ -12,6 +12,11 @@ const reducer = ( state, action ) =>{
             ...state,
             auth: action.payload,
           };
+        case ACTIONS.PRODUCTS:
+          return{
+            ...state,
+            products:action.payload
+          }
     }
     
 } 
