@@ -39,7 +39,7 @@ const Calories = () => {
   useEffect(() => {
     try {
       const fetchData = async () => {
-        const res = await axios.get(`/u/:id`);
+        const res = await axios.get(`/u/`);
         setCal(res.data.product);
       };
       fetchData();
