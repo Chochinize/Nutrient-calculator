@@ -17,6 +17,7 @@ const Calories = () => {
   const [array,setArray] = useState([]);
   
   const id = useParams()
+  console.log('id',id.id)
   
   const initialResult = {
     protein:[0],
@@ -62,11 +63,13 @@ const Calories = () => {
 
 const Protein = result.cc.reduce((prev,next)=>prev+next,0).toFixed(1)/10
   console.log(Protein)
+
+  
 const saveDaily = async()=>{
   setColor({green:'white'})
   try {
     const res = await axios.post(
-      "/u/daily",
+      `/u/${id.id}`,
       { result },
       );
       console.log(res)

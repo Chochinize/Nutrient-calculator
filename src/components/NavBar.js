@@ -26,6 +26,7 @@ const NavBar = () => {
   }, []);
   
   console.log(offset);
+  const { id } = useParams();
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
