@@ -71,6 +71,7 @@ const saveDaily = async()=>{
     const res = await axios.post(
       `/u/${id.id}`,
       { result },
+      
       );
       console.log(res)
   } catch (error) {
@@ -85,10 +86,17 @@ const saveDaily = async()=>{
    text:'white',
   })
   useEffect(()=>{
-
-  },[result])
+    try {
+      const fetchData = async () => {
+        const res = await axios.get(`/u/${id.id}`);
+        console.log(res)
+      };
+      fetchData();
+    } catch (error) {
+      return error;
+    }
+  },[])
   const Send = async (nutri,c,f) => {
-
     const fil = cal.map((filteredProduct)=>Object.entries(filteredProduct.nutritions).filter(([key,val]) => key === product ) )
     
     // console.log(fil.map((n)=> Object.fromEntries(n)))
