@@ -35,21 +35,21 @@ const index = () => {
         {!state.auth?.verified?.status ? <div className=" px-4 xs:w-full grid gap-4   ">
         <h1 className="text-4xl font-extrabold">
           <div className="flex gap-2 ">
-            <div className="grow max-w-full   border-2">1</div>
+            <div className="grow max-w-full   "></div>
             <div className="grow max-w-[550px] ">
               <>
                 {" "}
-                <div className="h-8 xs:square sm:h-auto xs:square border-[1px] border-black mb-2 rounded-[10px] xs:h-auto md:square md:h-auto ">
+                <div className="h-8 xs:square sm:h-auto xs:square  mb-2 rounded-[10px] xs:h-auto md:square md:h-auto ">
                     
                 
                   <Loaders/>
                 </div>
-                <div className="h-8 bg-blue-500 sm:square sm:h-auto xs:square xs:h-auto md:square md:h-auto  ">Here is Chasecond chartrt</div>
-                <div className="h-8 bg-blue-500 sm:square sm:h-auto xs:square xs:h-auto md:square md:h-auto  ">Here is Chdasdasdasdsart</div>
-                <div className="h-8 bg-blue-500 xs:square xs:h-auto md:square md:h-auto">dasdasdsa</div>
+                <div className="h-8  sm:square sm:h-auto xs:square xs:h-auto md:square md:h-auto  "></div>
+                <div className="h-8  sm:square sm:h-auto xs:square xs:h-auto md:square md:h-auto  "></div>
+                <div className="h-8  xs:square xs:h-auto md:square md:h-auto"></div>
               </>
             </div>
-            <div className="h-14  bg-yellow-200 grow max-w-full">1</div>
+            <div className="h-14   grow max-w-full"></div>
           </div>
         </h1>
       </div>
@@ -57,7 +57,7 @@ const index = () => {
       <div className=" px-4 xs:w-full grid gap-4   ">
         <h1 className="text-4xl font-extrabold">
           <div className="flex gap-2 ">
-            <div className="grow max-w-full  xs:hidden sm:invisible lg:visible  ">3</div>
+            <div className="grow max-w-full  xs:hidden sm:invisible lg:visible  "></div>
             <div className="grow max-w-[550px] ">
               <>
                 {" "}
@@ -80,7 +80,7 @@ const index = () => {
                 </div>
               </>
             </div>
-            <div className="grow max-w-full  xs:hidden sm:invisible  lg:visible  border-2">2</div>
+            <div className="grow max-w-full  xs:hidden sm:invisible  lg:visible  "></div>
           </div>
         </h1>
       </div>}

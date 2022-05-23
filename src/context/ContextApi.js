@@ -46,7 +46,9 @@ useEffect(() => {
           setAuthIsDone(true);
           return;
         }
-      } catch (error) {}
+      } catch (error) {
+        return error
+      }
     };
     authMe();
   }, []);
