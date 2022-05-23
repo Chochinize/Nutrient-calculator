@@ -17,7 +17,7 @@ const Calories = () => {
   const [array,setArray] = useState([]);
   
   const id = useParams()
-  console.log('id',id.id)
+
   
   const initialResult = {
     protein:[0],
@@ -28,15 +28,9 @@ const Calories = () => {
   const [ result, setResult ] = useState(initialResult)
 
 
-  // const [ result, setResult ] = useState({
-  //   protein:[0],
-  //   carbs: [0],
-  //   fats:[0]
-  // })
-  // setResult(prevState=>({...prevState,protein:3}))
-  // console.log(result.protein)
 
-  console.log('from calories', cal)
+
+ 
   useEffect(() => {
     try {
       const fetchData = async () => {
@@ -62,7 +56,7 @@ const Calories = () => {
 
 
 const Protein = result.cc.reduce((prev,next)=>prev+next,0).toFixed(1)/10
-  console.log(Protein)
+  
 
   
 const saveDaily = async()=>{
@@ -73,7 +67,7 @@ const saveDaily = async()=>{
       { result },
       
       );
-      console.log(res)
+      console.log('response',res)
   } catch (error) {
     console.log(error)
   }
@@ -89,7 +83,7 @@ const saveDaily = async()=>{
     try {
       const fetchData = async () => {
         const res = await axios.get(`/u/${id.id}`);
-        console.log(res)
+
       };
       fetchData();
     } catch (error) {

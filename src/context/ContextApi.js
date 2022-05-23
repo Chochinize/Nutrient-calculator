@@ -12,7 +12,7 @@ const ContextApi = ({ children }) => {
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
   const initialState = { 
-    notify: {}, auth: {}, cart: [], modal: [], orders: [], users: [], categories: [],products:[] 
+    notify: {}, auth: {}, cart: [], modal: [], dailies:[], users: [], categories: [],products:[] 
 
     
 }
@@ -41,7 +41,7 @@ useEffect(() => {
 
         if (!res.error) {
           dispatch({ type: 'AUTH', payload:res})
-          setUser(res);
+          setUser('we dont need user here',res);
           console.log('fast data check',res._id)
           setAuthIsDone(true);
           return;

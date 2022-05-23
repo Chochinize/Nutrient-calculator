@@ -33,14 +33,7 @@ const Home = () => {
   return (
    <div >
      <div className='absolute'>
-      {/* {state?.token ? state.token.id: 'nqma token'} */}
-      {/* {state.message.map((item,id)=>{
-        return(
-          <div key={id}>
-            {item.artist}
-          </div>
-        )
-      })} */}
+dsadas
      </div>
      <div>{err.msg}</div>
    </div>

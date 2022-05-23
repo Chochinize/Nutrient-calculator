@@ -10,21 +10,22 @@ const index = () => {
   const videoRef = useRef(null)
   const photoRef = useRef(null)
 
-  const getVideo = ()=>{
-    navigator.mediaDevices.getUserMedia({
-      video:{width:1920, height:1080}
-    }).then(stream=>{
-      let video = videoRef.current;
-      video.srcObject = stream;
-      video.play();
-    }).catch(err=>{
-      console.log(err)
-    })
-  }
+  // const getVideo = ()=>{
+  //   navigator.mediaDevices.getUserMedia({
+  //     audio:true,
+  //     video:{width:1920, height:1080,}
+  //   }).then(stream=>{
+  //     let video = videoRef.current;
+  //     video.srcObject = stream;
+  //     video.play();
+  //   }).catch(err=>{
+  //     console.log(err)
+  //   })
+  // }
 
-  useEffect(()=>{
-    getVideo();
-  },[videoRef])
+  // useEffect(()=>{
+  //   getVideo();
+  // },[videoRef])
 
   const { state } = useAuth();
   console.log('state from user', state.auth?.verified?.status)
@@ -66,10 +67,17 @@ const index = () => {
 
                 </div>
                 <div className="h-8 xs:square sm:h-auto sm:square md-full:square xs:s border-[1px] border-black mb-2 rounded-[10px]  xs:h-auto md:h-auto ">
-              <video ref={videoRef}> </video>
+             
+                
                 </div>
-                <div className="h-8 bg-blue-500 sm:square sm:h-auto xs:square xs:h-auto md:square md:h-auto  ">Herdsadasdasde is Chart</div>
-                <div className="h-8 bg-blue-500 xs:square xs:h-auto md:square md:h-auto"></div>
+                <div className="h-8 xs:square sm:h-auto sm:square md-full:square xs:s border-[1px] border-black mb-2 rounded-[10px]  xs:h-auto md:h-auto ">
+              {/* <video ref={videoRef}> </video> */}
+              
+                </div>
+                <div className="h-8 xs:square sm:h-auto sm:square md-full:square xs:s border-[1px] border-black mb-2 rounded-[10px]  xs:h-auto md:h-auto ">
+              {/* <video ref={videoRef}> </video> */}
+              
+                </div>
               </>
             </div>
             <div className="grow max-w-full  xs:hidden sm:invisible  lg:visible  border-2">2</div>
