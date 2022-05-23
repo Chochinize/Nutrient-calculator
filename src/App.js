@@ -34,7 +34,7 @@ function App() {
   // setResult(prevState=>({...prevState,protein:3}))
   // console.log(result.protein)
   useEffect(() => {
-    document.title = "new title"
+    document.title = "WrokWrok"
  }, []);
       return (
                  
