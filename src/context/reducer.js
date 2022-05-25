@@ -17,6 +17,11 @@ const reducer = ( state, action ) =>{
             ...state,
             products:action.payload
           }
+        case  ACTIONS.ADD_DAILIES:
+          return{
+            ...state,
+            dailies:action.payload
+          }
     }
     
 } 

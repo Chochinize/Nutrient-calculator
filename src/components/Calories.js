@@ -5,12 +5,14 @@ import useAuth from "./hooks/useAuth";
 import { useParams } from "react-router-dom";
 
 
+
 const Calories = () => {
+  const {dispatch, setAuthIsDone,authIsDone,auth ,state} = useAuth();
   const [cal, setCal] = useState([]);
   const [gram, setGram] = useState({ gram: 0 });
   const [product, setProduct] = useState("");
   const [daily, setDaily] = useState([]);
-  const [state, setState] = useState(false);
+  const [state1, setState] = useState(false);
 
   const [demo, setDemo] = useState([]);
   
@@ -58,14 +60,14 @@ const Calories = () => {
 const Protein = result.cc.reduce((prev,next)=>prev+next,0).toFixed(1)/10
   
 
-  
+  console.log('dispatching result',result)
 const saveDaily = async()=>{
   setColor({green:'white'})
   try {
     const res = await axios.post(
       `/u/${id.id}`,
       { result },
-      
+      dispatch({ type: 'DAILIES', payload: result})
       );
       console.log('response',res)
   } catch (error) {
@@ -149,7 +151,7 @@ const saveDaily = async()=>{
     } catch (error) {
       return error;
     }
-  }, [state]);
+  }, [state1]);
 
   return (
     
@@ -347,7 +349,7 @@ const saveDaily = async()=>{
       <div className=" md:text-[1.5vw] sm:text-[18px] top-6  xs:text-[18px] relative  h-max">
         
         <h1 className="">Today nutritions</h1>
-       {state ?
+       {state1 ?
         <ul className="px-2  relative right-4 m-2 top-2 text-right text-black"> 
               {/* <li>{array.reduce((previousValue, currentValue) => previousValue+ currentValue, 0).toFixed(1)}</li> */}
               <li>{result.protein.reduce((prev,next)=>prev+next,0).toFixed(1)} <span className="text-[12px] text-gray-400"> ({result.protein.reduce((prev,next)=>prev+next,0)/result.protein.reduce((prev,next)=>prev+next,0)+result.carbs.reduce((prev,next)=>prev+next,0)+result.fats.reduce((prev,next)=>prev+next,0)})</span></li>
@@ -368,7 +370,7 @@ const saveDaily = async()=>{
        }
         <div className=" text-center ">
 
-{state ? <button onClick={()=>saveDaily()}  className={`border-[1px] w-max m-auto  border-${color.green}-400 text-${color.text} rounded-md  text-[15px]  px-4`}>Save your daily nutrition</button> :
+{state1 ? <button onClick={()=>saveDaily()}  className={`border-[1px] w-max m-auto  border-${color.green}-400 text-${color.text} rounded-md  text-[15px]  px-4`}>Save your daily nutrition</button> :
          color.active ? <button onClick={()=>saveDaily()}  className={` border-[1px]    w-max m-auto  rounded-md  text-[15px]  px-4 ` }>Save your daily nutrition</button> : 
          color.showed ? <button onClick={()=>saveDaily()}  disabled  className='border-[1px] border-red-400  w-max m-auto  rounded-md  text-[15px]  px-4'>Save your daily nutrition</button> : ''} 
 </div>

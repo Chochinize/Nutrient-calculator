@@ -4,6 +4,7 @@ import Calories from "../Calories";
 import axios from "axios";
 import useAuth from "../hooks/useAuth";
 import Loaders from "../Loaders";
+import BarChart from "../Charts/BarChart";
 
 const index = () => {
   const id = useParams();
@@ -28,7 +29,7 @@ const index = () => {
   // },[videoRef])
 
   const { state } = useAuth();
-  console.log('state from user', state.auth?.verified?.status)
+  const currentData = {protein:130,carbs:120,fats:30,calorie:33}
 
   return (
     <div className="grid    relative top-44">
@@ -67,11 +68,12 @@ const index = () => {
 
                 </div>
                 <div className="h-8 xs:square sm:h-auto sm:square md-full:square xs:s border-[1px] border-black mb-2 rounded-[10px]  xs:h-auto md:h-auto ">
-             
+                <BarChart currentData={currentData} />
                 
                 </div>
                 <div className="h-8 xs:square sm:h-auto sm:square md-full:square xs:s border-[1px] border-black mb-2 rounded-[10px]  xs:h-auto md:h-auto ">
               {/* <video ref={videoRef}> </video> */}
+              
               
                 </div>
                 <div className="h-8 xs:square sm:h-auto sm:square md-full:square xs:s border-[1px] border-black mb-2 rounded-[10px]  xs:h-auto md:h-auto ">

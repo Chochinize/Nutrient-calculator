@@ -12,13 +12,13 @@ const ContextApi = ({ children }) => {
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
   const initialState = { 
-    notify: {}, auth: {}, cart: [], modal: [], dailies:[], users: [], categories: [],products:[] 
+    notify: {}, auth: {}, cart: [], modal: [], dailies:[0], users: [], categories: [],products:[] 
 
     
 }
 
 const [state, dispatch] = useReducer(reducer, initialState)
-console.log('state products',state)
+console.log('state products',state.dailies.protein)
 useEffect(() => {
   try {
     const fetchData = async () => {
