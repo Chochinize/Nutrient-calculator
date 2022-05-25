@@ -29,7 +29,7 @@ import useAuth from '../hooks/useAuth';
 //     ],
 //   };
 
-export default function BarChart({currentData}) {
+export default function BarChart() {
 
     const data = {
         labels: ['Protein', 'Carbohydrate', 'Fats', 'Calories'],
@@ -55,7 +55,7 @@ export default function BarChart({currentData}) {
           },
         ],
       };
-    const { protein,carbs,fats,calorie} =  currentData;
+    
 
     
     const {dispatch, setAuthIsDone,authIsDone,auth , state } = useAuth();
@@ -105,5 +105,7 @@ export default function BarChart({currentData}) {
         }]
     })
 
-  return <Pie data={stateus} />;
+  return <>
+   <Pie data={stateus} />
+  </>
 }
