@@ -1,5 +1,4 @@
 import React,{useState, useEffect} from 'react';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 import useAuth from '../hooks/useAuth';
 
