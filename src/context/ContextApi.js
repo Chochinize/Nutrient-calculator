@@ -11,8 +11,10 @@ const ContextApi = ({ children }) => {
   const [authIsDone, setAuthIsDone] = useState(false);
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
+
+  
   const initialState = { 
-    notify: {}, auth: {}, cart: [], modal: [], dailies:[0], users: [], categories: [],products:[] 
+    notify: {}, auth: {}, cart: [], modal: [], dailies:{protein:[0],carbs:[0],fats:[0],cc:[0]}, users: [], categories: [],products:[] 
 
     
 }

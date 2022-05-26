@@ -69,7 +69,6 @@ const saveDaily = async()=>{
       { result },
       dispatch({ type: 'DAILIES', payload: result})
       );
-      console.log('response',res)
   } catch (error) {
     console.log(error)
   }

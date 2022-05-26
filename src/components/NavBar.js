@@ -14,9 +14,7 @@ const NavBar = () => {
   const [offset, setOffset] = useState(0);
   
   const { state,user } = useAuth();
-  
-  console.log('from auth',state.auth?.verified?.status);
-  console.log(console.log(state.auth.email))
+
   useEffect(() => {
     const onScroll = () => setOffset(window.pageYOffset);
     // clean up code

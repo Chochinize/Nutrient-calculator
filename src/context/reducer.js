@@ -1,6 +1,7 @@
 import { ACTIONS } from "./Actions" 
 
 const reducer = ( state, action ) =>{
+  console.log('from reducer',action.payload)
     switch( action.type ){
         case ACTIONS.ADD_USERS:
             return {

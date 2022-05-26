@@ -1,46 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { Doughnut } from "react-chartjs-2";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend,} from "chart.js";
+import ChartDataLabels from 'chartjs-plugin-datalabels';
+import { Doughnut,Chart } from "react-chartjs-2";
 import  useAuth from '../hooks/useAuth'
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(ArcElement, Tooltip, Legend,ChartDataLabels);
 
-// export const data = {
-//   labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-//   datasets: [
-//     {
-//       label: '# of Votes',
-//       data: [2, 19, 3, 5, 2, 3],
-//       backgroundColor: [
-//         'rgba(255, 99, 132, 0.2)',
-//         'rgba(54, 162, 235, 0.2)',
-//         'rgba(255, 206, 86, 0.2)',
-//         'rgba(75, 192, 192, 0.2)',
-//         'rgba(153, 102, 255, 0.2)',
-//         'rgba(255, 159, 64, 0.2)',
-//       ],
-//       borderColor: [
-//         'rgba(255, 99, 132, 1)',
-//         'rgba(54, 162, 235, 1)',
-//         'rgba(255, 206, 86, 1)',
-//         'rgba(75, 192, 192, 1)',
-//         'rgba(153, 102, 255, 1)',
-//         'rgba(255, 159, 64, 1)',
-//       ],
-//       borderWidth: 1,
-//     },
-//   ],
-// };
-
+console.log(ChartDataLabels)
 export default function BarChart() {
-
     const { state } = useAuth();
-    console.log(state.dailies)
+    console.log('state from Bar',state.dailies.protein)
   const [stateus, setState] = useState({
-    labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+    labels: ["Protein", "Carbohydrate", "Fats"],
     datasets: [
       {
-        data: [],
+        data: [0,0,0],
         backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -61,6 +35,24 @@ export default function BarChart() {
       },
     ],
   });
+  
+  const options = {
+        plugins: {
+          datalabels: {
+            color: 'black',
+            labels: {
+              title: {
+                font: {
+                  weight: 'bold'
+                }
+              },
+              value: {
+                color: 'red'
+              }
+            }
+          }
+        }
+  }
 
   useEffect(() => {
     setState({
@@ -74,11 +66,11 @@ export default function BarChart() {
           ],
           borderColor: "rgba(30,20,10,1)",
           borderWidth: 0.5,
-          data: [2,4,5],
+          data: [state.dailies.protein.reduce((prev,next)=>prev+next,0),state.dailies.carbs.reduce((prev,next)=>prev+next,0),state.dailies.fats.reduce((prev,next)=>prev+next,0)],
         },
       ],
     });
   }, [state]);
 
-  return <Doughnut data={stateus} />;
+  return <Doughnut data={stateus} options={options}/>;
 }
