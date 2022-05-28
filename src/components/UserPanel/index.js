@@ -4,7 +4,8 @@ import Calories from "../Calories";
 import axios from "axios";
 import useAuth from "../hooks/useAuth";
 import Loaders from "../Loaders";
-import BarChart from "../Charts/BarChart";
+import Doughnut from "../Charts/DoughnutChart";
+import Dna from "../HeadlessUI/Dna";
 
 const index = () => {
   const id = useParams();
@@ -68,17 +69,20 @@ const index = () => {
 
                 </div>
                 <div className="h-8 xs:square sm:h-auto sm:square md-full:square xs:s border-[1px] border-black mb-2 rounded-[10px]  xs:h-auto md:h-auto ">
-                <BarChart  />
+              <div className="">
+                  
+                   <Doughnut  />
+                </div>
                 
                 </div>
                 <div className="h-8 xs:square sm:h-auto sm:square md-full:square xs:s border-[1px] border-black mb-2 rounded-[10px]  xs:h-auto md:h-auto ">
-              {/* <video ref={videoRef}> </video> */}
-              
+                <Dna/>
+
               
                 </div>
                 <div className="h-8 xs:square sm:h-auto sm:square md-full:square xs:s border-[1px] border-black mb-2 rounded-[10px]  xs:h-auto md:h-auto ">
               {/* <video ref={videoRef}> </video> */}
-              
+              xx
                 </div>
               </>
             </div>
