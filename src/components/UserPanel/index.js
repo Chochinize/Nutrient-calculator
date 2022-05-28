@@ -5,6 +5,7 @@ import axios from "axios";
 import useAuth from "../hooks/useAuth";
 import Loaders from "../Loaders";
 import Doughnut from "../Charts/DoughnutChart";
+import BarChart from "../Charts/BarChart";
 import Dna from "../HeadlessUI/Dna";
 
 const index = () => {
@@ -68,21 +69,17 @@ const index = () => {
                   <Calories />
 
                 </div>
-                <div className="h-8 xs:square sm:h-auto sm:square md-full:square xs:s border-[1px] border-black mb-2 rounded-[10px]  xs:h-auto md:h-auto ">
-              <div className="">
-                  
+                <div className="h-87 xs:square sm:h-auto sm:square md-full:square xs:s border-[1px] border-black mb-2 rounded-[10px]  xs:h-auto md:h-auto bg-gradient-to-r from-blue-500/50 via-yellow-500/50 to-red-500/10 ">
                    <Doughnut  />
-                </div>
                 
                 </div>
                 <div className="h-8 xs:square sm:h-auto sm:square md-full:square xs:s border-[1px] border-black mb-2 rounded-[10px]  xs:h-auto md:h-auto ">
-                <Dna/>
-
-              
+              {/* <BarChart/> */}
+           
+      
                 </div>
                 <div className="h-8 xs:square sm:h-auto sm:square md-full:square xs:s border-[1px] border-black mb-2 rounded-[10px]  xs:h-auto md:h-auto ">
               {/* <video ref={videoRef}> </video> */}
-              xx
                 </div>
               </>
             </div>

@@ -12,6 +12,7 @@
     "chart.js": "^3.7.1",
     "chart.js-plugin-labels-dv": "^3.0.6",
     "chartjs-plugin-datalabels": "^2.0.0-rc.1",
+    "chartjs-plugin-doughnut-innertext": "^3.1.0",
     "chartjs-plugin-streaming": "^1.8.0",
     "jwt-decode": "^3.1.2",
     "moment": "^2.29.1",
