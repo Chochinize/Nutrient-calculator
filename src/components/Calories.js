@@ -352,7 +352,7 @@ const saveDaily = async()=>{
        {state1 ?
         <ul className="px-2  relative right-4 m-2 top-2 text-right text-black"> 
               {/* <li>{array.reduce((previousValue, currentValue) => previousValue+ currentValue, 0).toFixed(1)}</li> */}
-              <li>{result.protein.reduce((prev,next)=>prev+next,0).toFixed(1)} <span className="text-[12px] text-gray-400"> ({result.protein.reduce((prev,next)=>prev+next,0)/result.protein.reduce((prev,next)=>prev+next,0)+result.carbs.reduce((prev,next)=>prev+next,0)+result.fats.reduce((prev,next)=>prev+next,0)})</span></li>
+              <li>{result.protein.reduce((prev,next)=>prev+next,0).toFixed(1)} </li>
               <li>{result.carbs.reduce((prev,next)=>prev+next,0).toFixed(1)}</li>
               <li>{result.fats.reduce((prev,next)=>prev+next,0).toFixed(1)}</li>
               <li>{result.cc.reduce((prev,next)=>prev+next,0).toFixed(1)*10}</li>
