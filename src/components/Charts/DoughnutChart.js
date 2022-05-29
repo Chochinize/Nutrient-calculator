@@ -5,14 +5,16 @@ import { Doughnut } from "react-chartjs-2";
 import useAuth from "../hooks/useAuth";
 import "chartjs-plugin-doughnut-innertext";
 import moment from 'moment'
+import gradient from 'chartjs-plugin-gradient';
 
 
-ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels, Title,SubTitle,Filler,);
+ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels, Title,SubTitle,Filler,gradient);
 
 
 console.log(ChartDataLabels);
 export default function DoughnutChart() {
   const { state } = useAuth();
+  
 
   const [stateus, setState] = useState({
     labels: ["Protein", "Carbohydrate", "Fats"],
@@ -39,13 +41,9 @@ export default function DoughnutChart() {
       },
     ],
   });
+  
 
   const options = {
-    // centerText: {
-    //   color:'black',
-    //   value:Math.ceil(state.dailies.cc.reduce((prev, next) => prev + next, 0)*10) ,
-    //   fontSizeAdjust: -10,
-    // },
     layout: {
       
       padding: {
@@ -59,8 +57,9 @@ export default function DoughnutChart() {
       subtitle: {
         display: true,
         text:            `                                                                                              ${moment().format('ll')} `,
-        position: "top",
+        position: "bottom",
         align:'middle',
+        color:'black'
     },
       title: {
         
@@ -86,7 +85,7 @@ export default function DoughnutChart() {
           let percentage = (value*100 / sum).toFixed(2)+"%";
           return percentage;
       },
-      
+        text:'text',
         align: "middle",
         color: "black",
         font: {
@@ -106,19 +105,17 @@ export default function DoughnutChart() {
           }
       }
       },
-      animation: {
-        animateScale: true,
-      },
     },
   };
-  
 
+  const protein =   Math.ceil(
+    state.dailies.protein.reduce((prev, next) => prev + next, 0)
+  )
   useEffect(() => {
     setState({
       labels: ["Protein", "Carbohydrate", "Fats"],
       
-      datasets: [
-        {
+      datasets: [{
           backgroundColor: [
             "rgba(255, 99, 132)",
             "rgba(54, 162, 235 )",
@@ -127,9 +124,7 @@ export default function DoughnutChart() {
           borderColor: "rgba(30,20,10,1)",
           borderWidth: 0.5,
           data: [
-            Math.ceil(
-              state.dailies.protein.reduce((prev, next) => prev + next, 0)
-            ),
+          protein,
             Math.ceil(
               state.dailies.carbs.reduce((prev, next) => prev + next, 0)
             ),
