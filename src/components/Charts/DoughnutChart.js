@@ -20,7 +20,7 @@ export default function DoughnutChart() {
     labels: ["Protein", "Carbohydrate", "Fats"],
     datasets: [
       {
-        data: [0],
+        data: [],
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
           "rgba(54, 162, 235, 0.2)",
@@ -89,11 +89,11 @@ export default function DoughnutChart() {
           dataArr.map(data => {
               sum += data;
           });
-          let percentage = (value*100 / sum).toFixed(2)+"%";
-          return percentage;
+          let percentage = isNaN((value*100 / sum).toFixed(2)) ? ' ' : (value*100 / sum).toFixed(2) + '%' ;
+          return percentage ;
       },
         align: "center",
-        
+        anchor:'center',
         color: "black",
         font: {
           weight: "bold",
@@ -110,6 +110,7 @@ export default function DoughnutChart() {
           // This more specific font property overrides the global property
           color:'black',
           font: {
+              weight:'bold',
               size: 14
           }
       }
@@ -135,13 +136,13 @@ export default function DoughnutChart() {
           borderColor: "rgba(30,20,10,1)",
           borderWidth: 0.5,
           data: [
-          protein,
+          protein || '',
             Math.ceil(
               state.dailies.carbs.reduce((prev, next) => prev + next, 0)
-            ),
+            )|| '',
             Math.ceil(
               state.dailies.fats.reduce((prev, next) => prev + next, 0)
-            ),
+            ) || '',
           ],
         },
       ],
@@ -160,7 +161,7 @@ export default function DoughnutChart() {
         </div>
       </header>
 
-      <div className='absolute flex top-[180px] left-[240px] text-[14px] flex-wrap w-12 xs:left-[220px] xs:top-[160px] '>
+      <div className='absolute flex top-[180px] left-[240px] text-[14px] flex-wrap w-12 xs:left-[225px] xs:top-[160px] '>
         <span className='font-bold tracking-widest xs:text-[12px]'> {calories === 0 ? '': 'Calories'}</span>
         <div className='relative left-4 -top-3 text-[20px] font-bold xs:text-[12px] '>{calories === 0 ? '': calories}</div>
         </div>
