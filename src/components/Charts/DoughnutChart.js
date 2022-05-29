@@ -44,6 +44,7 @@ export default function DoughnutChart() {
   
 
   const options = {
+    responsive: true,
     layout: {
       
       padding: {
@@ -70,7 +71,7 @@ export default function DoughnutChart() {
         color:'black',
         position: "top",
         text:                                                                                 `                     LEGENDS`,
-        align:'middle',
+        align:'end',
         padding: {
           top: 30,
           
@@ -90,17 +91,19 @@ export default function DoughnutChart() {
       },
         align: "center",
         
-        color: "white",
+        color: "black",
         font: {
           weight: "bold",
-          size:16
+          size:12
         },
       },
-      legend: {
+        legend: {
         display: true,
         position: "right",
         align: "center",
         labels: {
+          padding:16,
+          boxWidth:14,
           // This more specific font property overrides the global property
           color:'black',
           font: {
