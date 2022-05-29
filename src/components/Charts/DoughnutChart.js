@@ -48,7 +48,7 @@ export default function DoughnutChart() {
       
       padding: {
         top: 0,
-        bottom: 100,
+        bottom: 0,
       },
     },
 
@@ -57,7 +57,7 @@ export default function DoughnutChart() {
       subtitle: {
         display: true,
         text:            `                                                                                              ${moment().format('ll')} `,
-        position: "bottom",
+        position: "top",
         align:'middle',
         color:'black'
     },
@@ -69,14 +69,17 @@ export default function DoughnutChart() {
         },
         color:'black',
         position: "top",
-        text:                                                                                 `                                                                              LEGENDS`,
+        text:                                                                                 `                     LEGENDS`,
         align:'middle',
         padding: {
-          top: 100,
+          top: 30,
+          
         },
       },
       datalabels: {
+        
         formatter: (value, ctx) => {
+
           let sum = 0;
           let dataArr = ctx.chart.data.datasets[0].data;
           dataArr.map(data => {
@@ -85,9 +88,9 @@ export default function DoughnutChart() {
           let percentage = (value*100 / sum).toFixed(2)+"%";
           return percentage;
       },
-        text:'text',
-        align: "middle",
-        color: "black",
+        align: "center",
+        
+        color: "white",
         font: {
           weight: "bold",
           size:16
@@ -101,7 +104,7 @@ export default function DoughnutChart() {
           // This more specific font property overrides the global property
           color:'black',
           font: {
-              size: 16
+              size: 14
           }
       }
       },
@@ -142,16 +145,16 @@ export default function DoughnutChart() {
   return (
     <div className="relative top-2">
         
-      <header className="text-center relative -top-2  text-black mx-[50px]">
-        <div className="text-[16px] font-bold absolute ">
+      <header className="text-center relative -top-2  text-black mx-[30px]">
+        <div className="text-[16px] font-bold absolute xs:text-[3vw] ">
           Daily graph showing % of nutritions based on calories
 
         </div>
       </header>
 
-      <div className='absolute flex top-[250px] left-[162px] text-[14px] flex-wrap w-12'>
-        <span className='font-bold tracking-widest'> {calories === 0 ? '': 'Calories'}</span>
-        <div className='relative left-3 -top-3 text-[20px] font-bold'>{calories === 0 ? '': calories}</div>
+      <div className='absolute flex top-[250px] left-[162px] text-[14px] flex-wrap w-12 xs:left-[70px] xs:top-[170px] '>
+        <span className='font-bold tracking-widest xs:text-[12px]'> {calories === 0 ? '': 'Calories'}</span>
+        <div className='relative left-3 -top-3 text-[20px] font-bold xs:text-[12px] '>{calories === 0 ? '': calories}</div>
         </div>
       <Doughnut data={stateus} options={options}  />
       

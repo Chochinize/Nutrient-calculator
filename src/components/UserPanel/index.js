@@ -74,9 +74,7 @@ const index = () => {
                 
                 </div>
                 <div className="h-8 xs:square sm:h-auto sm:square md-full:square xs:s border-[1px] border-black mb-2 rounded-[10px]  xs:h-auto md:h-auto bg-gradient-to-t from-purple-700  to-sky-600 ">
-              <BarChart/>
-           d
-      
+              {/* <BarChart/> */}
                 </div>
                 <div className="h-8 xs:square sm:h-auto sm:square md-full:square xs:s border-[1px] border-black mb-2 rounded-[10px]  xs:h-auto md:h-auto ">
               {/* <video ref={videoRef}> </video> */}

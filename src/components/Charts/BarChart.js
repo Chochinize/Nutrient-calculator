@@ -26,13 +26,18 @@ export const options = {
   
   scales:{
       y:{
+        beginAtZero: true,
+        min: 0,
           ticks:{
-              color:'green'
+              color:'black',
           }
       },
       x:{
+        beginAtZero: true,
+        min: 0,
           ticks:{
-              color:'white',
+           
+              color:'black',
               font: {
                 weight: "bold",
               },
@@ -42,11 +47,7 @@ export const options = {
   plugins: {
     zoom:{
         pan: {
-            // Boolean to enable panning
             enabled: true,
-
-            // Panning directions. Remove the appropriate direction to disable 
-            // Eg. 'y' would only allow panning in the y direction
             mode: 'xy'
         },
         zoom:{
