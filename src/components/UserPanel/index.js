@@ -5,6 +5,7 @@ import axios from "axios";
 import useAuth from "../hooks/useAuth";
 import Loaders from "../Loaders";
 import Doughnut from "../Charts/DoughnutChart";
+import BarChart from "../Charts/BarChart";
 import Dna from "../HeadlessUI/Dna";
 
 const index = () => {
@@ -63,26 +64,24 @@ const index = () => {
             <div className="grow max-w-[550px] ">
               <>
                 {" "}
-                <div className="h-8 xs:square sm:h-auto xs:square border-[2px] bg-gradient-to-r from-white to-white border-black mb-2 rounded-[10px] xs:h-auto md:square md:h-auto ">
+                <div className="h-8 xs:square sm:h-auto xs:square border-[2px] bg-gradient-to-r from-white to-white border-black mb-2 rounded-[10px] xs:h-auto  md:square md:h-auto bg-radial-at-r from-sky-400 to-indigo-900 ">
                     
                   <Calories />
 
                 </div>
-                <div className="h-8 xs:square sm:h-auto sm:square md-full:square xs:s border-[1px] border-black mb-2 rounded-[10px]  xs:h-auto md:h-auto ">
-              <div className="">
+                <div className="h-8 xs:square sm:h-auto sm:square md-full:square border-[1px] border-black mb-2 rounded-[10px]  xs:h-auto md:h-auto bg-gradient-to-t from-gray-500 via-purple-900 to-sky-600 xss:w-full">
+                <div className='h-[450px]  w-[450px] xs:w-[350px] xs:h-[350px] pl-14 xs:pl-0'>
                   
-                   <Doughnut  />
+                     <Doughnut  />
                 </div>
+  
                 
                 </div>
-                <div className="h-8 xs:square sm:h-auto sm:square md-full:square xs:s border-[1px] border-black mb-2 rounded-[10px]  xs:h-auto md:h-auto ">
-                <Dna/>
-
-              
+                <div className="h-8 xs:square sm:h-auto sm:square md-full:square xs:border-[1px] border-black mb-2 rounded-[10px]  xs:h-auto md:h-auto bg-gradient-to-t from-purple-700  to-sky-600 ">
+              <BarChart/>
                 </div>
                 <div className="h-8 xs:square sm:h-auto sm:square md-full:square xs:s border-[1px] border-black mb-2 rounded-[10px]  xs:h-auto md:h-auto ">
               {/* <video ref={videoRef}> </video> */}
-              xx
                 </div>
               </>
             </div>

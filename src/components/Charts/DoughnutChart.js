@@ -3,19 +3,24 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title,SubTitle,Filler } 
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import { Doughnut } from "react-chartjs-2";
 import useAuth from "../hooks/useAuth";
-import { getRelativePosition } from 'chart.js/helpers';
+import "chartjs-plugin-doughnut-innertext";
+import moment from 'moment'
+import gradient from 'chartjs-plugin-gradient';
 
-ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels, Title,SubTitle,Filler);
+
+ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels, Title,SubTitle,Filler,gradient);
+
 
 console.log(ChartDataLabels);
 export default function DoughnutChart() {
   const { state } = useAuth();
-  console.log("state from Bar", state.dailies.protein);
+  
+
   const [stateus, setState] = useState({
     labels: ["Protein", "Carbohydrate", "Fats"],
     datasets: [
       {
-        data: [0, 0, 0],
+        data: [],
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
           "rgba(54, 162, 235, 0.2)",
@@ -36,89 +41,132 @@ export default function DoughnutChart() {
       },
     ],
   });
+  
 
   const options = {
+    responsive:true,
     layout: {
+      
       padding: {
-        top: 0,
-        bottom: 250,
+        left:40,
+        right:20,
+        top: 50,
+        bottom: 50,
       },
     },
 
     plugins: {
-        onClick: (e) => {
-            const canvasPosition = getRelativePosition(e, chart);
       
-            // Substitute the appropriate scale IDs
-            const dataX = chart.scales.x.getValueForPixel(canvasPosition.x);
-            const dataY = chart.scales.y.getValueForPixel(canvasPosition.y);
-          },
-      title: {
+      subtitle: {
         display: true,
-        fontSize: 30,
+        text:            `                          ${moment().format('ll')} `,
         position: "top",
-        text: "                                                                                                       nutritions",
+        align:'middle',
+        color:'black',
+    },
+      title: {
+        
+        display: true,
+        font:{
+          size:14
+        },
+        color:'black',
+        position: "top",
+        text:                                                                                 `                     Daily chart`,
+        align:'center',
         padding: {
-          top: 80,
+          top: 10,
+          left:50,
+          
         },
       },
       datalabels: {
-        align: "middle",
+        
+        formatter: (value, ctx) => {
 
+          let sum = 0;
+          let dataArr = ctx.chart.data.datasets[0].data;
+          dataArr.map(data => {
+              sum += data;
+          });
+          let percentage = isNaN((value*100 / sum).toFixed(2)) ? ' ' : (value*100 / sum).toFixed(2) + '%' ;
+          return percentage ;
+      },
+        align: "center",
+        anchor:'center',
         color: "black",
         font: {
           weight: "bold",
+          size:12
         },
       },
-      legend: {
+        legend: {
         display: true,
-        position: "right",
+        position: "left",
         align: "center",
-      },
-      animation: {
-        animateScale: true,
+        labels: {
+          padding:16,
+          boxWidth:14,
+          // This more specific font property overrides the global property
+          color:'black',
+          font: {
+              weight:'bold',
+              size: 14
+          }
+      }
       },
     },
   };
 
+  const protein =   Math.ceil(
+    state.dailies.protein.reduce((prev, next) => prev + next, 0)
+  )
   useEffect(() => {
     setState({
       labels: ["Protein", "Carbohydrate", "Fats"],
-      datasets: [
-        {
+      layout:{
+        padding:10,
+      },
+      datasets: [{
           backgroundColor: [
             "rgba(255, 99, 132)",
             "rgba(54, 162, 235 )",
             "rgba(255, 206, 86)",
           ],
-          label: " Increase Rate",
           borderColor: "rgba(30,20,10,1)",
           borderWidth: 0.5,
           data: [
-            Math.ceil(
-              state.dailies.protein.reduce((prev, next) => prev + next, 0)
-            ),
+          protein || '',
             Math.ceil(
               state.dailies.carbs.reduce((prev, next) => prev + next, 0)
-            ),
+            )|| '',
             Math.ceil(
               state.dailies.fats.reduce((prev, next) => prev + next, 0)
-            ),
+            ) || '',
           ],
         },
       ],
     });
   }, [state]);
 
+  const calories = Math.ceil(state.dailies.cc.reduce((prev, next) => prev + next, 0)*10);
+
   return (
-    <div>
+    <div className="relative top-2">
         
-      <header className="text-center relative top-4 text-black mx-[50px]">
-        <div className="text-[16px] absolute ">
+      <header className="text-center relative -top-2  text-black mx-[2vw]">
+        <div className="text-[16px] font-bold absolute xs:text-[3vw] w-max ">
           Daily graph showing % of nutritions based on calories
+
         </div>
       </header>
-      <Doughnut data={stateus} options={options} />;
+
+      <div className='absolute flex top-[180px] left-[240px] text-[14px] flex-wrap w-12 xs:left-[225px] xs:top-[160px] '>
+        <span className='font-bold tracking-widest xs:text-[12px]'> {calories === 0 ? '': 'Calories'}</span>
+        <div className='relative left-4 -top-3 text-[20px] font-bold xs:text-[12px] '>{calories === 0 ? '': calories}</div>
+        </div>
+      <Doughnut data={stateus} options={options}  />
+      
     </div>
   );
 }
