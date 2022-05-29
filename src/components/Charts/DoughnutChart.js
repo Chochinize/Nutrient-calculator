@@ -44,12 +44,14 @@ export default function DoughnutChart() {
   
 
   const options = {
-    responsive: true,
+    responsive:true,
     layout: {
       
       padding: {
-        top: 0,
-        bottom: 0,
+        left:40,
+        right:20,
+        top: 50,
+        bottom: 50,
       },
     },
 
@@ -57,10 +59,10 @@ export default function DoughnutChart() {
       
       subtitle: {
         display: true,
-        text:            `                                                                                              ${moment().format('ll')} `,
+        text:            `                          ${moment().format('ll')} `,
         position: "top",
         align:'middle',
-        color:'black'
+        color:'black',
     },
       title: {
         
@@ -70,10 +72,11 @@ export default function DoughnutChart() {
         },
         color:'black',
         position: "top",
-        text:                                                                                 `                     LEGENDS`,
-        align:'end',
+        text:                                                                                 `                     Daily chart`,
+        align:'center',
         padding: {
-          top: 30,
+          top: 10,
+          left:50,
           
         },
       },
@@ -99,7 +102,7 @@ export default function DoughnutChart() {
       },
         legend: {
         display: true,
-        position: "right",
+        position: "left",
         align: "center",
         labels: {
           padding:16,
@@ -120,7 +123,9 @@ export default function DoughnutChart() {
   useEffect(() => {
     setState({
       labels: ["Protein", "Carbohydrate", "Fats"],
-      
+      layout:{
+        padding:10,
+      },
       datasets: [{
           backgroundColor: [
             "rgba(255, 99, 132)",
@@ -148,16 +153,16 @@ export default function DoughnutChart() {
   return (
     <div className="relative top-2">
         
-      <header className="text-center relative -top-2  text-black mx-[30px]">
-        <div className="text-[16px] font-bold absolute xs:text-[3vw] ">
+      <header className="text-center relative -top-2  text-black mx-[2vw]">
+        <div className="text-[16px] font-bold absolute xs:text-[3vw] w-max ">
           Daily graph showing % of nutritions based on calories
 
         </div>
       </header>
 
-      <div className='absolute flex top-[250px] left-[162px] text-[14px] flex-wrap w-12 xs:left-[70px] xs:top-[170px] '>
+      <div className='absolute flex top-[180px] left-[240px] text-[14px] flex-wrap w-12 xs:left-[220px] xs:top-[160px] '>
         <span className='font-bold tracking-widest xs:text-[12px]'> {calories === 0 ? '': 'Calories'}</span>
-        <div className='relative left-3 -top-3 text-[20px] font-bold xs:text-[12px] '>{calories === 0 ? '': calories}</div>
+        <div className='relative left-4 -top-3 text-[20px] font-bold xs:text-[12px] '>{calories === 0 ? '': calories}</div>
         </div>
       <Doughnut data={stateus} options={options}  />
       
