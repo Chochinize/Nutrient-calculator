@@ -64,18 +64,18 @@ const index = () => {
             <div className="grow max-w-[550px] ">
               <>
                 {" "}
-                <div className="h-8 xs:square sm:h-auto xs:square border-[2px] bg-gradient-to-r from-white to-white border-black mb-2 rounded-[10px] xs:h-auto md:square md:h-auto ">
+                <div className="h-8 xs:square sm:h-auto xs:square border-[2px] bg-gradient-to-r from-white to-white border-black mb-2 rounded-[10px] xs:h-auto md:square md:h-auto bg-radial-at-r from-sky-400 to-indigo-900 ">
                     
                   <Calories />
 
                 </div>
-                <div className="h-87 xs:square sm:h-auto sm:square md-full:square xs:s border-[1px] border-black mb-2 rounded-[10px]  xs:h-auto md:h-auto bg-gradient-to-r from-blue-500/50 via-yellow-500/50 to-red-500/10 ">
+                <div className="h-87 xs:square sm:h-auto sm:square md-full:square xs:s border-[1px] border-black mb-2 rounded-[10px]  xs:h-auto md:h-auto bg-gradient-to-t from-gray-500 via-purple-900 to-sky-600 ">
                    <Doughnut  />
                 
                 </div>
-                <div className="h-8 xs:square sm:h-auto sm:square md-full:square xs:s border-[1px] border-black mb-2 rounded-[10px]  xs:h-auto md:h-auto ">
-              {/* <BarChart/> */}
-           
+                <div className="h-8 xs:square sm:h-auto sm:square md-full:square xs:s border-[1px] border-black mb-2 rounded-[10px]  xs:h-auto md:h-auto bg-gradient-to-t from-purple-700  to-sky-600 ">
+              <BarChart/>
+           d
       
                 </div>
                 <div className="h-8 xs:square sm:h-auto sm:square md-full:square xs:s border-[1px] border-black mb-2 rounded-[10px]  xs:h-auto md:h-auto ">

@@ -1,118 +1,98 @@
-import React, { useState, useEffect } from "react";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title,BarElement,CategoryScale,LinearScale} from "chart.js";
-import ChartDataLabels from "chartjs-plugin-datalabels";
-import { Bar } from "react-chartjs-2";
-import useAuth from "../hooks/useAuth";
-import moment from 'moment'
-
+import React from 'react';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+import { Bar } from 'react-chartjs-2';
+import zoomPlugin from 'chartjs-plugin-zoom';
 
 ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend
-  );
+    zoomPlugin,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
+export const options = {
+  responsive: true,
   
-
-export default function BarChart() {
-  const { state } = useAuth();
-
-  const data =  {
-    datasets: [{
-        barPercentage: 0.5,
-        barThickness: 6,
-        maxBarThickness: 8,
-        minBarLength: 2,
-        data: [10, 20, 30, 40, 50, 60, 70]
-    }]
-};
-const options = {
-            layout: {
-              padding: {
-                top: 10,
-                bottom:20,
-                right: 20,
+  scales:{
+      y:{
+          ticks:{
+              color:'green'
+          }
+      },
+      x:{
+          ticks:{
+              color:'white',
+              font: {
+                weight: "bold",
               },
             },
-            tooltips: {
-              mode: 'index',
-              callbacks: {
-               title:  function(chart, data) {
-                  return data.labels;
-                }
-              }
-            },
-            showLines: true,
-            scales: {
-              xAxes: [{
-                
-                  plugins: {
-                    streaming: {
-                      frameRate: 5, // chart is drawn 5 times every second
-                    },
-                  },
-                  type: "realtime",
-                  distribution: "linear",
-                  realtime: {
-                    duration: 10000,
-                    refresh: 2000,
-                    delay: 2000,
-                    onRefresh: function (chart) {
-                      chart.data.datasets[0].data.push({
-                        x: moment(),
-                        y: Math.random()*5,
-                      });
-                    },
-                    // delay: 1000,
-                  //   time: {
-                  //     displayFormat: "h:mm",
-                  //   },
-                  },
-                  ticks: {
-                    displayFormats: 2,
-                    maxRotation: 0,
-                    minRotation: 0,
-                    stepSize: 1,
-                    maxTicksLimit: 0,
-                    minUnit: "second",
-                    source: "auto",
-                    autoSkip: false,
-                    callback: function (value) {
-                      return moment(value, "HH:mm:ss").format("HH:mm:ss");
-                    },
-                  },
-                },
-              ],
-              yAxes: [
-                {
-                  
-                  scaleLabel: {
-                    display: true,
-                    fontFamily: "Arial",
-                    labelString: "Moment",
-                    fontSize: 20,
-                    fontColor: "#6c757d",
-                  },
-                  ticks: {
-                    max: 100,
-                    min:0,
-                  },
-                },
-              ],
-            },
-          };
+      }
+  },
+  plugins: {
+    zoom:{
+        pan: {
+            // Boolean to enable panning
+            enabled: true,
 
-  return (
-    <div>
-        
-      <header className="text-center relative top-4 text-black mx-[50px]">
-        <div className="text-[16px] absolute ">
-          Daily graph showing % of nutritions based on calories
-        </div>
-      </header>
-      <Bar data={data} options={options}  />;
-    </div>
-  );
+            // Panning directions. Remove the appropriate direction to disable 
+            // Eg. 'y' would only allow panning in the y direction
+            mode: 'xy'
+        },
+        zoom:{
+            drag:true,
+            wheel:{
+                enabled:true,
+            },
+            pinch:{
+                enabled:true,
+            },
+            
+            mode:'xy',
+        },
+    }, 
+    legend: {
+      position: 'top' ,
+    },
+    title: {
+      display: true,
+      text: 'Chart.js Bar Chart',
+    },
+    
+  },
+};
+
+const labels = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+export const data = {
+  labels,
+  datasets: [
+    {
+        data: [30,50,100],
+        label: "My First dataset",
+        fillColor: ["rgba(0,10,220,0.5)","rgba(220,0,10,0.5)","rgba(220,0,0,0.5)","rgba(120,250,120,0.5)" ],
+        strokeColor: "rgba(220,220,220,0.8)", 
+        highlightFill: "rgba(220,220,220,0.75)",
+        highlightStroke: "rgba(220,220,220,1)",
+    },
+    {
+      label: 'Dataset 2',
+      data: [30,50,100],
+      backgroundColor: 'white',
+    },
+  ],
+};
+
+export default function BarChart(){
+  return <Bar options={options} data={data} />;
 }
