@@ -110,6 +110,7 @@ export default function DoughnutChart() {
           // This more specific font property overrides the global property
           color:'black',
           font: {
+              weight:'bold',
               size: 14
           }
       }
@@ -160,7 +161,7 @@ export default function DoughnutChart() {
         </div>
       </header>
 
-      <div className='absolute flex top-[180px] left-[240px] text-[14px] flex-wrap w-12 xs:left-[220px] xs:top-[160px] '>
+      <div className='absolute flex top-[180px] left-[240px] text-[14px] flex-wrap w-12 xs:left-[225px] xs:top-[160px] '>
         <span className='font-bold tracking-widest xs:text-[12px]'> {calories === 0 ? '': 'Calories'}</span>
         <div className='relative left-4 -top-3 text-[20px] font-bold xs:text-[12px] '>{calories === 0 ? '': calories}</div>
         </div>
