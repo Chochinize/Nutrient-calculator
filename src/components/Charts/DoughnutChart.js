@@ -20,7 +20,7 @@ export default function DoughnutChart() {
     labels: ["Protein", "Carbohydrate", "Fats"],
     datasets: [
       {
-        data: [0],
+        data: [],
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
           "rgba(54, 162, 235, 0.2)",
@@ -89,11 +89,11 @@ export default function DoughnutChart() {
           dataArr.map(data => {
               sum += data;
           });
-          let percentage = (value*100 / sum).toFixed(2)+"%";
-          return percentage;
+          let percentage = isNaN((value*100 / sum).toFixed(2)) ? ' ' : (value*100 / sum).toFixed(2) + '%' ;
+          return percentage ;
       },
         align: "center",
-        
+        anchor:'center',
         color: "black",
         font: {
           weight: "bold",
@@ -136,13 +136,13 @@ export default function DoughnutChart() {
           borderColor: "rgba(30,20,10,1)",
           borderWidth: 0.5,
           data: [
-          protein,
+          protein || '',
             Math.ceil(
               state.dailies.carbs.reduce((prev, next) => prev + next, 0)
-            ),
+            )|| '',
             Math.ceil(
               state.dailies.fats.reduce((prev, next) => prev + next, 0)
-            ),
+            ) || '',
           ],
         },
       ],
