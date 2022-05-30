@@ -6,8 +6,6 @@ import useAuth from "../hooks/useAuth";
 import Loaders from "../Loaders";
 import Doughnut from "../Charts/DoughnutChart";
 import BarChart from "../Charts/BarChart";
-import Dna from "../HeadlessUI/Dna";
-
 const index = () => {
   const id = useParams();
   const videoRef = useRef(null)
@@ -78,10 +76,13 @@ const index = () => {
                 
                 </div>
                 <div className="h-8 xs:square sm:h-auto sm:square md-full:square xs:border-[1px] border-black mb-2 rounded-[10px]  xs:h-auto md:h-auto bg-gradient-to-t from-purple-700  to-sky-600 ">
+                <div className='h-[350px]  w-max xs:w-[400px] xs:h-[350px] '>
               <BarChart/>
+              </div>
                 </div>
                 <div className="h-8 xs:square sm:h-auto sm:square md-full:square xs:s border-[1px] border-black mb-2 rounded-[10px]  xs:h-auto md:h-auto ">
               {/* <video ref={videoRef}> </video> */}
+              
                 </div>
               </>
             </div>
