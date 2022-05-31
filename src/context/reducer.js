@@ -23,6 +23,11 @@ const reducer = ( state, action ) =>{
             ...state,
             dailies:action.payload
           }
+        case ACTIONS.ADD_NUTRIENTS:
+          return {
+            ...state,
+            nutrients:action.payload
+          }
     }
     
 } 

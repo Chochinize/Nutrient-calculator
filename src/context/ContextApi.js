@@ -14,13 +14,13 @@ const ContextApi = ({ children }) => {
 
   
   const initialState = { 
-    notify: {}, auth: {}, cart: [], modal: [], dailies:{protein:[0],carbs:[0],fats:[0],cc:[0]}, users: [], categories: [],products:[] 
+    notify: {}, auth: {}, cart: [], modal: [], dailies:{protein:[0],carbs:[0],fats:[0],cc:[0]}, users: [], categories: [],products:[],nutrients:null,
 
     
 }
 
 const [state, dispatch] = useReducer(reducer, initialState)
-console.log('state products',state.dailies.protein)
+// console.log('state products',state.dailies.protein)
 useEffect(() => {
   try {
     const fetchData = async () => {

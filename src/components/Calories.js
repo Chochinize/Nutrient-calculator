@@ -3,6 +3,7 @@ import axios from "axios";
 import HeaderType from "./ThemeHeader/HeaderType";
 import useAuth from "./hooks/useAuth";
 import { useParams } from "react-router-dom";
+import DropDownProduct from './HeadlessUI/DropDownProduct'
 
 
 
@@ -31,7 +32,7 @@ const Calories = () => {
 
 
 
-
+console.log('product',cal)
  
   useEffect(() => {
     try {
@@ -102,7 +103,7 @@ const saveDaily = async()=>{
     try {
    
       
-      switch (product) {
+      switch (state.nutrients) {
         case 'Oats':
           setResult(prevState=>({
             protein:[...prevState.protein,(Number(nutri.g)*fil.map((m)=>Object.fromEntries(m).Oats.protein)).toFixed()/100],
@@ -120,7 +121,7 @@ const saveDaily = async()=>{
             cc:[...prevState.cc,Number((nutri.g)*fil.map((c)=>Object.fromEntries(c).Rise.cc)).toFixed()/100],
           }))
           break;
-        case 'Meal':
+        case "chicken":
           setResult(prevState=>({
           protein:[...prevState.protein,(Number(nutri.g)*fil.map((m)=>Object.fromEntries(m).Meal.protein)).toFixed()/100],
           carbs:[...prevState.carbs,Number((nutri.g)*fil.map((c)=>Object.fromEntries(c).Meal.carbs)).toFixed()/100],
@@ -160,13 +161,16 @@ const saveDaily = async()=>{
       
       <div className=" m-2  ">
        <div className="grid ">
-       <div className="w-12 h-12 border-2 justify-self-start  ml-2 rounded-full absolute top-6"></div>
+       <div className="w-11 h-11 border-2 justify-self-start  ml-2 rounded-full absolute top-6">
+         
+       </div>
 
-        <div className="flex flex-row border-2 relative top-4 justify-self-end gap-y-4">
+        <div className="flex flex-row   relative top-[14px] w-48 xs:w-36 sm:w-36 justify-self-end gap-y-4">
+          <DropDownProduct/>
 
           
     
-          <select
+          {/* <select
          
           className="h-5 text-[16px]  w-[8vw] xs:w-[12vw] text-center  focus:outline-none  "
             aria-label="Default select example"
@@ -176,21 +180,25 @@ const saveDaily = async()=>{
             <option>Rise</option>
             <option>Oats</option>
             <option>Meal</option>
-          </select>
+          </select> */}
+          
+
+          
+          
           <input
             
             type="number"
-            className="w-[40px] h-5 text-[16px] focus:outline-none text-center "
+            className="w-[52px] mx-4 my-2 h-7 text-[16px] focus:outline-none text-center "
             placeholder="grams"
             onChange={onChangeHandler}
             />
             </div>
         
           <div className="text-[0.8vw] text-right mt-4 xs:invisible h-7">(different between 1 - 2 ~% is available)</div>
-          <div className="text-[20px] z-20  ">
+          <div className="text-[20px] z-10  ">
             <div className="flex justify-between border-b-[1px] border-blue-800 ">
               <div className="ml-4 xs:ml-2">protein</div>
-              {product === "Meal" ? (
+              {state.nutrients === "chicken" ? (
                 <div>
                   {cal.map((calorie, i) => {
                     return (
@@ -200,7 +208,7 @@ const saveDaily = async()=>{
                     );
                   })}
                 </div>
-              ) : product === "Rise" ? (
+              ) : state.nutrients === "rise" ? (
                 <div>
                   {cal.map((calorie, i) => {
                     return (
@@ -210,7 +218,7 @@ const saveDaily = async()=>{
                     );
                   })}
                 </div>
-              ) : product === "Oats" ? (
+              ) :  state.nutrients === "oauts" ? (
                 <div>
                   {cal.map((calorie, i) => {
                     return (
@@ -227,7 +235,7 @@ const saveDaily = async()=>{
 
             <div className="flex  justify-between border-b-[1px] border-blue-800">
               <div className="ml-4 xs:ml-2" >carbs</div>
-              {product === "Meal" ? (
+              { state.nutrients === "chicken" ? (
                 <div>
                   {cal.map((calorie, i) => {
                     return (
@@ -237,7 +245,7 @@ const saveDaily = async()=>{
                     );
                   })}
                 </div>
-              ) : product === "Rise" ? (
+              ) :  state.nutrients === "rise" ? (
                 <div>
                   {cal.map((calorie, i) => {
                     return (
@@ -247,7 +255,7 @@ const saveDaily = async()=>{
                     );
                   })}
                 </div>
-              ) : product === "Oats" ? (
+              ) :  state.nutrients === "oats" ? (
                 <div>
                   {cal.map((calorie, i) => {
                     return (
@@ -263,7 +271,7 @@ const saveDaily = async()=>{
             </div>
             <div className="flex justify-between border-b-[1px] border-blue-800">
               <div className="ml-4 xs:ml-2">fats</div>
-              {product === "Meal" ? (
+              { state.nutrients === "chicken" ? (
                 <div>
                   {cal.map((calorie, i) => {
                     return (
@@ -273,7 +281,7 @@ const saveDaily = async()=>{
                     );
                   })}
                 </div>
-              ) : product === "Rise" ? (
+              ) :  state.nutrients === "rise" ? (
                 <div>
                   {cal.map((calorie, i) => {
                     return (
@@ -283,7 +291,7 @@ const saveDaily = async()=>{
                     );
                   })}
                 </div>
-              ) : product === "Oats" ? (
+              ) :  state.nutrients === "oats" ? (
                 <div>
                   {cal.map((calorie, i) => {
                     return (
@@ -301,7 +309,7 @@ const saveDaily = async()=>{
             <div className="flex justify-between border-b-[1px] border-blue-800">
               
               <div className="ml-4 xs:ml-2">Calories</div>
-              <div>            {product === "Meal" ? (
+              <div>            { state.nutrients === "chicken" ? (
                 <div>
                   {cal.map((calorie, i) => {
                     return (
@@ -311,7 +319,7 @@ const saveDaily = async()=>{
                     );
                   })}
                 </div>
-              ) : product === "Rise" ? (
+              ) :  state.nutrients === "rise" ? (
                 <div>
                   {cal.map((calorie, i) => {
                     return (
@@ -321,7 +329,7 @@ const saveDaily = async()=>{
                     );
                   })}
                 </div>
-              ) : product === "Oats" ? (
+              ) :  state.nutrients === "oats" ? (
                 <div>
                   {cal.map((calorie, i) => {
                     return (
@@ -339,7 +347,7 @@ const saveDaily = async()=>{
           </div>
           <div className=" m-2 text-center">
 
-          {product && <button onClick={()=>Send(({g:gram.gram,}))} className='border-[1px] w-max m-auto  rounded-md  text-[15px]  px-4'>add</button>}
+          { state.nutrients !== null ?  <button onClick={()=>Send(({g:gram.gram,}))} className='border-[1px] w-max m-auto  rounded-md  text-[15px]  px-4'>add</button> : ''}
           </div>
         </div>
       </div>
