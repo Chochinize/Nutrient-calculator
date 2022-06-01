@@ -3,6 +3,7 @@ import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import useAuth from '../hooks/useAuth'
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
@@ -50,7 +51,7 @@ export default function ProductsList() {
                   Oats
 
                 </div>
-                <img src={process.env.PUBLIC_URL+'/oats.PNG'} className='w-5 h-5 mx-4 mt-2' />
+                <img src='https://res.cloudinary.com/dydzpejva/image/upload/v1654045355/food/oats_xh9lv8.png' className='w-5 h-5 mx-4 mt-2' />
                   </div>
               )}
             </Menu.Item>
@@ -69,7 +70,7 @@ export default function ProductsList() {
                      Rise
    
                    </div>
-                   <img src={process.env.PUBLIC_URL+'/rise.PNG'} className='w-5 h-5 mx-4 mt-2 rounded-full' />
+                   <img src='https://res.cloudinary.com/dydzpejva/image/upload/v1654045624/food/rise_cjesuv.png' className='w-5 h-5 mx-4 mt-2 rounded-full' />
                      </div>
               )}
             </Menu.Item>
@@ -89,7 +90,7 @@ export default function ProductsList() {
                          Meal
    
                    </div>
-                   <img src={process.env.PUBLIC_URL+'/chicken.PNG'} className='w-5 h-5 mx-4 mt-2' />
+                   <img src='https://res.cloudinary.com/dydzpejva/image/upload/v1654045349/food/chicken_orkxv1.png' className='w-5 h-5 mx-4 mt-2' />
                      </div>
               )}
             </Menu.Item>
@@ -108,7 +109,7 @@ export default function ProductsList() {
                        Blueberry
    
                    </div>
-                   <img src={process.env.PUBLIC_URL+'/blueberry.PNG'} className='w-5 h-5 mx-4 mt-2' />
+                   <img src='https://res.cloudinary.com/dydzpejva/image/upload/v1654045354/food/blueberry_cpnkkr.png' className='w-5 h-5 mx-4 mt-2' />
                      </div>
               )}
             </Menu.Item>
