@@ -6,8 +6,8 @@ import { useParams } from "react-router-dom";
 import DropDownProduct from './HeadlessUI/DropDownProduct'
 
 
-
 const Calories = () => {
+  console.log('process',process.env.PUBLIC_URL+'/rise.PNG')
   const {dispatch, setAuthIsDone,authIsDone,auth ,state} = useAuth();
   const [cal, setCal] = useState([]);
   const [gram, setGram] = useState({ gram: 0 });
@@ -75,7 +75,15 @@ const saveDaily = async()=>{
     console.log(error)
   }
 }
-
+const counterFunction = () => {
+  let counter = 0;
+  return () => {
+    counter ++;
+    return counter;
+  }
+}
+const incrementer = counterFunction();
+incrementer()
  const [ color, setColor ] = useState({
    green:'green',
    active:false,
@@ -94,10 +102,10 @@ const saveDaily = async()=>{
     }
   },[])
   const Send = async (nutri,c,f) => {
-    const fil = cal.map((filteredProduct)=>Object.entries(filteredProduct.nutritions).filter(([key,val]) => key === product ) )
+    const fil = cal.map((filteredProduct)=>Object.entries(filteredProduct.nutritions).filter(([key,val]) => key === state.nutrients ) )
     
     // console.log(fil.map((n)=> Object.fromEntries(n)))
-    // console.log(array)
+    console.log('fil calc',fil)
   
     setColor({green:'green',showed:true,text:'red-400'})
     try {
@@ -105,12 +113,14 @@ const saveDaily = async()=>{
       
       switch (state.nutrients) {
         case 'Oats':
+
+        console.log('first')
           setResult(prevState=>({
             protein:[...prevState.protein,(Number(nutri.g)*fil.map((m)=>Object.fromEntries(m).Oats.protein)).toFixed()/100],
             carbs:[...prevState.carbs,Number((nutri.g)*fil.map((c)=>Object.fromEntries(c).Oats.carbs)).toFixed()/100],
             fats:[...prevState.fats,Number((nutri.g)*fil.map((c)=>Object.fromEntries(c).Oats.fats)).toFixed()/100],
             cc:[...prevState.cc,Number((nutri.g)*fil.map((c)=>Object.fromEntries(c).Oats.cc)).toFixed()/100],
-          
+
           }))
           break;
         case 'Rise':
@@ -121,7 +131,7 @@ const saveDaily = async()=>{
             cc:[...prevState.cc,Number((nutri.g)*fil.map((c)=>Object.fromEntries(c).Rise.cc)).toFixed()/100],
           }))
           break;
-        case "chicken":
+        case "Meal":
           setResult(prevState=>({
           protein:[...prevState.protein,(Number(nutri.g)*fil.map((m)=>Object.fromEntries(m).Meal.protein)).toFixed()/100],
           carbs:[...prevState.carbs,Number((nutri.g)*fil.map((c)=>Object.fromEntries(c).Meal.carbs)).toFixed()/100],
@@ -198,7 +208,7 @@ const saveDaily = async()=>{
           <div className="text-[20px] z-10  ">
             <div className="flex justify-between border-b-[1px] border-blue-800 ">
               <div className="ml-4 xs:ml-2">protein</div>
-              {state.nutrients === "chicken" ? (
+              {state.nutrients === "Meal" ? (
                 <div>
                   {cal.map((calorie, i) => {
                     return (
@@ -208,7 +218,7 @@ const saveDaily = async()=>{
                     );
                   })}
                 </div>
-              ) : state.nutrients === "rise" ? (
+              ) : state.nutrients === "Rise" ? (
                 <div>
                   {cal.map((calorie, i) => {
                     return (
@@ -218,7 +228,7 @@ const saveDaily = async()=>{
                     );
                   })}
                 </div>
-              ) :  state.nutrients === "oauts" ? (
+              ) :  state.nutrients === "Oats" ? (
                 <div>
                   {cal.map((calorie, i) => {
                     return (
@@ -235,7 +245,7 @@ const saveDaily = async()=>{
 
             <div className="flex  justify-between border-b-[1px] border-blue-800">
               <div className="ml-4 xs:ml-2" >carbs</div>
-              { state.nutrients === "chicken" ? (
+              { state.nutrients === "Meal" ? (
                 <div>
                   {cal.map((calorie, i) => {
                     return (
@@ -245,7 +255,7 @@ const saveDaily = async()=>{
                     );
                   })}
                 </div>
-              ) :  state.nutrients === "rise" ? (
+              ) :  state.nutrients === "Rise" ? (
                 <div>
                   {cal.map((calorie, i) => {
                     return (
@@ -255,7 +265,7 @@ const saveDaily = async()=>{
                     );
                   })}
                 </div>
-              ) :  state.nutrients === "oats" ? (
+              ) :  state.nutrients === "Oats" ? (
                 <div>
                   {cal.map((calorie, i) => {
                     return (
@@ -271,7 +281,7 @@ const saveDaily = async()=>{
             </div>
             <div className="flex justify-between border-b-[1px] border-blue-800">
               <div className="ml-4 xs:ml-2">fats</div>
-              { state.nutrients === "chicken" ? (
+              { state.nutrients === "Meal" ? (
                 <div>
                   {cal.map((calorie, i) => {
                     return (
@@ -281,7 +291,7 @@ const saveDaily = async()=>{
                     );
                   })}
                 </div>
-              ) :  state.nutrients === "rise" ? (
+              ) :  state.nutrients === "Rise" ? (
                 <div>
                   {cal.map((calorie, i) => {
                     return (
@@ -291,7 +301,7 @@ const saveDaily = async()=>{
                     );
                   })}
                 </div>
-              ) :  state.nutrients === "oats" ? (
+              ) :  state.nutrients === "Oats" ? (
                 <div>
                   {cal.map((calorie, i) => {
                     return (
@@ -309,7 +319,7 @@ const saveDaily = async()=>{
             <div className="flex justify-between border-b-[1px] border-blue-800">
               
               <div className="ml-4 xs:ml-2">Calories</div>
-              <div>            { state.nutrients === "chicken" ? (
+              <div>            { state.nutrients === "Meal" ? (
                 <div>
                   {cal.map((calorie, i) => {
                     return (
@@ -319,7 +329,7 @@ const saveDaily = async()=>{
                     );
                   })}
                 </div>
-              ) :  state.nutrients === "rise" ? (
+              ) :  state.nutrients === "Rise" ? (
                 <div>
                   {cal.map((calorie, i) => {
                     return (
@@ -329,7 +339,7 @@ const saveDaily = async()=>{
                     );
                   })}
                 </div>
-              ) :  state.nutrients === "oats" ? (
+              ) :  state.nutrients === "Oats" ? (
                 <div>
                   {cal.map((calorie, i) => {
                     return (

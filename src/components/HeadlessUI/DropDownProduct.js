@@ -31,7 +31,7 @@ export default function ProductsList() {
         leaveTo="transform opacity-0 scale-95"
         >
         
-        <Menu.Items className="origin-top-right absolute  mt-2 w-36 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items className="origin-top-right absolute mt-2 w-36 rounded-md  h-44 shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="py-2">
           
           <Menu.Item>
@@ -41,65 +41,78 @@ export default function ProductsList() {
 
                 <div
                   
-                  onClick={(e)=>dispatch({ type:'ADD_NUTRIENTS', payload:'chicken'})}
+                  onClick={(e)=>dispatch({ type:'ADD_NUTRIENTS', payload:'Oats'})}
                   className={classNames(
                     active ? 'bg-gray-100 text-gray-900 cursor-pointer' : 'text-gray-700 cursor-pointer',
                     'block px-4 py-2 text-sm'
                     )}
                     >
-                  Chicken filets
+                  Oats
 
                 </div>
-                <img src="/logo192.png" className='w-5 h-5 mx-4 mt-2' />
+                <img src={process.env.PUBLIC_URL+'/oats.PNG'} className='w-5 h-5 mx-4 mt-2' />
                   </div>
               )}
-            </Menu.Item>d
+            </Menu.Item>
             <Menu.Item>
               {({ active }) => (
-                <div className='flex justify-between'>
+                   <div className='flex justify-between'>
 
-                <a
-                  onClick={()=>dispatch({ type:'ADD_NUTRIENTS', payload:'20'})}
-                  href="#"
-                  className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                    'block px-4 py-2 text-sm'
-                    )}
-                    >
-                  Chicken filets
-
-                </a>
-                <img src="/logo192.png" className='w-5 h-5 mx-4 mt-2' />
-                  </div>
+                   <div
+                     
+                     onClick={(e)=>dispatch({ type:'ADD_NUTRIENTS', payload:'Rise'})}
+                     className={classNames(
+                       active ? 'bg-gray-100 text-gray-900 cursor-pointer' : 'text-gray-700 cursor-pointer',
+                       'block px-4 py-2 text-sm'
+                       )}
+                       >
+                     Rise
+   
+                   </div>
+                   <img src={process.env.PUBLIC_URL+'/rise.PNG'} className='w-5 h-5 mx-4 mt-2 rounded-full' />
+                     </div>
               )}
             </Menu.Item>
             
             <Menu.Item>
               {({ active }) => (
-                <a
-                  href="#"
-                  className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                    'block px-4 py-2 text-sm'
-                  )}
-                >
-                  Support
-                </a>
+                   <div className='flex justify-between'>
+
+                   <div
+                     
+                     onClick={(e)=>dispatch({ type:'ADD_NUTRIENTS', payload:'Meal'})}
+                     className={classNames(
+                       active ? 'bg-gray-100 text-gray-900 cursor-pointer' : 'text-gray-700 cursor-pointer',
+                       'block px-4 py-2 text-sm'
+                       )}
+                       >
+                         Meal
+   
+                   </div>
+                   <img src={process.env.PUBLIC_URL+'/chicken.PNG'} className='w-5 h-5 mx-4 mt-2' />
+                     </div>
               )}
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
-                <a
-                  href="#"
-                  className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                    'block px-4 py-2 text-sm'
-                  )}
-                >
-                  License
-                </a>
+                   <div className='flex justify-between'>
+
+                   <div
+                     
+                     onClick={(e)=>dispatch({ type:'ADD_NUTRIENTS', payload:'Meal'})}
+                     className={classNames(
+                       active ? 'bg-gray-100 text-gray-900 cursor-pointer' : 'text-gray-700 cursor-pointer',
+                       'block px-4 py-2 text-sm'
+                       )}
+                       >
+                       Blueberry
+   
+                   </div>
+                   <img src={process.env.PUBLIC_URL+'/blueberry.PNG'} className='w-5 h-5 mx-4 mt-2' />
+                     </div>
               )}
             </Menu.Item>
+
           </div>
         </Menu.Items>
       </Transition>

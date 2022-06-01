@@ -35,6 +35,7 @@ function App() {
   // console.log(result.protein)
   useEffect(() => {
     document.title = "WrokWrok"
+    console.log(123)
  }, []);
       return (
                  
