@@ -131,12 +131,12 @@ incrementer()
             cc:[...prevState.cc,Number((nutri.g)*fil.map((c)=>Object.fromEntries(c).Rise.cc)).toFixed()/100],
           }))
           break;
-        case "Meal":
+        case "Meat":
           setResult(prevState=>({
-          protein:[...prevState.protein,(Number(nutri.g)*fil.map((m)=>Object.fromEntries(m).Meal.protein)).toFixed()/100],
-          carbs:[...prevState.carbs,Number((nutri.g)*fil.map((c)=>Object.fromEntries(c).Meal.carbs)).toFixed()/100],
-          fats:[...prevState.fats,Number((nutri.g)*fil.map((c)=>Object.fromEntries(c).Meal.fats)).toFixed()/100],
-          cc:[...prevState.cc,Number((nutri.g)*fil.map((c)=>Object.fromEntries(c).Meal.cc)).toFixed()/100]}))
+          protein:[...prevState.protein,(Number(nutri.g)*fil.map((m)=>Object.fromEntries(m).Meat.protein)).toFixed()/100],
+          carbs:[...prevState.carbs,Number((nutri.g)*fil.map((c)=>Object.fromEntries(c).Meat.carbs)).toFixed()/100],
+          fats:[...prevState.fats,Number((nutri.g)*fil.map((c)=>Object.fromEntries(c).Meat.fats)).toFixed()/100],
+          cc:[...prevState.cc,Number((nutri.g)*fil.map((c)=>Object.fromEntries(c).Meat.cc)).toFixed()/100]}))
           // expected output: "Mangoes and papayas are $2.79 a pound."
           break;
         default:
@@ -198,7 +198,7 @@ incrementer()
           <input
             
             type="text"
-            className="w-[80px] mx-2 my-2 h-7 text-[16px] rounded-md  focus:outline-none text-center "
+            className="w-[90px] mx-2 my-2 h-7 text-[16px] rounded-md  focus:outline-none text-center "
             placeholder="grams"
             onChange={onChangeHandler}
             />
@@ -208,12 +208,12 @@ incrementer()
           <div className="text-[20px] z-10  ">
             <div className="flex justify-between border-b-[1px] border-blue-800 ">
               <div className="ml-4 xs:ml-2">protein</div>
-              {state.nutrients === "Meal" ? (
+              {state.nutrients === "Meat" ? (
                 <div>
                   {cal.map((calorie, i) => {
                     return (
                       <div key={i}>
-                        {((calorie.nutritions.Meal.protein * gram.gram) / 100).toFixed(1)}<span className="text-[0.6rem] ">/100g</span>
+                        {((calorie.nutritions.Meat.protein * gram.gram) / 100).toFixed(1)}<span className="text-[0.6rem] ">/100g</span>
                       </div>
                     );
                   })}
@@ -245,12 +245,12 @@ incrementer()
 
             <div className="flex  justify-between border-b-[1px] border-blue-800">
               <div className="ml-4 xs:ml-2" >carbs</div>
-              { state.nutrients === "Meal" ? (
+              { state.nutrients === "Meat" ? (
                 <div>
                   {cal.map((calorie, i) => {
                     return (
                       <div key={i}>
-                        {((calorie.nutritions.Meal.carbs * gram.gram) / 100).toFixed(1)}<span className="text-[0.6rem]">/100g</span>
+                        {((calorie.nutritions.Meat.carbs * gram.gram) / 100).toFixed(1)}<span className="text-[0.6rem]">/100g</span>
                       </div>
                     );
                   })}
@@ -281,12 +281,12 @@ incrementer()
             </div>
             <div className="flex justify-between border-b-[1px] border-blue-800">
               <div className="ml-4 xs:ml-2">fats</div>
-              { state.nutrients === "Meal" ? (
+              { state.nutrients === "Meat" ? (
                 <div>
                   {cal.map((calorie, i) => {
                     return (
                       <div key={i}>
-                        {((calorie.nutritions.Meal.fats * gram.gram) / 100).toFixed(1)}<span className="text-[0.6rem]">/100g</span>
+                        {((calorie.nutritions.Meat.fats * gram.gram) / 100).toFixed(1)}<span className="text-[0.6rem]">/100g</span>
                       </div>
                     );
                   })}
@@ -319,12 +319,12 @@ incrementer()
             <div className="flex justify-between border-b-[1px] border-blue-800">
               
               <div className="ml-4 xs:ml-2">Calories</div>
-              <div>            { state.nutrients === "Meal" ? (
+              <div>            { state.nutrients === "Meat" ? (
                 <div>
                   {cal.map((calorie, i) => {
                     return (
                       <div key={i}>
-                        {((calorie.nutritions.Meal.cc * gram.gram) / 10).toFixed(1)}<span className="text-[0.6rem]">/100g</span>
+                        {((calorie.nutritions.Meat.cc * gram.gram) / 10).toFixed(1)}<span className="text-[0.6rem]">/100g</span>
                       </div>
                     );
                   })}
@@ -354,13 +354,14 @@ incrementer()
                 ""
               )}</div>
             </div>
+            
           </div>
           <div className=" m-2 text-center">
 
           { state.nutrients !== null ?     <button
               type="submit"
               value="Submit"
-              className={` ${effect && 'animate-wiggle'}  text-white  bg-indigo-600 text-[22px] shadow-xl rounded-md    font-bold w-24 hover:bg-indigo-400 `}
+              className={` ${effect && 'animate-wiggle'}  text-white  bg-indigo-600 text-[22px] shadow-xl rounded-md    font-bold w-24 hover:bg-indigo-800 `}
               onClick={()=>Send(({g:gram.gram,}))}
               onAnimationEnd={()=>setEffect(false)}
               >
@@ -396,9 +397,9 @@ incrementer()
        }
         <div className=" text-center m-10 ">
 
-{state1 ? <button onClick={()=>saveDaily()}  className={`border-[1px] w-max m-auto  border-${color.green}-400 text-${color.text} rounded-md  text-[15px]  px-4`}>Save your daily nutrition</button> :
+{state1 ? <button onClick={()=>saveDaily()}  className={`border-[1px] w-max m-auto  border-${color.green}-400  text-${color.text} bg-indigo-600 rounded-md  text-[15px]  px-4`}>Save your daily nutrition</button> :
          color.active ? <button onClick={()=>saveDaily()}  className={` border-[1px]    w-max m-auto  rounded-md  text-[15px]  px-4 ` }>Save your daily nutrition</button> : 
-         color.showed ? <button onClick={()=>saveDaily()}  disabled  className='border-[1px] border-red-400  w-max m-auto  rounded-md  text-[15px]  px-4'>Save your daily nutrition</button> : ''} 
+         color.showed ? <button onClick={()=>saveDaily()}  disabled  className='border-[1px] border-red-800 bg-red-200 w-max m-auto  rounded-md  text-[15px]  px-4'>Save your daily nutrition</button> : ''} 
 </div>
         {/* {daily.map((ix)=>ix.dailyNutritions.protein.reduce((p,n)=>p+n,0))} */}
       </div>

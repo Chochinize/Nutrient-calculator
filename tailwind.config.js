@@ -11,7 +11,7 @@ module.exports = {
       }
     },
     animation: {
-      wiggle: "wiggle 300ms ease-in-out"
+      wiggle: "wiggle 200ms ease-in-out"
     },
     extend: {
       colors: {

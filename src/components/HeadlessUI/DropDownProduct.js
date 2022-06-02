@@ -14,9 +14,7 @@ export default function ProductsList() {
   console.log('some state',state.products?.data?.product.map(nutrients=>nutrients.nutritions.Oats.protein))
   return (
     <Menu as="div" className="relative inline-block text-left z-20 ">
-    
       <div>
-        
         <Menu.Button className="inline-flex justify-center w-24  rounded-md border border-gray-300 shadow-sm px-2 py-1  bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
           {state.nutrients ? state.nutrients : <div className='text-[16px]' >Options</div>}
           {/* <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" /> */}
@@ -38,13 +36,13 @@ export default function ProductsList() {
           <Menu.Item>
               {({ active }) => (
                 
-                <div className='flex justify-between hover:bg-gradient-to-l from-green-500 via-white to-white'>
+                <div className='flex justify-between '>
 
                 <div
                   
                   onClick={(e)=>dispatch({ type:'ADD_NUTRIENTS', payload:'Oats'})}
                   className={classNames(
-                    active ? 'bg-gradient-to-r from-sky-200 via-indigo-100 to-white  text-black cursor-pointer' : ' text-gray-700 cursor-pointer',
+                    active ? 'bg-gradient-to-r from-sky-200 via-white to-white  text-black cursor-pointer' : ' text-gray-700 cursor-pointer',
                     'block px-4  text-[16px]  '
                     )}
                     >
@@ -57,13 +55,13 @@ export default function ProductsList() {
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
-                   <div className='flex justify-between hover:bg-gradient-to-l from-green-500 via-white to-white'>
+                   <div className='flex justify-between'>
 
                    <div
                      
                      onClick={(e)=>dispatch({ type:'ADD_NUTRIENTS', payload:'Rise'})}
                      className={classNames(
-                       active ? 'bg-gradient-to-r from-sky-200 via-indigo-100 to-white  text-black cursor-pointer' : 'text-gray-700 cursor-pointer ',
+                       active ? 'bg-gradient-to-r from-sky-200 via-white to-white  text-black cursor-pointer' : 'text-gray-700 cursor-pointer ',
                        'block px-4  text-[16px] '
                        )}
                        >
@@ -77,13 +75,13 @@ export default function ProductsList() {
             
             <Menu.Item>
               {({ active }) => (
-                   <div className='flex justify-between hover:bg-gradient-to-l from-green-500 via-white to-white'>
+                   <div className='flex justify-between '>
 
                    <div
                      
-                     onClick={(e)=>dispatch({ type:'ADD_NUTRIENTS', payload:'Meal'})}
+                     onClick={(e)=>dispatch({ type:'ADD_NUTRIENTS', payload:'Meat'})}
                      className={classNames(
-                       active ? 'bg-gradient-to-r from-sky-200 via-indigo-100 to-white  text-black cursor-pointer' : 'text-gray-700 cursor-pointer',
+                       active ? 'bg-gradient-to-r from-sky-200/40 via-white to-white  text-black cursor-pointer' : 'text-gray-700 cursor-pointer',
                        'block px-4   text-[16px]'
                        )}
                        >
@@ -96,13 +94,13 @@ export default function ProductsList() {
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
-                   <div className='flex justify-between hover:bg-gradient-to-l from-green-500 via-white to-blue-200'>
-
+                   <div className='flex justify-between'>
+                 
                    <div
                      
-                     onClick={(e)=>dispatch({ type:'ADD_NUTRIENTS', payload:'Meal'})}
+                     onClick={(e)=>dispatch({ type:'ADD_NUTRIENTS', payload:'Crannbery'})}
                      className={classNames(
-                       active ? 'bg-gradient-to-r from-sky-200 via-white to-white  text-black cursor-pointer' : 'text-gray-700 cursor-pointer',
+                       active ? 'bg-gradient-to-r from-sky-200/40 via-white to-white  text-black cursor-pointer' : 'text-gray-700 cursor-pointer',
                        'block px-4  text-[16px]'
                        )}
                        >
