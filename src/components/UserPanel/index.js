@@ -62,7 +62,7 @@ const index = () => {
             <div className="grow max-w-[550px] ">
               <>
                 {" "}
-                <div className="h-8 xs:square sm:h-auto xs:square border-[2px] bg-gradient-to-r from-white to-white border-black mb-2 rounded-[10px] xs:h-auto  md:square md:h-auto bg-radial-at-r from-sky-400 to-indigo-900 ">
+                <div className="h-8 xs:square sm:h-auto xs:square border-[2px]  border-black mb-2 rounded-[10px] xs:h-auto  md:square md:h-auto radial">
                     
                   <Calories />
 

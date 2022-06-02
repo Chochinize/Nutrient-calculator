@@ -21,7 +21,7 @@ const Calories = () => {
   
   const id = useParams()
 
-  
+  const [effect, setEffect] = useState(false);
   const initialResult = {
     protein:[0],
     carbs: [0],
@@ -103,7 +103,7 @@ incrementer()
   },[])
   const Send = async (nutri,c,f) => {
     const fil = cal.map((filteredProduct)=>Object.entries(filteredProduct.nutritions).filter(([key,val]) => key === state.nutrients ) )
-    
+    setEffect(true)
     // console.log(fil.map((n)=> Object.fromEntries(n)))
     console.log('fil calc',fil)
   
@@ -197,8 +197,8 @@ incrementer()
           
           <input
             
-            type="number"
-            className="w-[52px] mx-4 my-2 h-7 text-[16px] focus:outline-none text-center "
+            type="text"
+            className="w-[80px] mx-2 my-2 h-7 text-[16px] rounded-md  focus:outline-none text-center "
             placeholder="grams"
             onChange={onChangeHandler}
             />
@@ -357,11 +357,19 @@ incrementer()
           </div>
           <div className=" m-2 text-center">
 
-          { state.nutrients !== null ?  <button onClick={()=>Send(({g:gram.gram,}))} className='border-[1px] w-max m-auto  rounded-md  text-[15px]  px-4'>add</button> : ''}
+          { state.nutrients !== null ?     <button
+              type="submit"
+              value="Submit"
+              className={` ${effect && 'animate-wiggle'}  text-white  bg-indigo-600 text-[22px] shadow-xl rounded-md    font-bold w-24 hover:bg-indigo-400 `}
+              onClick={()=>Send(({g:gram.gram,}))}
+              onAnimationEnd={()=>setEffect(false)}
+              >
+              Add
+            </button> : ''}
           </div>
         </div>
       </div>
-
+      {/* <button onClick={()=>Send(({g:gram.gram,}))} onAnimationEnd={()=>setEffect(false)} className={` ${effect && 'animate wiggle'} text-white  bg-yellow-400  shadow-xl rounded-md  px-6 py-2  font-bold w-full hover:bg-yellow-500`}>add</button> */}
 
 
       <div className=" md:text-[1.5vw] sm:text-[18px] top-6  xs:text-[18px] relative  h-max">

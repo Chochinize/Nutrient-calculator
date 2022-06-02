@@ -3,7 +3,20 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
+    keyframes: {
+      wiggle: {
+        "10% , 20%": { transform: "scale(0.1)" },
+        "10% , 20%": { transform: "scale(0.9)" },
+        // "100% , 50%": { transform: "scale(0.3)" }
+      }
+    },
+    animation: {
+      wiggle: "wiggle 300ms ease-in-out"
+    },
     extend: {
+      colors: {
+        'regal-blue': '#243c5a',
+      },
       fontFamily: {
         'press-start': ['"Poppins"', 'sans-serif'],
         'inco': ['Inconsolata', 'monospace'],
@@ -36,6 +49,7 @@ module.exports = {
       },
     }
   },
+  
   plugins: [
     require('tailwind-scrollbar-hide')
     // ...

@@ -11,6 +11,10 @@
   }
 }
 
+.radial{
+  background: rgb(3,111,186);
+background: linear-gradient(270deg, rgba(3,111,186,1) 1%, rgba(255,255,255,1) 94%);
+}
 
 @layer components{
   .button  {
