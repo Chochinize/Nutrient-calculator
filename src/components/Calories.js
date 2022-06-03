@@ -365,7 +365,7 @@ incrementer()
               onClick={()=>Send(({g:gram.gram,}))}
               onAnimationEnd={()=>setEffect(false)}
               >
-              Add
+              Addd
             </button> : ''}
           </div>
         </div>
@@ -397,9 +397,9 @@ incrementer()
        }
         <div className=" text-center m-10 ">
 
-{state1 ? <button onClick={()=>saveDaily()}  className={`border-[1px] w-max m-auto  border-${color.green}-400  text-${color.text} bg-indigo-600 rounded-md  text-[15px]  px-4`}>Save your daily nutrition</button> :
-         color.active ? <button onClick={()=>saveDaily()}  className={` border-[1px]    w-max m-auto  rounded-md  text-[15px]  px-4 ` }>Save your daily nutrition</button> : 
-         color.showed ? <button onClick={()=>saveDaily()}  disabled  className='border-[1px] border-red-800 bg-red-200 w-max m-auto  rounded-md  text-[15px]  px-4'>Save your daily nutrition</button> : ''} 
+{state1 ? <button onClick={()=>saveDaily()}  className={`border-[1px] w-max m-auto  border-${color.green}-400  text-${color.text} bg-indigo-600 rounded-md font-bold  text-[22px]  px-4`}>Save your daily nutrition</button> :
+         color.active ? <button onClick={()=>saveDaily()}  className={` border-[1px]    w-max m-auto  rounded-md  text-[22px] font-bold  px-4 ` }>Save your daily nutrition</button> : 
+         color.showed ? <button onClick={()=>saveDaily()}  disabled  className='border-[1px] border-red-800 bg-red-200 w-max m-auto  font-bold rounded-md  text-[15px]  px-4'>Save your daily nutrition</button> : ''} 
 </div>
         {/* {daily.map((ix)=>ix.dailyNutritions.protein.reduce((p,n)=>p+n,0))} */}
       </div>
