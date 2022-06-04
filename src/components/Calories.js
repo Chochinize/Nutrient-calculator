@@ -375,7 +375,7 @@ incrementer()
 
       <div className=" md:text-[1.5vw] sm:text-[18px] top-6  xs:text-[18px] relative  h-max">
         
-        <h1 className="">Today nutritions</h1>
+        <h1 className="">Today nutrition</h1>
        {state1 ?
         <ul className="px-2  relative right-4 m-2 top-2 text-right text-black"> 
               {/* <li>{array.reduce((previousValue, currentValue) => previousValue+ currentValue, 0).toFixed(1)}</li> */}
