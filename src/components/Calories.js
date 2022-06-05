@@ -395,7 +395,7 @@ incrementer()
               
         </ul>
        }
-        <div className=" text-center m-10 ">
+        <div className=" text-center m-12 ">
 
 {state1 ? <button onClick={()=>saveDaily()}  className={`border-[1px] w-max m-auto  border-${color.green}-400  text-${color.text} bg-indigo-600 rounded-md font-bold  text-[22px]  px-4`}>Save your daily nutrition</button> :
          color.active ? <button onClick={()=>saveDaily()}  className={` border-[1px]    w-max m-auto  rounded-md  text-[22px] font-bold  px-4 ` }>Save your daily nutrition</button> : 
