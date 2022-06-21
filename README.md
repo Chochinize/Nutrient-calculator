@@ -1,22 +1,10 @@
-<details>
-  <summary>Table of Contents</summary>
-  
-  <ol>
-    <li><a href="#about" >About The Project</a></li>
-    <li><a href="#installation">Instalation</a></li>
-    <li><a href="#builtwith">Built with</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
+
 
 </br>
 </br>
 </br>
 </br>
 
-![](public/GIFS/login.gif ) 
 <div id="top"></div>
 <!--
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
@@ -43,6 +31,8 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url] -->
 
+![](public/wrok_wrok_1.gif ) 
+
 
 
 <br />
@@ -54,10 +44,9 @@
 
  
    <br />
-    <a href="https://nextjs-ecommerce-six-sigma.vercel.app">View Demo</a>
+    <a href="https://main.d1gjrmtr0a2djk.amplifyapp.com/">View Demo</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
-    ·
+  
    </p>
 </div>
 
@@ -66,31 +55,11 @@
 <!-- TABLE OF CONTENTS -->
 
 &#8595;
+<img src='https://i.pinimg.com/originals/5a/65/dc/5a65dcc4e4a067fc85e1c85a3d8809d0.gif' width='50' height='50'/>
    
-   * Registrations is enable but you can easly test it with these credentials
+   * For easy testing use these credentials
 
-    test@gmail.com////1234567 demo
-
-    admin@gmail.com////1234567 demo root admin
-   
-   
-   
-  * For checkout  use this credentials:
-
-   username &#8595;
-   ```sh
-  
-
-    sb-nmgoy10682524@personal.example.com
-   
-   ```
-   password: &#8595;
-
-   
-   ```
-    iZL1-iwn
-   ```
-   
+    test_example@gmail.com////1234567    
 
 <!-- ABOUT THE PROJECT -->
 ### About
@@ -99,7 +68,7 @@
 </br>
  
 
- Setting up the e-commerce wich is ready to use with  integrated paypal terminal 
+ * Nutrient calculator showing different data as percentage on dougnut chart based on plugins
 
 
 </br>
@@ -110,80 +79,59 @@
 
 
 
-### Installation
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get api from whereever you need here are the links    &#8595;
-    1. Get a free API Key for cloudinaru [https://cloudinary.com/](https://cloudinary.com/)
-    2. Get a free API Key for paypal [https://developer.paypal.com/](https://developer.paypal.com/)
-    2. Get a free API Key for mongo [https://account.mongodb.com/](https://account.mongodb.com/)
-  
-2. Clone the repo
-    ```sh
-   https://github.com/Chochinize/nextjs_ecommerce.git
-   ```
-3. Install the prerequisites
-    ```sh
-   npm install 
-   ```
-4. Enter your API as follow 
-   ```
-    NEXT_PUBLIC_BASE_URL = 'yourpublic adress' 
-    NEXT_PUBLIC_MONGODB_URL = 'you public adress '
-    NEXT_PUBLIC_ACCESS_TOKEN_SECRET = 'you public adress '
-    NEXT_PUBLIC_REFRESH_TOKEN_SECRET = 'you public adress '
-    NEXT_PUBLIC_PAYPAL_CLIENT_ID = 'you public adress '
-    NEXT_PUBLIC_CLOUD_UPDATE_PRESET = 'you public adress '
-    NEXT_PUBLIC_CLOUD_NAME = 'you public adress '
-    NEXT_PUBLIC_CLOUD_API ='you public adress '
-   ```
 
 <!-- USAGE EXAMPLES -->
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 ```js
-"dependencies": {
-    "bcrypt": "^5.0.1",
-    "js-cookie": "^3.0.1",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.1.2",
-    "next": "12.0.7",
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
+const USED = {
+  "name": "Nutri-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@headlessui/react": "^1.5.0",
+    "@heroicons/react": "^1.0.6",
+    "@react-three/fiber": "^7.0.26",
+    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/react": "^12.1.3",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^0.26.1",
+    "chart.js": "^3.7.1",
+    "chart.js-plugin-labels-dv": "^3.0.6",
+    "chartjs-plugin-datalabels": "^2.0.0-rc.1",
+    "chartjs-plugin-doughnut-innertext": "^3.1.0",
+    "chartjs-plugin-streaming": "^1.8.0",
+    "chartjs-plugin-zoom": "^1.2.1",
+    "jwt-decode": "^3.1.2",
+    "moment": "^2.29.1",
+    "react": "^17.0.2",
+    "react-chartjs-2": "^4.1.0",
+    "react-charts": "^3.0.0-beta.33",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^6.2.1",
+    "react-scripts": "5.0.0",
+    "tailwind-scrollbar-hide": "^1.1.7",
+    "web-vitals": "^2.1.4",
+    "websocket": "^1.0.34"
   },
-  "devDependencies": {
-    "autoprefixer": "^10.4.7",
-    "eslint": "8.5.0",
-    "eslint-config-next": "12.0.7",
-    "postcss": "^8.4.14",
-    "tailwindcss": "^3.1.3"
+    "devDependencies": {
+    "autoprefixer": "^10.4.2",
+    "chartjs-plugin-gradient": "^0.5.0",
+    "postcss": "^8.4.6",
+    "tailwindcss": "^3.0.23"
   }
 ``` 
 <!-- ROADMAP -->
 
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
 
 
 
 
 
-<!-- CONTRIBUTING -->
-## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request.
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature`)
-3. Commit your Changes (`git commit -m 'Add some Amazing'`)
-4. Push to the Branch (`git push origin feature`)
-5. Open a Pull Request
 
 
 
@@ -209,14 +157,9 @@ Twitter - [https://twitter.com/chochinize](https://twitter.com/chochinize)
 
 Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
 
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
+* [React-chart-js-2](https://react-chartjs-2.js.org/)
+* [chartjs-plugin-datalabels](https://chartjs-plugin-datalabels.netlify.app/guide/)
+* [ChartJs](https://www.chartjs.org/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
