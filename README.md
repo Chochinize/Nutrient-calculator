@@ -140,15 +140,7 @@ const USED = {
 
 
 <!-- CONTACT -->
-### Contact
 
-github: [https://github.com/Chochinize](https://github.com/Chochinize)
-
-Porfolio: [https://portfolio-five-flax-33.vercel.app/](https://portfolio-five-flax-33.vercel.app/)
-
-Twitter - [https://twitter.com/chochinize](https://twitter.com/chochinize) 
-
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
