@@ -10,6 +10,8 @@ import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import { useParams } from "react-router-dom";
 
+import { Canvas } from "@react-three/fiber";
+
 const NavBar = () => {
   const [offset, setOffset] = useState(0);
   
@@ -31,7 +33,12 @@ const NavBar = () => {
   }
 
   return (
-    <header className="w-full h-full absolute   font-dongle font-extrabold text-3xl  ">
+    
+<div>
+
+
+    
+    <header className="w-full h-1/4 absolute border-2  font-dongle font-extrabold text-3xl  ">
       <div
         className={`transition ease-in-out z-50    fixed ${
           offset > 51
@@ -132,22 +139,7 @@ const NavBar = () => {
               </Transition>
             </Menu>
           </div>
-          {/* <div    className="inline-flex h-7  justify-center w-max rounded-md border border-gray-300 shadow-sm px-2      text-2xl font-extrabold text-white
-                                     hover:text-black hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 cursor-pointer">
-                                       <span className="-my-0.5">
 
-         <a href={`/u/${state.auth._id}`}>
-              Account
-           </a>
-                                       </span>
-          </div>
-          <div className="inline-flex h-7  justify-center w-max rounded-md border border-gray-300 shadow-sm px-2      text-2xl font-extrabold text-white
-                                     hover:text-black hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500 cursor-pointer">
-        <span className="-my-0.5">
-          
-              News{" "}
-          </span>
-          </div> */}
         </div>
       </div>
       <ul className="flex justify-end  text-2xl w-full ">
@@ -186,9 +178,13 @@ const NavBar = () => {
           
         </li> }
         <li className="bg-gray-200  w-max  h-max hover:bg-gray-300 cursor-pointer ">
+          
         </li>
       </ul>
     </header>
+   
+    </div> 
+    
   );
   
 };

@@ -32,7 +32,7 @@ const index = () => {
   const currentData = {protein:130,carbs:120,fats:30,calorie:33}
 
   return (
-    <div className="grid    relative top-44">
+    <div className="grid relative top-44">
         {!state.auth?.verified?.status ? <div className=" px-4 xs:w-full grid gap-4   ">
         <h1 className="text-4xl font-extrabold">
           <div className="flex gap-2 ">
